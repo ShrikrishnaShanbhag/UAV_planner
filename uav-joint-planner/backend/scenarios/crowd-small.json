@@ -1,0 +1,522 @@
+{
+ "description": "A stadium event with repeated gate checks and incidents reported during the mission. Values are illustrative simulation settings.",
+ "energy": {
+  "adaptive_k": 1.0,
+  "adaptive_reserve": false,
+  "adaptive_sigma": 0.1,
+  "charge_rate": 0.5,
+  "charge_time": 120.0,
+  "home_only_return": false,
+  "mode": "normalized",
+  "path_metric": "energy",
+  "reserve_ratio": 0.1,
+  "strict_prefix_safety": true,
+  "turn_energy_per_rad": 0.0
+ },
+ "events": [
+  {
+   "amount": null,
+   "cells": null,
+   "label": "Incident",
+   "layer": null,
+   "new_deadline": null,
+   "new_duration": null,
+   "polygon": null,
+   "station_id": null,
+   "task": {
+    "capability": "camera",
+    "cell": [
+     17,
+     38
+    ],
+    "deadline": null,
+    "duration": 94.4,
+    "energy": 3.829,
+    "id": "N1",
+    "label": "Incident check",
+    "mandatory": true,
+    "priority": 4,
+    "release_time": 90.0
+   },
+   "task_id": null,
+   "time": 90.0,
+   "type": "NEW_TASK",
+   "uav": null,
+   "uav_id": null,
+   "wind": null
+  },
+  {
+   "amount": null,
+   "cells": null,
+   "label": "Incident",
+   "layer": null,
+   "new_deadline": null,
+   "new_duration": null,
+   "polygon": null,
+   "station_id": null,
+   "task": {
+    "capability": "camera",
+    "cell": [
+     33,
+     12
+    ],
+    "deadline": null,
+    "duration": 94.97,
+    "energy": 3.685,
+    "id": "N2",
+    "label": "Incident check",
+    "mandatory": true,
+    "priority": 3,
+    "release_time": 198.0
+   },
+   "task_id": null,
+   "time": 198.0,
+   "type": "NEW_TASK",
+   "uav": null,
+   "uav_id": null,
+   "wind": null
+  }
+ ],
+ "grid": {
+  "cell_size": 15.0,
+  "height": 50,
+  "width": 50
+ },
+ "id": "crowd-small",
+ "meta": {
+  "allow_recharge": false,
+  "category": "Safety",
+  "description": "A stadium event with repeated gate checks and incidents reported during the mission.",
+  "difficulty": "easy",
+  "energy_focus": "Repeated tasks on short legs, where hovering costs more than flying.",
+  "icon": "users",
+  "id": "crowd",
+  "name": "Large-event crowd safety",
+  "story": "A packed stadium event needs its gates and exits watched. The same places are checked again and again, and incident reports arrive while the fleet is working.",
+  "tags": [
+   "repeat-visits",
+   "hover",
+   "short-range"
+  ],
+  "theme": "event"
+ },
+ "name": "Large-event crowd safety",
+ "obstacles": [
+  {
+   "cells": null,
+   "energy_multiplier": 1.0,
+   "id": "stage",
+   "kind": "no_fly",
+   "label": "No-fly zone over the stage",
+   "polygon": null,
+   "rect": [
+    21,
+    22,
+    29,
+    28
+   ]
+  }
+ ],
+ "seed": 42,
+ "stations": [
+  {
+   "cell": [
+    3,
+    3
+   ],
+   "id": "Control-S"
+  },
+  {
+   "cell": [
+    46,
+    46
+   ],
+   "id": "Control-N"
+  }
+ ],
+ "tasks": [
+  {
+   "capability": "camera",
+   "cell": [
+    25,
+    41
+   ],
+   "deadline": null,
+   "duration": 75.74,
+   "energy": 2.251,
+   "id": "T1",
+   "label": "Gate check 1",
+   "mandatory": false,
+   "priority": 2,
+   "release_time": 0.0
+  },
+  {
+   "capability": "camera",
+   "cell": [
+    25,
+    41
+   ],
+   "deadline": null,
+   "duration": 72.31,
+   "energy": 2.583,
+   "id": "T2",
+   "label": "Gate check 2",
+   "mandatory": false,
+   "priority": 2,
+   "release_time": 200.0
+  },
+  {
+   "capability": "camera",
+   "cell": [
+    25,
+    41
+   ],
+   "deadline": null,
+   "duration": 77.56,
+   "energy": 2.386,
+   "id": "T3",
+   "label": "Gate check 3",
+   "mandatory": false,
+   "priority": 2,
+   "release_time": 400.0
+  },
+  {
+   "capability": "camera",
+   "cell": [
+    38,
+    16
+   ],
+   "deadline": null,
+   "duration": 82.06,
+   "energy": 2.301,
+   "id": "T4",
+   "label": "Gate check 1",
+   "mandatory": false,
+   "priority": 2,
+   "release_time": 0.0
+  },
+  {
+   "capability": "camera",
+   "cell": [
+    38,
+    16
+   ],
+   "deadline": null,
+   "duration": 79.07,
+   "energy": 2.326,
+   "id": "T5",
+   "label": "Gate check 2",
+   "mandatory": false,
+   "priority": 2,
+   "release_time": 200.0
+  },
+  {
+   "capability": "camera",
+   "cell": [
+    38,
+    16
+   ],
+   "deadline": null,
+   "duration": 80.01,
+   "energy": 2.307,
+   "id": "T6",
+   "label": "Gate check 3",
+   "mandatory": false,
+   "priority": 2,
+   "release_time": 400.0
+  },
+  {
+   "capability": "camera",
+   "cell": [
+    12,
+    16
+   ],
+   "deadline": null,
+   "duration": 71.49,
+   "energy": 2.607,
+   "id": "T7",
+   "label": "Gate check 1",
+   "mandatory": false,
+   "priority": 2,
+   "release_time": 0.0
+  },
+  {
+   "capability": "camera",
+   "cell": [
+    12,
+    16
+   ],
+   "deadline": null,
+   "duration": 68.18,
+   "energy": 2.582,
+   "id": "T8",
+   "label": "Gate check 2",
+   "mandatory": false,
+   "priority": 2,
+   "release_time": 200.0
+  },
+  {
+   "capability": "camera",
+   "cell": [
+    12,
+    16
+   ],
+   "deadline": null,
+   "duration": 79.65,
+   "energy": 2.68,
+   "id": "T9",
+   "label": "Gate check 3",
+   "mandatory": false,
+   "priority": 2,
+   "release_time": 400.0
+  }
+ ],
+ "terrain_layers": [
+  {
+   "blocked": false,
+   "cells": null,
+   "energy_multiplier": null,
+   "id": "parking-w",
+   "label": "Parking",
+   "polygon": null,
+   "rect": [
+    2,
+    8,
+    11,
+    41
+   ],
+   "type": "road"
+  },
+  {
+   "blocked": false,
+   "cells": null,
+   "energy_multiplier": null,
+   "id": "parking-e",
+   "label": "Parking",
+   "polygon": null,
+   "rect": [
+    38,
+    8,
+    47,
+    41
+   ],
+   "type": "road"
+  },
+  {
+   "blocked": false,
+   "cells": null,
+   "energy_multiplier": null,
+   "id": "road-s",
+   "label": "Access road",
+   "polygon": null,
+   "rect": [
+    0,
+    3,
+    49,
+    5
+   ],
+   "type": "road"
+  },
+  {
+   "blocked": false,
+   "cells": null,
+   "energy_multiplier": null,
+   "id": "road-n",
+   "label": "Access road",
+   "polygon": null,
+   "rect": [
+    0,
+    44,
+    49,
+    46
+   ],
+   "type": "road"
+  },
+  {
+   "blocked": false,
+   "cells": null,
+   "energy_multiplier": null,
+   "id": "stadium",
+   "label": "Stadium",
+   "polygon": [
+    [
+     38.0,
+     25.0
+    ],
+    [
+     37.36,
+     29.64
+    ],
+    [
+     35.52,
+     33.82
+    ],
+    [
+     32.64,
+     37.14
+    ],
+    [
+     29.02,
+     39.27
+    ],
+    [
+     25.0,
+     40.0
+    ],
+    [
+     20.98,
+     39.27
+    ],
+    [
+     17.36,
+     37.14
+    ],
+    [
+     14.48,
+     33.82
+    ],
+    [
+     12.64,
+     29.64
+    ],
+    [
+     12.0,
+     25.0
+    ],
+    [
+     12.64,
+     20.36
+    ],
+    [
+     14.48,
+     16.18
+    ],
+    [
+     17.36,
+     12.86
+    ],
+    [
+     20.98,
+     10.73
+    ],
+    [
+     25.0,
+     10.0
+    ],
+    [
+     29.02,
+     10.73
+    ],
+    [
+     32.64,
+     12.86
+    ],
+    [
+     35.52,
+     16.18
+    ],
+    [
+     37.36,
+     20.36
+    ]
+   ],
+   "rect": null,
+   "type": "urban"
+  }
+ ],
+ "uavs": [
+  {
+   "airborne": false,
+   "battery": 50.0,
+   "battery_max": 50.0,
+   "capabilities": [
+    "camera"
+   ],
+   "energy_per_meter": 0.015,
+   "home": "Control-S",
+   "hover_rate": 0.012,
+   "id": "Watch-1",
+   "landing_energy": 0.0,
+   "power_cruise": 100.0,
+   "power_hover": 120.0,
+   "ready_time": 0.0,
+   "speed": 12.0,
+   "start": [
+    3,
+    3
+   ],
+   "status": "idle",
+   "takeoff_energy": 0.0
+  },
+  {
+   "airborne": false,
+   "battery": 50.0,
+   "battery_max": 50.0,
+   "capabilities": [
+    "camera"
+   ],
+   "energy_per_meter": 0.015,
+   "home": "Control-S",
+   "hover_rate": 0.012,
+   "id": "Watch-2",
+   "landing_energy": 0.0,
+   "power_cruise": 100.0,
+   "power_hover": 120.0,
+   "ready_time": 0.0,
+   "speed": 12.0,
+   "start": [
+    3,
+    3
+   ],
+   "status": "idle",
+   "takeoff_energy": 0.0
+  },
+  {
+   "airborne": false,
+   "battery": 50.0,
+   "battery_max": 50.0,
+   "capabilities": [
+    "camera"
+   ],
+   "energy_per_meter": 0.015,
+   "home": "Control-N",
+   "hover_rate": 0.012,
+   "id": "Watch-3",
+   "landing_energy": 0.0,
+   "power_cruise": 100.0,
+   "power_hover": 120.0,
+   "ready_time": 0.0,
+   "speed": 12.0,
+   "start": [
+    46,
+    46
+   ],
+   "status": "idle",
+   "takeoff_energy": 0.0
+  },
+  {
+   "airborne": false,
+   "battery": 50.0,
+   "battery_max": 50.0,
+   "capabilities": [
+    "camera"
+   ],
+   "energy_per_meter": 0.015,
+   "home": "Control-N",
+   "hover_rate": 0.012,
+   "id": "Watch-4",
+   "landing_energy": 0.0,
+   "power_cruise": 100.0,
+   "power_hover": 120.0,
+   "ready_time": 0.0,
+   "speed": 12.0,
+   "start": [
+    46,
+    46
+   ],
+   "status": "idle",
+   "takeoff_energy": 0.0
+  }
+ ],
+ "wind": null
+}

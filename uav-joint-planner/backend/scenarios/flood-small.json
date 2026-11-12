@@ -1,0 +1,556 @@
+{
+ "description": "An overflowing river splits a town from its relief camp. Values are illustrative simulation settings.",
+ "energy": {
+  "adaptive_k": 1.0,
+  "adaptive_reserve": false,
+  "adaptive_sigma": 0.1,
+  "charge_rate": 0.5,
+  "charge_time": 120.0,
+  "home_only_return": false,
+  "mode": "normalized",
+  "path_metric": "energy",
+  "reserve_ratio": 0.1,
+  "strict_prefix_safety": true,
+  "turn_energy_per_rad": 0.0
+ },
+ "events": [
+  {
+   "amount": null,
+   "cells": null,
+   "label": "River rises and the surge zone expands",
+   "layer": {
+    "blocked": true,
+    "cells": null,
+    "energy_multiplier": null,
+    "id": "surge",
+    "label": "Surge zone (closed to UAVs)",
+    "polygon": [
+     [
+      13.0,
+      31.0
+     ],
+     [
+      25.0,
+      31.0
+     ],
+     [
+      25.0,
+      41.0
+     ],
+     [
+      13.0,
+      41.0
+     ]
+    ],
+    "rect": null,
+    "type": "water"
+   },
+   "new_deadline": null,
+   "new_duration": null,
+   "polygon": [
+    [
+     13.0,
+     31.0
+    ],
+    [
+     25.0,
+     31.0
+    ],
+    [
+     25.0,
+     41.0
+    ],
+    [
+     13.0,
+     41.0
+    ]
+   ],
+   "station_id": null,
+   "task": null,
+   "task_id": null,
+   "time": 240.0,
+   "type": "BLOCK_REGION",
+   "uav": null,
+   "uav_id": null,
+   "wind": null
+  },
+  {
+   "amount": null,
+   "cells": null,
+   "label": "Boat request",
+   "layer": null,
+   "new_deadline": null,
+   "new_duration": null,
+   "polygon": null,
+   "station_id": null,
+   "task": {
+    "capability": "camera",
+    "cell": [
+     40,
+     40
+    ],
+    "deadline": null,
+    "duration": 78.46,
+    "energy": 6.419,
+    "id": "N1",
+    "label": "Rescue boat request",
+    "mandatory": true,
+    "priority": 4,
+    "release_time": 258.0
+   },
+   "task_id": null,
+   "time": 258.0,
+   "type": "NEW_TASK",
+   "uav": null,
+   "uav_id": null,
+   "wind": null
+  }
+ ],
+ "grid": {
+  "cell_size": 20.0,
+  "height": 50,
+  "width": 50
+ },
+ "id": "flood-small",
+ "meta": {
+  "allow_recharge": false,
+  "category": "Disaster",
+  "description": "An overflowing river splits a town from its relief camp.",
+  "difficulty": "medium",
+  "energy_focus": "Long legs over water and heavier payload tasks, with a surge that closes airspace.",
+  "icon": "waves",
+  "id": "flood",
+  "name": "Flood relief",
+  "story": "The river has overflowed and cut the town off. UAVs must find people stranded on rooftops and carry medical kits across open water from the relief camp.",
+  "tags": [
+   "water",
+   "delivery",
+   "rooftops"
+  ],
+  "theme": "flood"
+ },
+ "name": "Flood relief",
+ "obstacles": [],
+ "seed": 42,
+ "stations": [
+  {
+   "cell": [
+    6,
+    8
+   ],
+   "id": "Relief-camp"
+  },
+  {
+   "cell": [
+    44,
+    10
+   ],
+   "id": "Road-pad"
+  }
+ ],
+ "tasks": [
+  {
+   "capability": "camera",
+   "cell": [
+    27,
+    41
+   ],
+   "deadline": null,
+   "duration": 55.82,
+   "energy": 4.502,
+   "id": "T1",
+   "label": "Rooftop scan 1",
+   "mandatory": false,
+   "priority": 3,
+   "release_time": 0.0
+  },
+  {
+   "capability": "camera",
+   "cell": [
+    33,
+    42
+   ],
+   "deadline": null,
+   "duration": 57.24,
+   "energy": 4.77,
+   "id": "T2",
+   "label": "Rooftop scan 2",
+   "mandatory": false,
+   "priority": 3,
+   "release_time": 0.0
+  },
+  {
+   "capability": "camera",
+   "cell": [
+    35,
+    44
+   ],
+   "deadline": null,
+   "duration": 63.1,
+   "energy": 5.248,
+   "id": "T3",
+   "label": "Rooftop scan 3",
+   "mandatory": false,
+   "priority": 3,
+   "release_time": 0.0
+  },
+  {
+   "capability": "camera",
+   "cell": [
+    38,
+    44
+   ],
+   "deadline": null,
+   "duration": 56.19,
+   "energy": 4.753,
+   "id": "T4",
+   "label": "Rooftop scan 4",
+   "mandatory": false,
+   "priority": 3,
+   "release_time": 0.0
+  },
+  {
+   "capability": "camera",
+   "cell": [
+    41,
+    43
+   ],
+   "deadline": null,
+   "duration": 62.13,
+   "energy": 5.104,
+   "id": "T5",
+   "label": "Rooftop scan 5",
+   "mandatory": false,
+   "priority": 3,
+   "release_time": 0.0
+  },
+  {
+   "capability": "camera",
+   "cell": [
+    46,
+    43
+   ],
+   "deadline": null,
+   "duration": 60.7,
+   "energy": 4.613,
+   "id": "T6",
+   "label": "Rooftop scan 6",
+   "mandatory": false,
+   "priority": 3,
+   "release_time": 0.0
+  },
+  {
+   "capability": "payload",
+   "cell": [
+    3,
+    44
+   ],
+   "deadline": null,
+   "duration": 82.34,
+   "energy": 12.919,
+   "id": "T7",
+   "label": "Medical-kit drop 1",
+   "mandatory": true,
+   "priority": 4,
+   "release_time": 0.0
+  },
+  {
+   "capability": "payload",
+   "cell": [
+    10,
+    46
+   ],
+   "deadline": null,
+   "duration": 74.58,
+   "energy": 13.959,
+   "id": "T8",
+   "label": "Medical-kit drop 2",
+   "mandatory": true,
+   "priority": 4,
+   "release_time": 0.0
+  },
+  {
+   "capability": "payload",
+   "cell": [
+    32,
+    44
+   ],
+   "deadline": null,
+   "duration": 76.36,
+   "energy": 13.693,
+   "id": "T9",
+   "label": "Medical-kit drop 1",
+   "mandatory": false,
+   "priority": 3,
+   "release_time": 0.0
+  },
+  {
+   "capability": "payload",
+   "cell": [
+    46,
+    46
+   ],
+   "deadline": null,
+   "duration": 70.31,
+   "energy": 12.048,
+   "id": "T10",
+   "label": "Medical-kit drop 2",
+   "mandatory": false,
+   "priority": 3,
+   "release_time": 0.0
+  }
+ ],
+ "terrain_layers": [
+  {
+   "blocked": false,
+   "cells": null,
+   "energy_multiplier": null,
+   "id": "field",
+   "label": "Farmland",
+   "polygon": null,
+   "rect": [
+    0,
+    0,
+    49,
+    15
+   ],
+   "type": "field"
+  },
+  {
+   "blocked": false,
+   "cells": null,
+   "energy_multiplier": null,
+   "id": "town",
+   "label": "Town",
+   "polygon": null,
+   "rect": [
+    26,
+    34,
+    46,
+    46
+   ],
+   "type": "urban"
+  },
+  {
+   "blocked": false,
+   "cells": null,
+   "energy_multiplier": 1.25,
+   "id": "river",
+   "label": "Flooded river",
+   "polygon": [
+    [
+     0.0,
+     20.0
+    ],
+    [
+     15.0,
+     17.0
+    ],
+    [
+     32.0,
+     19.0
+    ],
+    [
+     49.0,
+     16.0
+    ],
+    [
+     49.0,
+     30.0
+    ],
+    [
+     32.0,
+     33.0
+    ],
+    [
+     15.0,
+     30.0
+    ],
+    [
+     0.0,
+     32.0
+    ]
+   ],
+   "rect": null,
+   "type": "water"
+  },
+  {
+   "blocked": false,
+   "cells": null,
+   "energy_multiplier": null,
+   "id": "flooded",
+   "label": "Flooded streets",
+   "polygon": null,
+   "rect": [
+    26,
+    34,
+    36,
+    39
+   ],
+   "type": "water"
+  },
+  {
+   "blocked": false,
+   "cells": null,
+   "energy_multiplier": null,
+   "id": "road",
+   "label": "Raised road",
+   "polygon": null,
+   "rect": [
+    8,
+    0,
+    10,
+    49
+   ],
+   "type": "road"
+  },
+  {
+   "blocked": true,
+   "cells": null,
+   "energy_multiplier": null,
+   "id": "surge",
+   "label": "Surge zone (closed to UAVs)",
+   "polygon": [
+    [
+     16.0,
+     31.0
+    ],
+    [
+     24.0,
+     31.0
+    ],
+    [
+     24.0,
+     35.0
+    ],
+    [
+     16.0,
+     35.0
+    ]
+   ],
+   "rect": null,
+   "type": "water"
+  }
+ ],
+ "uavs": [
+  {
+   "airborne": false,
+   "battery": 100.0,
+   "battery_max": 100.0,
+   "capabilities": [
+    "camera"
+   ],
+   "energy_per_meter": 0.014,
+   "home": "Relief-camp",
+   "hover_rate": 0.0,
+   "id": "Scout-1",
+   "landing_energy": 0.0,
+   "power_cruise": 100.0,
+   "power_hover": 120.0,
+   "ready_time": 0.0,
+   "speed": 13.0,
+   "start": [
+    6,
+    8
+   ],
+   "status": "idle",
+   "takeoff_energy": 0.0
+  },
+  {
+   "airborne": false,
+   "battery": 100.0,
+   "battery_max": 100.0,
+   "capabilities": [
+    "camera"
+   ],
+   "energy_per_meter": 0.014,
+   "home": "Road-pad",
+   "hover_rate": 0.0,
+   "id": "Scout-2",
+   "landing_energy": 0.0,
+   "power_cruise": 100.0,
+   "power_hover": 120.0,
+   "ready_time": 0.0,
+   "speed": 13.0,
+   "start": [
+    44,
+    10
+   ],
+   "status": "idle",
+   "takeoff_energy": 0.0
+  },
+  {
+   "airborne": false,
+   "battery": 100.0,
+   "battery_max": 100.0,
+   "capabilities": [
+    "camera",
+    "payload"
+   ],
+   "energy_per_meter": 0.02,
+   "home": "Relief-camp",
+   "hover_rate": 0.0,
+   "id": "Carrier-1",
+   "landing_energy": 0.0,
+   "power_cruise": 100.0,
+   "power_hover": 120.0,
+   "ready_time": 0.0,
+   "speed": 9.0,
+   "start": [
+    6,
+    8
+   ],
+   "status": "idle",
+   "takeoff_energy": 0.0
+  },
+  {
+   "airborne": false,
+   "battery": 100.0,
+   "battery_max": 100.0,
+   "capabilities": [
+    "camera",
+    "payload"
+   ],
+   "energy_per_meter": 0.02,
+   "home": "Road-pad",
+   "hover_rate": 0.0,
+   "id": "Carrier-2",
+   "landing_energy": 0.0,
+   "power_cruise": 100.0,
+   "power_hover": 120.0,
+   "ready_time": 0.0,
+   "speed": 9.0,
+   "start": [
+    44,
+    10
+   ],
+   "status": "idle",
+   "takeoff_energy": 0.0
+  },
+  {
+   "airborne": false,
+   "battery": 100.0,
+   "battery_max": 100.0,
+   "capabilities": [
+    "camera",
+    "payload"
+   ],
+   "energy_per_meter": 0.02,
+   "home": "Relief-camp",
+   "hover_rate": 0.0,
+   "id": "Carrier-3",
+   "landing_energy": 0.0,
+   "power_cruise": 100.0,
+   "power_hover": 120.0,
+   "ready_time": 0.0,
+   "speed": 9.0,
+   "start": [
+    6,
+    8
+   ],
+   "status": "idle",
+   "takeoff_energy": 0.0
+  }
+ ],
+ "wind": null
+}

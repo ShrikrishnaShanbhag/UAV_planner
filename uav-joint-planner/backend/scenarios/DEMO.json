@@ -1,0 +1,529 @@
+{
+ "description": "Hand-made map with collapsed buildings, a river corridor and a no-fly zone. Values are simulated and illustrative.",
+ "energy": {
+  "adaptive_k": 1.0,
+  "adaptive_reserve": false,
+  "adaptive_sigma": 0.1,
+  "charge_rate": 0.5,
+  "charge_time": 120.0,
+  "home_only_return": false,
+  "mode": "normalized",
+  "path_metric": "energy",
+  "reserve_ratio": 0.1,
+  "strict_prefix_safety": true,
+  "turn_energy_per_rad": 0.0
+ },
+ "events": [],
+ "grid": {
+  "cell_size": 20.0,
+  "height": 50,
+  "width": 50
+ },
+ "id": "DEMO",
+ "meta": null,
+ "name": "Earthquake response demo",
+ "obstacles": [
+  {
+   "cells": null,
+   "energy_multiplier": 1.0,
+   "id": "b1",
+   "kind": "obstacle",
+   "label": "Collapsed block A",
+   "polygon": null,
+   "rect": [
+    10,
+    8,
+    15,
+    13
+   ]
+  },
+  {
+   "cells": null,
+   "energy_multiplier": 1.0,
+   "id": "b2",
+   "kind": "obstacle",
+   "label": "Collapsed block B",
+   "polygon": null,
+   "rect": [
+    30,
+    6,
+    35,
+    10
+   ]
+  },
+  {
+   "cells": null,
+   "energy_multiplier": 1.0,
+   "id": "b3",
+   "kind": "obstacle",
+   "label": "Collapsed block C",
+   "polygon": null,
+   "rect": [
+    12,
+    32,
+    18,
+    37
+   ]
+  },
+  {
+   "cells": null,
+   "energy_multiplier": 1.0,
+   "id": "b4",
+   "kind": "obstacle",
+   "label": "Collapsed block D",
+   "polygon": null,
+   "rect": [
+    37,
+    30,
+    42,
+    36
+   ]
+  },
+  {
+   "cells": null,
+   "energy_multiplier": 1.0,
+   "id": "b5",
+   "kind": "obstacle",
+   "label": "Collapsed block E",
+   "polygon": null,
+   "rect": [
+    22,
+    40,
+    26,
+    45
+   ]
+  },
+  {
+   "cells": null,
+   "energy_multiplier": 1.8,
+   "id": "river",
+   "kind": "energy_zone",
+   "label": "River corridor (gusts)",
+   "polygon": [
+    [
+     0.0,
+     20.0
+    ],
+    [
+     18.0,
+     18.0
+    ],
+    [
+     34.0,
+     24.0
+    ],
+    [
+     49.0,
+     21.0
+    ],
+    [
+     49.0,
+     27.0
+    ],
+    [
+     34.0,
+     30.0
+    ],
+    [
+     18.0,
+     24.0
+    ],
+    [
+     0.0,
+     26.0
+    ]
+   ],
+   "rect": null
+  },
+  {
+   "cells": null,
+   "energy_multiplier": 1.0,
+   "id": "nfz",
+   "kind": "no_fly",
+   "label": "Hospital helipad no-fly zone",
+   "polygon": [
+    [
+     22.0,
+     11.0
+    ],
+    [
+     28.0,
+     11.0
+    ],
+    [
+     30.0,
+     16.0
+    ],
+    [
+     25.0,
+     19.0
+    ],
+    [
+     20.0,
+     16.0
+    ]
+   ],
+   "rect": null
+  }
+ ],
+ "seed": 42,
+ "stations": [
+  {
+   "cell": [
+    3,
+    46
+   ],
+   "id": "Base-W"
+  },
+  {
+   "cell": [
+    46,
+    3
+   ],
+   "id": "Base-E"
+  }
+ ],
+ "tasks": [
+  {
+   "capability": "thermal",
+   "cell": [
+    8,
+    15
+   ],
+   "deadline": 600.0,
+   "duration": 30.0,
+   "energy": 8.0,
+   "id": "T1",
+   "label": "Search survivors A",
+   "mandatory": true,
+   "priority": 4,
+   "release_time": 0.0
+  },
+  {
+   "capability": "camera",
+   "cell": [
+    17,
+    10
+   ],
+   "deadline": null,
+   "duration": 24.0,
+   "energy": 6.0,
+   "id": "T2",
+   "label": "Assess collapsed block A",
+   "mandatory": true,
+   "priority": 3,
+   "release_time": 0.0
+  },
+  {
+   "capability": "thermal",
+   "cell": [
+    33,
+    13
+   ],
+   "deadline": 500.0,
+   "duration": 35.0,
+   "energy": 9.0,
+   "id": "T3",
+   "label": "Search survivors B",
+   "mandatory": true,
+   "priority": 4,
+   "release_time": 0.0
+  },
+  {
+   "capability": "camera",
+   "cell": [
+    28,
+    6
+   ],
+   "deadline": null,
+   "duration": 16.0,
+   "energy": 4.0,
+   "id": "T4",
+   "label": "Photograph block B",
+   "mandatory": false,
+   "priority": 2,
+   "release_time": 0.0
+  },
+  {
+   "capability": "lidar",
+   "cell": [
+    10,
+    30
+   ],
+   "deadline": null,
+   "duration": 45.0,
+   "energy": 11.0,
+   "id": "T5",
+   "label": "Map collapse zone C",
+   "mandatory": true,
+   "priority": 3,
+   "release_time": 0.0
+  },
+  {
+   "capability": "thermal",
+   "cell": [
+    20,
+    34
+   ],
+   "deadline": 700.0,
+   "duration": 32.0,
+   "energy": 8.5,
+   "id": "T6",
+   "label": "Search survivors C",
+   "mandatory": true,
+   "priority": 4,
+   "release_time": 0.0
+  },
+  {
+   "capability": "camera",
+   "cell": [
+    42,
+    26
+   ],
+   "deadline": null,
+   "duration": 20.0,
+   "energy": 5.0,
+   "id": "T7",
+   "label": "Inspect bridge deck",
+   "mandatory": false,
+   "priority": 2,
+   "release_time": 0.0
+  },
+  {
+   "capability": "camera",
+   "cell": [
+    24,
+    26
+   ],
+   "deadline": 900.0,
+   "duration": 30.0,
+   "energy": 7.0,
+   "id": "T8",
+   "label": "Inspect river crossing",
+   "mandatory": false,
+   "priority": 3,
+   "release_time": 0.0
+  },
+  {
+   "capability": "payload",
+   "cell": [
+    44,
+    38
+   ],
+   "deadline": null,
+   "duration": 25.0,
+   "energy": 9.0,
+   "id": "T9",
+   "label": "Deliver medical kit",
+   "mandatory": true,
+   "priority": 3,
+   "release_time": 0.0
+  },
+  {
+   "capability": "lidar",
+   "cell": [
+    35,
+    40
+   ],
+   "deadline": null,
+   "duration": 40.0,
+   "energy": 10.0,
+   "id": "T10",
+   "label": "Survey collapsed block D",
+   "mandatory": false,
+   "priority": 2,
+   "release_time": 0.0
+  },
+  {
+   "capability": "camera",
+   "cell": [
+    5,
+    22
+   ],
+   "deadline": null,
+   "duration": 16.0,
+   "energy": 4.0,
+   "id": "T11",
+   "label": "Photograph embankment",
+   "mandatory": false,
+   "priority": 1,
+   "release_time": 0.0
+  },
+  {
+   "capability": "payload",
+   "cell": [
+    15,
+    44
+   ],
+   "deadline": null,
+   "duration": 22.0,
+   "energy": 8.0,
+   "id": "T12",
+   "label": "Deliver radio relay",
+   "mandatory": false,
+   "priority": 2,
+   "release_time": 0.0
+  },
+  {
+   "capability": "camera",
+   "cell": [
+    40,
+    12
+   ],
+   "deadline": null,
+   "duration": 18.0,
+   "energy": 4.5,
+   "id": "T13",
+   "label": "Photograph power line",
+   "mandatory": false,
+   "priority": 1,
+   "release_time": 0.0
+  },
+  {
+   "capability": "thermal",
+   "cell": [
+    46,
+    18
+   ],
+   "deadline": null,
+   "duration": 30.0,
+   "energy": 8.0,
+   "id": "T14",
+   "label": "Inspect substation",
+   "mandatory": false,
+   "priority": 3,
+   "release_time": 0.0
+  },
+  {
+   "capability": "camera",
+   "cell": [
+    29,
+    37
+   ],
+   "deadline": null,
+   "duration": 22.0,
+   "energy": 5.5,
+   "id": "T15",
+   "label": "Inspect road access",
+   "mandatory": false,
+   "priority": 2,
+   "release_time": 0.0
+  },
+  {
+   "capability": "lidar",
+   "cell": [
+    7,
+    5
+   ],
+   "deadline": null,
+   "duration": 36.0,
+   "energy": 9.0,
+   "id": "T16",
+   "label": "Survey north ridge",
+   "mandatory": false,
+   "priority": 1,
+   "release_time": 0.0
+  }
+ ],
+ "terrain_layers": [],
+ "uavs": [
+  {
+   "airborne": false,
+   "battery": 100.0,
+   "battery_max": 100.0,
+   "capabilities": [
+    "camera",
+    "thermal"
+   ],
+   "energy_per_meter": 0.013,
+   "home": "Base-W",
+   "hover_rate": 0.0,
+   "id": "Scout-1",
+   "landing_energy": 0.0,
+   "power_cruise": 100.0,
+   "power_hover": 120.0,
+   "ready_time": 0.0,
+   "speed": 14.0,
+   "start": [
+    3,
+    46
+   ],
+   "status": "idle",
+   "takeoff_energy": 0.0
+  },
+  {
+   "airborne": false,
+   "battery": 100.0,
+   "battery_max": 100.0,
+   "capabilities": [
+    "camera",
+    "lidar"
+   ],
+   "energy_per_meter": 0.016,
+   "home": "Base-W",
+   "hover_rate": 0.0,
+   "id": "Mapper-2",
+   "landing_energy": 0.0,
+   "power_cruise": 100.0,
+   "power_hover": 120.0,
+   "ready_time": 0.0,
+   "speed": 11.0,
+   "start": [
+    3,
+    46
+   ],
+   "status": "idle",
+   "takeoff_energy": 0.0
+  },
+  {
+   "airborne": false,
+   "battery": 100.0,
+   "battery_max": 100.0,
+   "capabilities": [
+    "camera",
+    "payload"
+   ],
+   "energy_per_meter": 0.019,
+   "home": "Base-E",
+   "hover_rate": 0.0,
+   "id": "Carrier-3",
+   "landing_energy": 0.0,
+   "power_cruise": 100.0,
+   "power_hover": 120.0,
+   "ready_time": 0.0,
+   "speed": 9.0,
+   "start": [
+    46,
+    3
+   ],
+   "status": "idle",
+   "takeoff_energy": 0.0
+  },
+  {
+   "airborne": false,
+   "battery": 85.0,
+   "battery_max": 100.0,
+   "capabilities": [
+    "camera",
+    "lidar",
+    "thermal"
+   ],
+   "energy_per_meter": 0.017,
+   "home": "Base-E",
+   "hover_rate": 0.0,
+   "id": "Scout-4",
+   "landing_energy": 0.0,
+   "power_cruise": 100.0,
+   "power_hover": 120.0,
+   "ready_time": 0.0,
+   "speed": 12.0,
+   "start": [
+    46,
+    3
+   ],
+   "status": "idle",
+   "takeoff_energy": 0.0
+  }
+ ],
+ "wind": null
+}

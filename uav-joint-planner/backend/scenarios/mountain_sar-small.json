@@ -1,0 +1,604 @@
+{
+ "description": "Missing trekkers in steep forested hills, working from a single base camp. Values are illustrative simulation settings.",
+ "energy": {
+  "adaptive_k": 1.0,
+  "adaptive_reserve": false,
+  "adaptive_sigma": 0.1,
+  "charge_rate": 0.5,
+  "charge_time": 120.0,
+  "home_only_return": false,
+  "mode": "normalized",
+  "path_metric": "energy",
+  "reserve_ratio": 0.1,
+  "strict_prefix_safety": true,
+  "turn_energy_per_rad": 0.0
+ },
+ "events": [
+  {
+   "amount": null,
+   "cells": null,
+   "label": "Ping",
+   "layer": null,
+   "new_deadline": null,
+   "new_duration": null,
+   "polygon": null,
+   "station_id": null,
+   "task": {
+    "capability": "thermal",
+    "cell": [
+     10,
+     42
+    ],
+    "deadline": null,
+    "duration": 96.89,
+    "energy": 8.34,
+    "id": "N1",
+    "label": "Phone signal ping",
+    "mandatory": true,
+    "priority": 4,
+    "release_time": 156.0
+   },
+   "task_id": null,
+   "time": 156.0,
+   "type": "NEW_TASK",
+   "uav": null,
+   "uav_id": null,
+   "wind": null
+  },
+  {
+   "amount": null,
+   "cells": null,
+   "label": "Lost to a downdraft",
+   "layer": null,
+   "new_deadline": null,
+   "new_duration": null,
+   "polygon": null,
+   "station_id": null,
+   "task": null,
+   "task_id": null,
+   "time": 210.0,
+   "type": "UAV_UNAVAILABLE",
+   "uav": null,
+   "uav_id": "Seeker-3",
+   "wind": null
+  }
+ ],
+ "grid": {
+  "cell_size": 25.0,
+  "height": 50,
+  "width": 50
+ },
+ "id": "mountain_sar-small",
+ "meta": {
+  "allow_recharge": false,
+  "category": "Safety",
+  "description": "Missing trekkers in steep forested hills, working from a single base camp.",
+  "difficulty": "hard",
+  "energy_focus": "Terrain energy from one station, keeping a reserve under uncertainty.",
+  "icon": "mountain",
+  "id": "mountain_sar",
+  "name": "Mountain search and rescue",
+  "story": "A group of trekkers has been reported missing in steep, forested hills. Search sectors fan out from one base camp, and a phone signal may change everything.",
+  "tags": [
+   "terrain",
+   "search",
+   "single-station"
+  ],
+  "theme": "mountain"
+ },
+ "name": "Mountain search and rescue",
+ "obstacles": [],
+ "seed": 42,
+ "stations": [
+  {
+   "cell": [
+    26,
+    5
+   ],
+   "id": "Base-camp"
+  }
+ ],
+ "tasks": [
+  {
+   "capability": "camera",
+   "cell": [
+    6,
+    21
+   ],
+   "deadline": null,
+   "duration": 70.17,
+   "energy": 4.769,
+   "id": "T1",
+   "label": "Sector sweep 1",
+   "mandatory": false,
+   "priority": 2,
+   "release_time": 0.0
+  },
+  {
+   "capability": "camera",
+   "cell": [
+    17,
+    26
+   ],
+   "deadline": null,
+   "duration": 72.54,
+   "energy": 5.298,
+   "id": "T2",
+   "label": "Sector sweep 2",
+   "mandatory": false,
+   "priority": 2,
+   "release_time": 0.0
+  },
+  {
+   "capability": "camera",
+   "cell": [
+    24,
+    26
+   ],
+   "deadline": null,
+   "duration": 69.43,
+   "energy": 5.067,
+   "id": "T3",
+   "label": "Sector sweep 3",
+   "mandatory": false,
+   "priority": 2,
+   "release_time": 0.0
+  },
+  {
+   "capability": "camera",
+   "cell": [
+    25,
+    19
+   ],
+   "deadline": null,
+   "duration": 61.76,
+   "energy": 5.41,
+   "id": "T4",
+   "label": "Sector sweep 4",
+   "mandatory": false,
+   "priority": 2,
+   "release_time": 0.0
+  },
+  {
+   "capability": "camera",
+   "cell": [
+    33,
+    24
+   ],
+   "deadline": null,
+   "duration": 70.47,
+   "energy": 5.01,
+   "id": "T5",
+   "label": "Sector sweep 5",
+   "mandatory": false,
+   "priority": 2,
+   "release_time": 0.0
+  },
+  {
+   "capability": "camera",
+   "cell": [
+    42,
+    40
+   ],
+   "deadline": null,
+   "duration": 64.82,
+   "energy": 5.29,
+   "id": "T6",
+   "label": "Sector sweep 6",
+   "mandatory": false,
+   "priority": 2,
+   "release_time": 0.0
+  },
+  {
+   "capability": "thermal",
+   "cell": [
+    15,
+    22
+   ],
+   "deadline": null,
+   "duration": 88.67,
+   "energy": 7.554,
+   "id": "T7",
+   "label": "Last-known location 1",
+   "mandatory": true,
+   "priority": 4,
+   "release_time": 0.0
+  },
+  {
+   "capability": "thermal",
+   "cell": [
+    32,
+    42
+   ],
+   "deadline": null,
+   "duration": 95.23,
+   "energy": 7.203,
+   "id": "T8",
+   "label": "Last-known location 2",
+   "mandatory": true,
+   "priority": 4,
+   "release_time": 0.0
+  }
+ ],
+ "terrain_layers": [
+  {
+   "blocked": false,
+   "cells": null,
+   "energy_multiplier": null,
+   "id": "forest",
+   "label": "Forest",
+   "polygon": null,
+   "rect": [
+    0,
+    0,
+    49,
+    49
+   ],
+   "type": "forest"
+  },
+  {
+   "blocked": false,
+   "cells": null,
+   "energy_multiplier": 1.15,
+   "id": "hills-w",
+   "label": "Hills",
+   "polygon": [
+    [
+     0.0,
+     14.0
+    ],
+    [
+     22.0,
+     18.0
+    ],
+    [
+     26.0,
+     49.0
+    ],
+    [
+     0.0,
+     49.0
+    ]
+   ],
+   "rect": null,
+   "type": "hill"
+  },
+  {
+   "blocked": false,
+   "cells": null,
+   "energy_multiplier": 1.15,
+   "id": "hills-e",
+   "label": "Hills",
+   "polygon": [
+    [
+     30.0,
+     49.0
+    ],
+    [
+     32.0,
+     18.0
+    ],
+    [
+     49.0,
+     12.0
+    ],
+    [
+     49.0,
+     49.0
+    ]
+   ],
+   "rect": null,
+   "type": "hill"
+  },
+  {
+   "blocked": false,
+   "cells": null,
+   "energy_multiplier": null,
+   "id": "river",
+   "label": "River valley",
+   "polygon": [
+    [
+     26.0,
+     49.0
+    ],
+    [
+     30.0,
+     49.0
+    ],
+    [
+     32.0,
+     18.0
+    ],
+    [
+     28.0,
+     0.0
+    ],
+    [
+     24.0,
+     0.0
+    ],
+    [
+     22.0,
+     18.0
+    ]
+   ],
+   "rect": null,
+   "type": "water"
+  },
+  {
+   "blocked": true,
+   "cells": null,
+   "energy_multiplier": null,
+   "id": "peak-a",
+   "label": "Crag",
+   "polygon": [
+    [
+     17.0,
+     34.0
+    ],
+    [
+     16.46,
+     35.5
+    ],
+    [
+     15.0,
+     36.6
+    ],
+    [
+     13.0,
+     37.0
+    ],
+    [
+     11.0,
+     36.6
+    ],
+    [
+     9.54,
+     35.5
+    ],
+    [
+     9.0,
+     34.0
+    ],
+    [
+     9.54,
+     32.5
+    ],
+    [
+     11.0,
+     31.4
+    ],
+    [
+     13.0,
+     31.0
+    ],
+    [
+     15.0,
+     31.4
+    ],
+    [
+     16.46,
+     32.5
+    ]
+   ],
+   "rect": null,
+   "type": "hill"
+  },
+  {
+   "blocked": true,
+   "cells": null,
+   "energy_multiplier": null,
+   "id": "peak-b",
+   "label": "Crag",
+   "polygon": [
+    [
+     43.0,
+     32.0
+    ],
+    [
+     42.6,
+     34.0
+    ],
+    [
+     41.5,
+     35.46
+    ],
+    [
+     40.0,
+     36.0
+    ],
+    [
+     38.5,
+     35.46
+    ],
+    [
+     37.4,
+     34.0
+    ],
+    [
+     37.0,
+     32.0
+    ],
+    [
+     37.4,
+     30.0
+    ],
+    [
+     38.5,
+     28.54
+    ],
+    [
+     40.0,
+     28.0
+    ],
+    [
+     41.5,
+     28.54
+    ],
+    [
+     42.6,
+     30.0
+    ]
+   ],
+   "rect": null,
+   "type": "hill"
+  },
+  {
+   "blocked": true,
+   "cells": null,
+   "energy_multiplier": null,
+   "id": "peak-c",
+   "label": "Crag",
+   "polygon": [
+    [
+     41.0,
+     16.0
+    ],
+    [
+     40.6,
+     17.0
+    ],
+    [
+     39.5,
+     17.73
+    ],
+    [
+     38.0,
+     18.0
+    ],
+    [
+     36.5,
+     17.73
+    ],
+    [
+     35.4,
+     17.0
+    ],
+    [
+     35.0,
+     16.0
+    ],
+    [
+     35.4,
+     15.0
+    ],
+    [
+     36.5,
+     14.27
+    ],
+    [
+     38.0,
+     14.0
+    ],
+    [
+     39.5,
+     14.27
+    ],
+    [
+     40.6,
+     15.0
+    ]
+   ],
+   "rect": null,
+   "type": "hill"
+  }
+ ],
+ "uavs": [
+  {
+   "airborne": false,
+   "battery": 75.0,
+   "battery_max": 75.0,
+   "capabilities": [
+    "camera",
+    "thermal"
+   ],
+   "energy_per_meter": 0.014,
+   "home": "Base-camp",
+   "hover_rate": 0.0,
+   "id": "Seeker-1",
+   "landing_energy": 0.0,
+   "power_cruise": 100.0,
+   "power_hover": 120.0,
+   "ready_time": 0.0,
+   "speed": 13.0,
+   "start": [
+    26,
+    5
+   ],
+   "status": "idle",
+   "takeoff_energy": 0.0
+  },
+  {
+   "airborne": false,
+   "battery": 75.0,
+   "battery_max": 75.0,
+   "capabilities": [
+    "camera",
+    "thermal"
+   ],
+   "energy_per_meter": 0.014,
+   "home": "Base-camp",
+   "hover_rate": 0.0,
+   "id": "Seeker-2",
+   "landing_energy": 0.0,
+   "power_cruise": 100.0,
+   "power_hover": 120.0,
+   "ready_time": 0.0,
+   "speed": 13.0,
+   "start": [
+    26,
+    5
+   ],
+   "status": "idle",
+   "takeoff_energy": 0.0
+  },
+  {
+   "airborne": false,
+   "battery": 75.0,
+   "battery_max": 75.0,
+   "capabilities": [
+    "camera",
+    "thermal"
+   ],
+   "energy_per_meter": 0.015,
+   "home": "Base-camp",
+   "hover_rate": 0.0,
+   "id": "Seeker-3",
+   "landing_energy": 0.0,
+   "power_cruise": 100.0,
+   "power_hover": 120.0,
+   "ready_time": 0.0,
+   "speed": 12.0,
+   "start": [
+    26,
+    5
+   ],
+   "status": "idle",
+   "takeoff_energy": 0.0
+  },
+  {
+   "airborne": false,
+   "battery": 75.0,
+   "battery_max": 75.0,
+   "capabilities": [
+    "camera"
+   ],
+   "energy_per_meter": 0.013,
+   "home": "Base-camp",
+   "hover_rate": 0.0,
+   "id": "Spotter-4",
+   "landing_energy": 0.0,
+   "power_cruise": 100.0,
+   "power_hover": 120.0,
+   "ready_time": 0.0,
+   "speed": 14.0,
+   "start": [
+    26,
+    5
+   ],
+   "status": "idle",
+   "takeoff_energy": 0.0
+  }
+ ],
+ "wind": null
+}

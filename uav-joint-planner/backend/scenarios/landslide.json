@@ -1,0 +1,574 @@
+{
+ "description": "A landslide cuts a hill road, and a second slide closes the corridor completely. Values are illustrative simulation settings.",
+ "energy": {
+  "adaptive_k": 1.0,
+  "adaptive_reserve": false,
+  "adaptive_sigma": 0.1,
+  "charge_rate": 0.5,
+  "charge_time": 120.0,
+  "home_only_return": false,
+  "mode": "normalized",
+  "path_metric": "energy",
+  "reserve_ratio": 0.1,
+  "strict_prefix_safety": true,
+  "turn_energy_per_rad": 0.0
+ },
+ "events": [
+  {
+   "amount": null,
+   "cells": null,
+   "label": "A second slide closes the road",
+   "layer": {
+    "blocked": true,
+    "cells": null,
+    "energy_multiplier": null,
+    "id": "slide-2",
+    "label": "Unstable slope",
+    "polygon": [
+     [
+      40.0,
+      18.0
+     ],
+     [
+      44.0,
+      18.0
+     ],
+     [
+      44.0,
+      27.0
+     ],
+     [
+      40.0,
+      27.0
+     ]
+    ],
+    "rect": null,
+    "type": "rubble"
+   },
+   "new_deadline": null,
+   "new_duration": null,
+   "polygon": [
+    [
+     40.0,
+     18.0
+    ],
+    [
+     44.0,
+     18.0
+    ],
+    [
+     44.0,
+     27.0
+    ],
+    [
+     40.0,
+     27.0
+    ]
+   ],
+   "station_id": null,
+   "task": null,
+   "task_id": null,
+   "time": 300.0,
+   "type": "BLOCK_REGION",
+   "uav": null,
+   "uav_id": null,
+   "wind": null
+  }
+ ],
+ "grid": {
+  "cell_size": 20.0,
+  "height": 40,
+  "width": 60
+ },
+ "id": "landslide",
+ "meta": {
+  "allow_recharge": false,
+  "category": "Disaster",
+  "description": "A landslide cuts a hill road, and a second slide closes the corridor completely.",
+  "difficulty": "medium",
+  "energy_focus": "Re-routing and longer returns when the only road corridor is blocked.",
+  "icon": "mountain-snow",
+  "id": "landslide",
+  "name": "Landslide on a hill road",
+  "story": "A landslide has cut the only highway through a gorge. UAVs must assess the damage and look for trapped vehicles, and a second slide forces them out over the river.",
+  "tags": [
+   "gorge",
+   "re-routing",
+   "blocked-road"
+  ],
+  "theme": "hillroad"
+ },
+ "name": "Landslide on a hill road",
+ "obstacles": [],
+ "seed": 42,
+ "stations": [
+  {
+   "cell": [
+    3,
+    22
+   ],
+   "id": "West-end"
+  },
+  {
+   "cell": [
+    56,
+    22
+   ],
+   "id": "East-end"
+  }
+ ],
+ "tasks": [
+  {
+   "capability": "camera",
+   "cell": [
+    8,
+    21
+   ],
+   "deadline": null,
+   "duration": 44.53,
+   "energy": 4.276,
+   "id": "T1",
+   "label": "Road-segment check 1",
+   "mandatory": false,
+   "priority": 3,
+   "release_time": 0.0
+  },
+  {
+   "capability": "camera",
+   "cell": [
+    13,
+    22
+   ],
+   "deadline": null,
+   "duration": 47.83,
+   "energy": 4.005,
+   "id": "T2",
+   "label": "Road-segment check 2",
+   "mandatory": false,
+   "priority": 3,
+   "release_time": 0.0
+  },
+  {
+   "capability": "camera",
+   "cell": [
+    17,
+    22
+   ],
+   "deadline": null,
+   "duration": 48.79,
+   "energy": 4.281,
+   "id": "T3",
+   "label": "Road-segment check 3",
+   "mandatory": false,
+   "priority": 3,
+   "release_time": 0.0
+  },
+  {
+   "capability": "camera",
+   "cell": [
+    23,
+    22
+   ],
+   "deadline": null,
+   "duration": 51.95,
+   "energy": 3.911,
+   "id": "T4",
+   "label": "Road-segment check 4",
+   "mandatory": false,
+   "priority": 3,
+   "release_time": 0.0
+  },
+  {
+   "capability": "camera",
+   "cell": [
+    28,
+    22
+   ],
+   "deadline": null,
+   "duration": 50.95,
+   "energy": 4.193,
+   "id": "T5",
+   "label": "Road-segment check 5",
+   "mandatory": false,
+   "priority": 3,
+   "release_time": 0.0
+  },
+  {
+   "capability": "camera",
+   "cell": [
+    33,
+    22
+   ],
+   "deadline": null,
+   "duration": 45.0,
+   "energy": 4.369,
+   "id": "T6",
+   "label": "Road-segment check 6",
+   "mandatory": false,
+   "priority": 3,
+   "release_time": 0.0
+  },
+  {
+   "capability": "camera",
+   "cell": [
+    37,
+    22
+   ],
+   "deadline": null,
+   "duration": 48.0,
+   "energy": 3.808,
+   "id": "T7",
+   "label": "Road-segment check 7",
+   "mandatory": false,
+   "priority": 3,
+   "release_time": 0.0
+  },
+  {
+   "capability": "camera",
+   "cell": [
+    39,
+    23
+   ],
+   "deadline": null,
+   "duration": 50.66,
+   "energy": 3.663,
+   "id": "T8",
+   "label": "Road-segment check 8",
+   "mandatory": false,
+   "priority": 3,
+   "release_time": 0.0
+  },
+  {
+   "capability": "camera",
+   "cell": [
+    46,
+    23
+   ],
+   "deadline": null,
+   "duration": 49.93,
+   "energy": 4.096,
+   "id": "T9",
+   "label": "Road-segment check 9",
+   "mandatory": false,
+   "priority": 3,
+   "release_time": 0.0
+  },
+  {
+   "capability": "camera",
+   "cell": [
+    52,
+    22
+   ],
+   "deadline": null,
+   "duration": 49.47,
+   "energy": 3.939,
+   "id": "T10",
+   "label": "Road-segment check 10",
+   "mandatory": false,
+   "priority": 3,
+   "release_time": 0.0
+  },
+  {
+   "capability": "thermal",
+   "cell": [
+    12,
+    24
+   ],
+   "deadline": null,
+   "duration": 65.06,
+   "energy": 5.608,
+   "id": "T11",
+   "label": "Vehicle scan 1",
+   "mandatory": true,
+   "priority": 4,
+   "release_time": 0.0
+  },
+  {
+   "capability": "thermal",
+   "cell": [
+    17,
+    26
+   ],
+   "deadline": null,
+   "duration": 74.93,
+   "energy": 5.726,
+   "id": "T12",
+   "label": "Vehicle scan 2",
+   "mandatory": true,
+   "priority": 4,
+   "release_time": 0.0
+  },
+  {
+   "capability": "thermal",
+   "cell": [
+    32,
+    25
+   ],
+   "deadline": null,
+   "duration": 76.4,
+   "energy": 5.935,
+   "id": "T13",
+   "label": "Vehicle scan 3",
+   "mandatory": true,
+   "priority": 4,
+   "release_time": 0.0
+  },
+  {
+   "capability": "thermal",
+   "cell": [
+    51,
+    24
+   ],
+   "deadline": null,
+   "duration": 73.3,
+   "energy": 6.369,
+   "id": "T14",
+   "label": "Vehicle scan 4",
+   "mandatory": true,
+   "priority": 4,
+   "release_time": 0.0
+  },
+  {
+   "capability": "lidar",
+   "cell": [
+    27,
+    4
+   ],
+   "deadline": null,
+   "duration": 80.26,
+   "energy": 6.617,
+   "id": "T15",
+   "label": "Riverbank survey 1",
+   "mandatory": false,
+   "priority": 1,
+   "release_time": 0.0
+  },
+  {
+   "capability": "lidar",
+   "cell": [
+    39,
+    3
+   ],
+   "deadline": null,
+   "duration": 75.19,
+   "energy": 7.034,
+   "id": "T16",
+   "label": "Riverbank survey 2",
+   "mandatory": false,
+   "priority": 1,
+   "release_time": 0.0
+  }
+ ],
+ "terrain_layers": [
+  {
+   "blocked": false,
+   "cells": null,
+   "energy_multiplier": 1.1,
+   "id": "river",
+   "label": "River below",
+   "polygon": null,
+   "rect": [
+    0,
+    0,
+    59,
+    11
+   ],
+   "type": "water"
+  },
+  {
+   "blocked": true,
+   "cells": null,
+   "energy_multiplier": null,
+   "id": "cliff-n",
+   "label": "Cliff",
+   "polygon": null,
+   "rect": [
+    0,
+    28,
+    59,
+    39
+   ],
+   "type": "hill"
+  },
+  {
+   "blocked": true,
+   "cells": null,
+   "energy_multiplier": null,
+   "id": "cliff-s0",
+   "label": "Cliff",
+   "polygon": null,
+   "rect": [
+    0,
+    12,
+    5,
+    17
+   ],
+   "type": "hill"
+  },
+  {
+   "blocked": true,
+   "cells": null,
+   "energy_multiplier": null,
+   "id": "cliff-s1",
+   "label": "Cliff",
+   "polygon": null,
+   "rect": [
+    11,
+    12,
+    29,
+    17
+   ],
+   "type": "hill"
+  },
+  {
+   "blocked": true,
+   "cells": null,
+   "energy_multiplier": null,
+   "id": "cliff-s2",
+   "label": "Cliff",
+   "polygon": null,
+   "rect": [
+    35,
+    12,
+    51,
+    17
+   ],
+   "type": "hill"
+  },
+  {
+   "blocked": true,
+   "cells": null,
+   "energy_multiplier": null,
+   "id": "cliff-s3",
+   "label": "Cliff",
+   "polygon": null,
+   "rect": [
+    57,
+    12,
+    59,
+    17
+   ],
+   "type": "hill"
+  },
+  {
+   "blocked": false,
+   "cells": null,
+   "energy_multiplier": null,
+   "id": "road",
+   "label": "Hill road",
+   "polygon": null,
+   "rect": [
+    0,
+    21,
+    59,
+    23
+   ],
+   "type": "road"
+  },
+  {
+   "blocked": true,
+   "cells": null,
+   "energy_multiplier": null,
+   "id": "slide-1",
+   "label": "Landslide debris",
+   "polygon": null,
+   "rect": [
+    18,
+    18,
+    22,
+    25
+   ],
+   "type": "rubble"
+  },
+  {
+   "blocked": true,
+   "cells": null,
+   "energy_multiplier": null,
+   "id": "slide-2",
+   "label": "Unstable slope",
+   "polygon": null,
+   "rect": [
+    40,
+    18,
+    44,
+    19
+   ],
+   "type": "rubble"
+  }
+ ],
+ "uavs": [
+  {
+   "airborne": false,
+   "battery": 70.0,
+   "battery_max": 70.0,
+   "capabilities": [
+    "camera",
+    "thermal"
+   ],
+   "energy_per_meter": 0.015,
+   "home": "West-end",
+   "hover_rate": 0.0,
+   "id": "Road-1",
+   "landing_energy": 0.0,
+   "power_cruise": 100.0,
+   "power_hover": 120.0,
+   "ready_time": 0.0,
+   "speed": 12.0,
+   "start": [
+    3,
+    22
+   ],
+   "status": "idle",
+   "takeoff_energy": 0.0
+  },
+  {
+   "airborne": false,
+   "battery": 70.0,
+   "battery_max": 70.0,
+   "capabilities": [
+    "camera",
+    "thermal"
+   ],
+   "energy_per_meter": 0.015,
+   "home": "East-end",
+   "hover_rate": 0.0,
+   "id": "Road-2",
+   "landing_energy": 0.0,
+   "power_cruise": 100.0,
+   "power_hover": 120.0,
+   "ready_time": 0.0,
+   "speed": 12.0,
+   "start": [
+    56,
+    22
+   ],
+   "status": "idle",
+   "takeoff_energy": 0.0
+  },
+  {
+   "airborne": false,
+   "battery": 70.0,
+   "battery_max": 70.0,
+   "capabilities": [
+    "camera",
+    "lidar"
+   ],
+   "energy_per_meter": 0.017,
+   "home": "West-end",
+   "hover_rate": 0.0,
+   "id": "Road-3",
+   "landing_energy": 0.0,
+   "power_cruise": 100.0,
+   "power_hover": 120.0,
+   "ready_time": 0.0,
+   "speed": 11.0,
+   "start": [
+    3,
+    22
+   ],
+   "status": "idle",
+   "takeoff_energy": 0.0
+  }
+ ],
+ "wind": null
+}

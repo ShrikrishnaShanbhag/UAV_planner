@@ -1,0 +1,745 @@
+{
+ "description": "A long transmission corridor across fields and hills with few stations. Values are illustrative simulation settings.",
+ "energy": {
+  "adaptive_k": 1.0,
+  "adaptive_reserve": false,
+  "adaptive_sigma": 0.1,
+  "charge_rate": 0.5,
+  "charge_time": 120.0,
+  "home_only_return": false,
+  "mode": "normalized",
+  "path_metric": "energy",
+  "reserve_ratio": 0.1,
+  "strict_prefix_safety": true,
+  "turn_energy_per_rad": 0.0
+ },
+ "events": [
+  {
+   "amount": null,
+   "cells": null,
+   "label": "Fault reported",
+   "layer": null,
+   "new_deadline": null,
+   "new_duration": null,
+   "polygon": null,
+   "station_id": null,
+   "task": {
+    "capability": "lidar",
+    "cell": [
+     22,
+     12
+    ],
+    "deadline": null,
+    "duration": 81.77,
+    "energy": 8.643,
+    "id": "N1",
+    "label": "Fault report tower",
+    "mandatory": true,
+    "priority": 3,
+    "release_time": 240.0
+   },
+   "task_id": null,
+   "time": 240.0,
+   "type": "NEW_TASK",
+   "uav": null,
+   "uav_id": null,
+   "wind": null
+  },
+  {
+   "amount": null,
+   "cells": null,
+   "label": "Fault reported",
+   "layer": null,
+   "new_deadline": null,
+   "new_duration": null,
+   "polygon": null,
+   "station_id": null,
+   "task": {
+    "capability": "lidar",
+    "cell": [
+     47,
+     13
+    ],
+    "deadline": null,
+    "duration": 80.4,
+    "energy": 7.403,
+    "id": "N2",
+    "label": "Fault report tower",
+    "mandatory": true,
+    "priority": 3,
+    "release_time": 250.0
+   },
+   "task_id": null,
+   "time": 250.0,
+   "type": "NEW_TASK",
+   "uav": null,
+   "uav_id": null,
+   "wind": null
+  },
+  {
+   "amount": null,
+   "cells": null,
+   "label": "Fault reported",
+   "layer": null,
+   "new_deadline": null,
+   "new_duration": null,
+   "polygon": null,
+   "station_id": null,
+   "task": {
+    "capability": "lidar",
+    "cell": [
+     70,
+     14
+    ],
+    "deadline": null,
+    "duration": 88.74,
+    "energy": 8.06,
+    "id": "N3",
+    "label": "Fault report tower",
+    "mandatory": true,
+    "priority": 3,
+    "release_time": 260.0
+   },
+   "task_id": null,
+   "time": 260.0,
+   "type": "NEW_TASK",
+   "uav": null,
+   "uav_id": null,
+   "wind": null
+  }
+ ],
+ "grid": {
+  "cell_size": 30.0,
+  "height": 24,
+  "width": 90
+ },
+ "id": "powerline",
+ "meta": {
+  "allow_recharge": true,
+  "category": "Infrastructure",
+  "description": "A long transmission corridor across fields and hills with few stations.",
+  "difficulty": "hard",
+  "energy_focus": "Long distances mean recharge stops are needed to finish the line.",
+  "icon": "zap",
+  "id": "powerline",
+  "name": "Power-line inspection after a storm",
+  "story": "A storm has passed along a long transmission line. Every tower needs checking for faults, the corridor is far longer than one battery allows, and stations are few.",
+  "tags": [
+   "corridor",
+   "recharge",
+   "inspection"
+  ],
+  "theme": "corridor"
+ },
+ "name": "Power-line inspection after a storm",
+ "obstacles": [],
+ "seed": 42,
+ "stations": [
+  {
+   "cell": [
+    3,
+    5
+   ],
+   "id": "West"
+  },
+  {
+   "cell": [
+    45,
+    3
+   ],
+   "id": "Mid"
+  },
+  {
+   "cell": [
+    87,
+    5
+   ],
+   "id": "East"
+  }
+ ],
+ "tasks": [
+  {
+   "capability": "camera",
+   "cell": [
+    6,
+    9
+   ],
+   "deadline": null,
+   "duration": 76.26,
+   "energy": 6.974,
+   "id": "T1",
+   "label": "Tower inspection 1",
+   "mandatory": false,
+   "priority": 2,
+   "release_time": 0.0
+  },
+  {
+   "capability": "camera",
+   "cell": [
+    7,
+    9
+   ],
+   "deadline": null,
+   "duration": 76.83,
+   "energy": 7.02,
+   "id": "T2",
+   "label": "Tower inspection 2",
+   "mandatory": false,
+   "priority": 2,
+   "release_time": 0.0
+  },
+  {
+   "capability": "camera",
+   "cell": [
+    11,
+    10
+   ],
+   "deadline": null,
+   "duration": 65.82,
+   "energy": 6.936,
+   "id": "T3",
+   "label": "Tower inspection 3",
+   "mandatory": false,
+   "priority": 2,
+   "release_time": 0.0
+  },
+  {
+   "capability": "camera",
+   "cell": [
+    13,
+    10
+   ],
+   "deadline": null,
+   "duration": 70.69,
+   "energy": 6.44,
+   "id": "T4",
+   "label": "Tower inspection 4",
+   "mandatory": false,
+   "priority": 2,
+   "release_time": 0.0
+  },
+  {
+   "capability": "camera",
+   "cell": [
+    17,
+    11
+   ],
+   "deadline": null,
+   "duration": 74.11,
+   "energy": 6.065,
+   "id": "T5",
+   "label": "Tower inspection 5",
+   "mandatory": false,
+   "priority": 2,
+   "release_time": 0.0
+  },
+  {
+   "capability": "camera",
+   "cell": [
+    19,
+    11
+   ],
+   "deadline": null,
+   "duration": 73.96,
+   "energy": 6.157,
+   "id": "T6",
+   "label": "Tower inspection 6",
+   "mandatory": false,
+   "priority": 2,
+   "release_time": 0.0
+  },
+  {
+   "capability": "camera",
+   "cell": [
+    21,
+    12
+   ],
+   "deadline": null,
+   "duration": 70.49,
+   "energy": 7.074,
+   "id": "T7",
+   "label": "Tower inspection 7",
+   "mandatory": false,
+   "priority": 2,
+   "release_time": 0.0
+  },
+  {
+   "capability": "camera",
+   "cell": [
+    25,
+    12
+   ],
+   "deadline": null,
+   "duration": 70.25,
+   "energy": 6.235,
+   "id": "T8",
+   "label": "Tower inspection 8",
+   "mandatory": false,
+   "priority": 2,
+   "release_time": 0.0
+  },
+  {
+   "capability": "camera",
+   "cell": [
+    26,
+    12
+   ],
+   "deadline": null,
+   "duration": 66.18,
+   "energy": 6.596,
+   "id": "T9",
+   "label": "Tower inspection 9",
+   "mandatory": false,
+   "priority": 2,
+   "release_time": 0.0
+  },
+  {
+   "capability": "camera",
+   "cell": [
+    30,
+    13
+   ],
+   "deadline": null,
+   "duration": 70.75,
+   "energy": 5.919,
+   "id": "T10",
+   "label": "Tower inspection 10",
+   "mandatory": false,
+   "priority": 2,
+   "release_time": 0.0
+  },
+  {
+   "capability": "camera",
+   "cell": [
+    32,
+    12
+   ],
+   "deadline": null,
+   "duration": 67.77,
+   "energy": 5.869,
+   "id": "T11",
+   "label": "Tower inspection 11",
+   "mandatory": false,
+   "priority": 2,
+   "release_time": 0.0
+  },
+  {
+   "capability": "camera",
+   "cell": [
+    36,
+    12
+   ],
+   "deadline": null,
+   "duration": 70.4,
+   "energy": 6.995,
+   "id": "T12",
+   "label": "Tower inspection 12",
+   "mandatory": false,
+   "priority": 2,
+   "release_time": 0.0
+  },
+  {
+   "capability": "camera",
+   "cell": [
+    39,
+    13
+   ],
+   "deadline": null,
+   "duration": 71.37,
+   "energy": 6.637,
+   "id": "T13",
+   "label": "Tower inspection 13",
+   "mandatory": false,
+   "priority": 2,
+   "release_time": 0.0
+  },
+  {
+   "capability": "camera",
+   "cell": [
+    40,
+    12
+   ],
+   "deadline": null,
+   "duration": 72.47,
+   "energy": 7.119,
+   "id": "T14",
+   "label": "Tower inspection 14",
+   "mandatory": false,
+   "priority": 2,
+   "release_time": 0.0
+  },
+  {
+   "capability": "camera",
+   "cell": [
+    44,
+    12
+   ],
+   "deadline": null,
+   "duration": 78.72,
+   "energy": 6.713,
+   "id": "T15",
+   "label": "Tower inspection 15",
+   "mandatory": false,
+   "priority": 2,
+   "release_time": 0.0
+  },
+  {
+   "capability": "camera",
+   "cell": [
+    46,
+    12
+   ],
+   "deadline": null,
+   "duration": 69.33,
+   "energy": 6.989,
+   "id": "T16",
+   "label": "Tower inspection 16",
+   "mandatory": false,
+   "priority": 2,
+   "release_time": 0.0
+  },
+  {
+   "capability": "camera",
+   "cell": [
+    50,
+    12
+   ],
+   "deadline": null,
+   "duration": 75.02,
+   "energy": 5.924,
+   "id": "T17",
+   "label": "Tower inspection 17",
+   "mandatory": false,
+   "priority": 2,
+   "release_time": 0.0
+  },
+  {
+   "capability": "camera",
+   "cell": [
+    51,
+    11
+   ],
+   "deadline": null,
+   "duration": 78.52,
+   "energy": 6.075,
+   "id": "T18",
+   "label": "Tower inspection 18",
+   "mandatory": false,
+   "priority": 2,
+   "release_time": 0.0
+  },
+  {
+   "capability": "camera",
+   "cell": [
+    55,
+    12
+   ],
+   "deadline": null,
+   "duration": 68.63,
+   "energy": 5.908,
+   "id": "T19",
+   "label": "Tower inspection 19",
+   "mandatory": false,
+   "priority": 2,
+   "release_time": 0.0
+  },
+  {
+   "capability": "camera",
+   "cell": [
+    57,
+    11
+   ],
+   "deadline": null,
+   "duration": 68.48,
+   "energy": 6.654,
+   "id": "T20",
+   "label": "Tower inspection 20",
+   "mandatory": false,
+   "priority": 2,
+   "release_time": 0.0
+  },
+  {
+   "capability": "camera",
+   "cell": [
+    60,
+    11
+   ],
+   "deadline": null,
+   "duration": 70.92,
+   "energy": 6.881,
+   "id": "T21",
+   "label": "Tower inspection 21",
+   "mandatory": false,
+   "priority": 2,
+   "release_time": 0.0
+  },
+  {
+   "capability": "camera",
+   "cell": [
+    63,
+    11
+   ],
+   "deadline": null,
+   "duration": 79.04,
+   "energy": 6.825,
+   "id": "T22",
+   "label": "Tower inspection 22",
+   "mandatory": false,
+   "priority": 2,
+   "release_time": 0.0
+  },
+  {
+   "capability": "camera",
+   "cell": [
+    66,
+    12
+   ],
+   "deadline": null,
+   "duration": 75.06,
+   "energy": 6.114,
+   "id": "T23",
+   "label": "Tower inspection 23",
+   "mandatory": false,
+   "priority": 2,
+   "release_time": 0.0
+  },
+  {
+   "capability": "camera",
+   "cell": [
+    68,
+    13
+   ],
+   "deadline": null,
+   "duration": 70.47,
+   "energy": 6.884,
+   "id": "T24",
+   "label": "Tower inspection 24",
+   "mandatory": false,
+   "priority": 2,
+   "release_time": 0.0
+  },
+  {
+   "capability": "camera",
+   "cell": [
+    72,
+    14
+   ],
+   "deadline": null,
+   "duration": 65.39,
+   "energy": 6.617,
+   "id": "T25",
+   "label": "Tower inspection 25",
+   "mandatory": false,
+   "priority": 2,
+   "release_time": 0.0
+  },
+  {
+   "capability": "camera",
+   "cell": [
+    74,
+    14
+   ],
+   "deadline": null,
+   "duration": 69.92,
+   "energy": 6.631,
+   "id": "T26",
+   "label": "Tower inspection 26",
+   "mandatory": false,
+   "priority": 2,
+   "release_time": 0.0
+  },
+  {
+   "capability": "camera",
+   "cell": [
+    77,
+    14
+   ],
+   "deadline": null,
+   "duration": 77.66,
+   "energy": 6.653,
+   "id": "T27",
+   "label": "Tower inspection 27",
+   "mandatory": false,
+   "priority": 2,
+   "release_time": 0.0
+  },
+  {
+   "capability": "camera",
+   "cell": [
+    80,
+    15
+   ],
+   "deadline": null,
+   "duration": 78.76,
+   "energy": 5.958,
+   "id": "T28",
+   "label": "Tower inspection 28",
+   "mandatory": false,
+   "priority": 2,
+   "release_time": 0.0
+  },
+  {
+   "capability": "camera",
+   "cell": [
+    82,
+    16
+   ],
+   "deadline": null,
+   "duration": 70.31,
+   "energy": 7.15,
+   "id": "T29",
+   "label": "Tower inspection 29",
+   "mandatory": false,
+   "priority": 2,
+   "release_time": 0.0
+  },
+  {
+   "capability": "camera",
+   "cell": [
+    85,
+    16
+   ],
+   "deadline": null,
+   "duration": 67.62,
+   "energy": 6.8,
+   "id": "T30",
+   "label": "Tower inspection 30",
+   "mandatory": false,
+   "priority": 2,
+   "release_time": 0.0
+  }
+ ],
+ "terrain_layers": [
+  {
+   "blocked": false,
+   "cells": null,
+   "energy_multiplier": null,
+   "id": "field",
+   "label": "Fields",
+   "polygon": null,
+   "rect": [
+    0,
+    0,
+    89,
+    23
+   ],
+   "type": "field"
+  },
+  {
+   "blocked": false,
+   "cells": null,
+   "energy_multiplier": 1.15,
+   "id": "hills",
+   "label": "Hills",
+   "polygon": [
+    [
+     30.0,
+     0.0
+    ],
+    [
+     56.0,
+     0.0
+    ],
+    [
+     60.0,
+     23.0
+    ],
+    [
+     26.0,
+     23.0
+    ]
+   ],
+   "rect": null,
+   "type": "hill"
+  },
+  {
+   "blocked": false,
+   "cells": null,
+   "energy_multiplier": null,
+   "id": "road",
+   "label": "Service road",
+   "polygon": null,
+   "rect": [
+    0,
+    3,
+    89,
+    4
+   ],
+   "type": "road"
+  }
+ ],
+ "uavs": [
+  {
+   "airborne": false,
+   "battery": 100.0,
+   "battery_max": 100.0,
+   "capabilities": [
+    "camera",
+    "lidar"
+   ],
+   "energy_per_meter": 0.016,
+   "home": "West",
+   "hover_rate": 0.0,
+   "id": "Line-1",
+   "landing_energy": 0.0,
+   "power_cruise": 100.0,
+   "power_hover": 120.0,
+   "ready_time": 0.0,
+   "speed": 12.0,
+   "start": [
+    3,
+    5
+   ],
+   "status": "idle",
+   "takeoff_energy": 0.0
+  },
+  {
+   "airborne": false,
+   "battery": 100.0,
+   "battery_max": 100.0,
+   "capabilities": [
+    "camera",
+    "lidar"
+   ],
+   "energy_per_meter": 0.016,
+   "home": "Mid",
+   "hover_rate": 0.0,
+   "id": "Line-2",
+   "landing_energy": 0.0,
+   "power_cruise": 100.0,
+   "power_hover": 120.0,
+   "ready_time": 0.0,
+   "speed": 12.0,
+   "start": [
+    45,
+    3
+   ],
+   "status": "idle",
+   "takeoff_energy": 0.0
+  },
+  {
+   "airborne": false,
+   "battery": 100.0,
+   "battery_max": 100.0,
+   "capabilities": [
+    "camera"
+   ],
+   "energy_per_meter": 0.015,
+   "home": "East",
+   "hover_rate": 0.0,
+   "id": "Line-3",
+   "landing_energy": 0.0,
+   "power_cruise": 100.0,
+   "power_hover": 120.0,
+   "ready_time": 0.0,
+   "speed": 13.0,
+   "start": [
+    87,
+    5
+   ],
+   "status": "idle",
+   "takeoff_energy": 0.0
+  }
+ ],
+ "wind": null
+}

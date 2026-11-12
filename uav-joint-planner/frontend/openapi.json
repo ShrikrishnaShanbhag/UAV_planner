@@ -1,0 +1,4375 @@
+{
+ "components": {
+  "schemas": {
+   "AlgorithmMeta": {
+    "properties": {
+     "config_schema": {
+      "items": {
+       "$ref": "#/components/schemas/ConfigField"
+      },
+      "title": "Config Schema",
+      "type": "array"
+     },
+     "description": {
+      "title": "Description",
+      "type": "string"
+     },
+     "label": {
+      "title": "Label",
+      "type": "string"
+     },
+     "name": {
+      "title": "Name",
+      "type": "string"
+     }
+    },
+    "required": [
+     "name",
+     "label",
+     "description",
+     "config_schema"
+    ],
+    "title": "AlgorithmMeta",
+    "type": "object"
+   },
+   "BatteryPoint": {
+    "description": "Planned battery level after an action.",
+    "properties": {
+     "battery": {
+      "title": "Battery",
+      "type": "number"
+     },
+     "label": {
+      "title": "Label",
+      "type": "string"
+     },
+     "time": {
+      "title": "Time",
+      "type": "number"
+     }
+    },
+    "required": [
+     "time",
+     "battery",
+     "label"
+    ],
+    "title": "BatteryPoint",
+    "type": "object"
+   },
+   "CandidateTrace": {
+    "description": "One UAV considered for a task, for the \"Explain this assignment\" panel.",
+    "properties": {
+     "cost": {
+      "anyOf": [
+       {
+        "type": "number"
+       },
+       {
+        "type": "null"
+       }
+      ],
+      "title": "Cost"
+     },
+     "delta_distance": {
+      "default": 0.0,
+      "title": "Delta Distance",
+      "type": "number"
+     },
+     "delta_energy": {
+      "default": 0.0,
+      "title": "Delta Energy",
+      "type": "number"
+     },
+     "delta_imbalance": {
+      "default": 0.0,
+      "title": "Delta Imbalance",
+      "type": "number"
+     },
+     "delta_time": {
+      "default": 0.0,
+      "title": "Delta Time",
+      "type": "number"
+     },
+     "feasible": {
+      "title": "Feasible",
+      "type": "boolean"
+     },
+     "position": {
+      "anyOf": [
+       {
+        "type": "integer"
+       },
+       {
+        "type": "null"
+       }
+      ],
+      "title": "Position"
+     },
+     "rejected_reason": {
+      "anyOf": [
+       {
+        "type": "string"
+       },
+       {
+        "type": "null"
+       }
+      ],
+      "title": "Rejected Reason"
+     },
+     "uav_id": {
+      "title": "Uav Id",
+      "type": "string"
+     }
+    },
+    "required": [
+     "uav_id",
+     "position",
+     "feasible"
+    ],
+    "title": "CandidateTrace",
+    "type": "object"
+   },
+   "CompareEntry": {
+    "properties": {
+     "algorithm": {
+      "title": "Algorithm",
+      "type": "string"
+     },
+     "error": {
+      "anyOf": [
+       {
+        "type": "string"
+       },
+       {
+        "type": "null"
+       }
+      ],
+      "title": "Error"
+     },
+     "metrics": {
+      "anyOf": [
+       {
+        "additionalProperties": {
+         "anyOf": [
+          {
+           "type": "number"
+          },
+          {
+           "type": "null"
+          }
+         ]
+        },
+        "type": "object"
+       },
+       {
+        "type": "null"
+       }
+      ],
+      "title": "Metrics"
+     },
+     "plan": {
+      "anyOf": [
+       {
+        "$ref": "#/components/schemas/Plan"
+       },
+       {
+        "type": "null"
+       }
+      ]
+     }
+    },
+    "required": [
+     "algorithm"
+    ],
+    "title": "CompareEntry",
+    "type": "object"
+   },
+   "CompareRequest": {
+    "properties": {
+     "algorithms": {
+      "items": {
+       "type": "string"
+      },
+      "minItems": 1,
+      "title": "Algorithms",
+      "type": "array"
+     },
+     "objective": {
+      "anyOf": [
+       {
+        "$ref": "#/components/schemas/ObjectiveWeights"
+       },
+       {
+        "type": "null"
+       }
+      ]
+     },
+     "reserve_ratio": {
+      "anyOf": [
+       {
+        "maximum": 0.9,
+        "minimum": 0.0,
+        "type": "number"
+       },
+       {
+        "type": "null"
+       }
+      ],
+      "title": "Reserve Ratio"
+     },
+     "scenario": {
+      "anyOf": [
+       {
+        "$ref": "#/components/schemas/Scenario"
+       },
+       {
+        "type": "null"
+       }
+      ]
+     },
+     "scenario_id": {
+      "anyOf": [
+       {
+        "type": "string"
+       },
+       {
+        "type": "null"
+       }
+      ],
+      "title": "Scenario Id"
+     },
+     "weights": {
+      "anyOf": [
+       {
+        "$ref": "#/components/schemas/CostWeights"
+       },
+       {
+        "type": "null"
+       }
+      ]
+     }
+    },
+    "required": [
+     "algorithms"
+    ],
+    "title": "CompareRequest",
+    "type": "object"
+   },
+   "CompareResult": {
+    "properties": {
+     "results": {
+      "items": {
+       "$ref": "#/components/schemas/CompareEntry"
+      },
+      "title": "Results",
+      "type": "array"
+     },
+     "scenario": {
+      "$ref": "#/components/schemas/Scenario"
+     }
+    },
+    "required": [
+     "scenario",
+     "results"
+    ],
+    "title": "CompareResult",
+    "type": "object"
+   },
+   "ConfigField": {
+    "properties": {
+     "default": {
+      "title": "Default"
+     },
+     "name": {
+      "title": "Name",
+      "type": "string"
+     },
+     "type": {
+      "title": "Type",
+      "type": "string"
+     }
+    },
+    "required": [
+     "name",
+     "type",
+     "default"
+    ],
+    "title": "ConfigField",
+    "type": "object"
+   },
+   "CostWeights": {
+    "description": "Weights of ``C_ij = w_d\u00b7D\u0302 + w_e\u00b7\u00ca + w_t\u00b7T\u0302 + w_l\u00b7L\u0302``.",
+    "properties": {
+     "normalization": {
+      "default": "max",
+      "enum": [
+       "max",
+       "minmax"
+      ],
+      "title": "Normalization",
+      "type": "string"
+     },
+     "w_d": {
+      "default": 0.2,
+      "title": "W D",
+      "type": "number"
+     },
+     "w_e": {
+      "default": 0.4,
+      "title": "W E",
+      "type": "number"
+     },
+     "w_l": {
+      "default": 0.1,
+      "title": "W L",
+      "type": "number"
+     },
+     "w_t": {
+      "default": 0.3,
+      "title": "W T",
+      "type": "number"
+     }
+    },
+    "title": "CostWeights",
+    "type": "object"
+   },
+   "EnergyConfig": {
+    "description": "Scenario-wide switches for the energy model.",
+    "properties": {
+     "adaptive_k": {
+      "default": 1.0,
+      "title": "Adaptive K",
+      "type": "number"
+     },
+     "adaptive_reserve": {
+      "default": false,
+      "title": "Adaptive Reserve",
+      "type": "boolean"
+     },
+     "adaptive_sigma": {
+      "default": 0.1,
+      "title": "Adaptive Sigma",
+      "type": "number"
+     },
+     "charge_rate": {
+      "default": 0.5,
+      "title": "Charge Rate",
+      "type": "number"
+     },
+     "charge_time": {
+      "default": 120.0,
+      "title": "Charge Time",
+      "type": "number"
+     },
+     "home_only_return": {
+      "default": false,
+      "title": "Home Only Return",
+      "type": "boolean"
+     },
+     "mode": {
+      "default": "normalized",
+      "enum": [
+       "normalized",
+       "physical"
+      ],
+      "title": "Mode",
+      "type": "string"
+     },
+     "path_metric": {
+      "default": "energy",
+      "enum": [
+       "energy",
+       "distance"
+      ],
+      "title": "Path Metric",
+      "type": "string"
+     },
+     "reserve_ratio": {
+      "default": 0.1,
+      "title": "Reserve Ratio",
+      "type": "number"
+     },
+     "strict_prefix_safety": {
+      "default": true,
+      "title": "Strict Prefix Safety",
+      "type": "boolean"
+     },
+     "turn_energy_per_rad": {
+      "default": 0.0,
+      "title": "Turn Energy Per Rad",
+      "type": "number"
+     }
+    },
+    "title": "EnergyConfig",
+    "type": "object"
+   },
+   "ErrorBody": {
+    "properties": {
+     "code": {
+      "title": "Code",
+      "type": "string"
+     },
+     "details": {
+      "title": "Details"
+     },
+     "message": {
+      "title": "Message",
+      "type": "string"
+     }
+    },
+    "required": [
+     "code",
+     "message"
+    ],
+    "title": "ErrorBody",
+    "type": "object"
+   },
+   "ErrorResponse": {
+    "properties": {
+     "error": {
+      "$ref": "#/components/schemas/ErrorBody"
+     }
+    },
+    "required": [
+     "error"
+    ],
+    "title": "ErrorResponse",
+    "type": "object"
+   },
+   "Event": {
+    "description": "A mission change. Which optional fields apply depends on ``type``.",
+    "properties": {
+     "amount": {
+      "anyOf": [
+       {
+        "type": "number"
+       },
+       {
+        "type": "null"
+       }
+      ],
+      "title": "Amount"
+     },
+     "cells": {
+      "anyOf": [
+       {
+        "items": {
+         "maxItems": 2,
+         "minItems": 2,
+         "prefixItems": [
+          {
+           "type": "integer"
+          },
+          {
+           "type": "integer"
+          }
+         ],
+         "type": "array"
+        },
+        "type": "array"
+       },
+       {
+        "type": "null"
+       }
+      ],
+      "title": "Cells"
+     },
+     "label": {
+      "default": "",
+      "title": "Label",
+      "type": "string"
+     },
+     "layer": {
+      "anyOf": [
+       {
+        "$ref": "#/components/schemas/TerrainLayer"
+       },
+       {
+        "type": "null"
+       }
+      ]
+     },
+     "new_deadline": {
+      "anyOf": [
+       {
+        "type": "number"
+       },
+       {
+        "type": "null"
+       }
+      ],
+      "title": "New Deadline"
+     },
+     "new_duration": {
+      "anyOf": [
+       {
+        "type": "number"
+       },
+       {
+        "type": "null"
+       }
+      ],
+      "title": "New Duration"
+     },
+     "polygon": {
+      "anyOf": [
+       {
+        "items": {
+         "maxItems": 2,
+         "minItems": 2,
+         "prefixItems": [
+          {
+           "type": "number"
+          },
+          {
+           "type": "number"
+          }
+         ],
+         "type": "array"
+        },
+        "type": "array"
+       },
+       {
+        "type": "null"
+       }
+      ],
+      "title": "Polygon"
+     },
+     "station_id": {
+      "anyOf": [
+       {
+        "type": "string"
+       },
+       {
+        "type": "null"
+       }
+      ],
+      "title": "Station Id"
+     },
+     "task": {
+      "anyOf": [
+       {
+        "$ref": "#/components/schemas/Task"
+       },
+       {
+        "type": "null"
+       }
+      ]
+     },
+     "task_id": {
+      "anyOf": [
+       {
+        "type": "string"
+       },
+       {
+        "type": "null"
+       }
+      ],
+      "title": "Task Id"
+     },
+     "time": {
+      "title": "Time",
+      "type": "number"
+     },
+     "type": {
+      "$ref": "#/components/schemas/EventType"
+     },
+     "uav": {
+      "anyOf": [
+       {
+        "$ref": "#/components/schemas/UAV"
+       },
+       {
+        "type": "null"
+       }
+      ]
+     },
+     "uav_id": {
+      "anyOf": [
+       {
+        "type": "string"
+       },
+       {
+        "type": "null"
+       }
+      ],
+      "title": "Uav Id"
+     },
+     "wind": {
+      "anyOf": [
+       {
+        "$ref": "#/components/schemas/Wind"
+       },
+       {
+        "type": "null"
+       }
+      ]
+     }
+    },
+    "required": [
+     "type",
+     "time"
+    ],
+    "title": "Event",
+    "type": "object"
+   },
+   "EventType": {
+    "enum": [
+     "NEW_TASK",
+     "BLOCK_REGION",
+     "UAV_UNAVAILABLE",
+     "BATTERY_DROP",
+     "TASK_DURATION_CHANGE",
+     "TASK_CANCELLED",
+     "UAV_JOINS",
+     "RTH",
+     "STATION_OUTAGE",
+     "WIND_CHANGE",
+     "TASK_DEADLINE_CHANGE",
+     "TERRAIN_CHANGE"
+    ],
+    "title": "EventType",
+    "type": "string"
+   },
+   "ExperimentRequest": {
+    "properties": {
+     "ablations": {
+      "default": false,
+      "title": "Ablations",
+      "type": "boolean"
+     },
+     "algorithms": {
+      "default": [
+       "nearest",
+       "greedy_energy",
+       "independent",
+       "integrated"
+      ],
+      "items": {
+       "type": "string"
+      },
+      "title": "Algorithms",
+      "type": "array"
+     },
+     "scenarios": {
+      "default": [
+       "A",
+       "B",
+       "C",
+       "D",
+       "E"
+      ],
+      "items": {
+       "type": "string"
+      },
+      "minItems": 1,
+      "title": "Scenarios",
+      "type": "array"
+     },
+     "seeds": {
+      "default": 5,
+      "maximum": 100.0,
+      "minimum": 1.0,
+      "title": "Seeds",
+      "type": "integer"
+     }
+    },
+    "title": "ExperimentRequest",
+    "type": "object"
+   },
+   "ExperimentResults": {
+    "properties": {
+     "figures": {
+      "items": {
+       "type": "string"
+      },
+      "title": "Figures",
+      "type": "array"
+     },
+     "id": {
+      "title": "Id",
+      "type": "string"
+     },
+     "pareto": {
+      "items": {
+       "additionalProperties": true,
+       "type": "object"
+      },
+      "title": "Pareto",
+      "type": "array"
+     },
+     "report": {
+      "title": "Report",
+      "type": "string"
+     },
+     "stats": {
+      "items": {
+       "additionalProperties": true,
+       "type": "object"
+      },
+      "title": "Stats",
+      "type": "array"
+     },
+     "status": {
+      "title": "Status",
+      "type": "string"
+     },
+     "summary": {
+      "items": {
+       "additionalProperties": true,
+       "type": "object"
+      },
+      "title": "Summary",
+      "type": "array"
+     }
+    },
+    "required": [
+     "id",
+     "status",
+     "summary",
+     "stats",
+     "pareto",
+     "figures",
+     "report"
+    ],
+    "title": "ExperimentResults",
+    "type": "object"
+   },
+   "ExperimentSummary": {
+    "properties": {
+     "created_at": {
+      "format": "date-time",
+      "title": "Created At",
+      "type": "string"
+     },
+     "id": {
+      "title": "Id",
+      "type": "string"
+     },
+     "params": {
+      "additionalProperties": true,
+      "title": "Params",
+      "type": "object"
+     },
+     "status": {
+      "title": "Status",
+      "type": "string"
+     }
+    },
+    "required": [
+     "id",
+     "status",
+     "params",
+     "created_at"
+    ],
+    "title": "ExperimentSummary",
+    "type": "object"
+   },
+   "FeasibilityReport": {
+    "properties": {
+     "feasible": {
+      "title": "Feasible",
+      "type": "boolean"
+     },
+     "violations": {
+      "default": [],
+      "items": {
+       "$ref": "#/components/schemas/Violation"
+      },
+      "title": "Violations",
+      "type": "array"
+     }
+    },
+    "required": [
+     "feasible"
+    ],
+    "title": "FeasibilityReport",
+    "type": "object"
+   },
+   "FeasibilityRequest": {
+    "description": "``assignment`` maps each UAV id to its ordered task ids.",
+    "properties": {
+     "assignment": {
+      "additionalProperties": {
+       "items": {
+        "type": "string"
+       },
+       "type": "array"
+      },
+      "title": "Assignment",
+      "type": "object"
+     },
+     "scenario": {
+      "anyOf": [
+       {
+        "$ref": "#/components/schemas/Scenario"
+       },
+       {
+        "type": "null"
+       }
+      ]
+     },
+     "scenario_id": {
+      "anyOf": [
+       {
+        "type": "string"
+       },
+       {
+        "type": "null"
+       }
+      ],
+      "title": "Scenario Id"
+     }
+    },
+    "required": [
+     "assignment"
+    ],
+    "title": "FeasibilityRequest",
+    "type": "object"
+   },
+   "FeasibilityResult": {
+    "properties": {
+     "report": {
+      "$ref": "#/components/schemas/FeasibilityReport"
+     }
+    },
+    "required": [
+     "report"
+    ],
+    "title": "FeasibilityResult",
+    "type": "object"
+   },
+   "GenerateParams": {
+    "properties": {
+     "battery_max": {
+      "default": 100.0,
+      "exclusiveMinimum": 0.0,
+      "title": "Battery Max",
+      "type": "number"
+     },
+     "battery_min": {
+      "default": 100.0,
+      "exclusiveMinimum": 0.0,
+      "title": "Battery Min",
+      "type": "number"
+     },
+     "cell_size": {
+      "default": 20.0,
+      "exclusiveMinimum": 0.0,
+      "title": "Cell Size",
+      "type": "number"
+     },
+     "deadline_fraction": {
+      "default": 0.3,
+      "maximum": 1.0,
+      "minimum": 0.0,
+      "title": "Deadline Fraction",
+      "type": "number"
+     },
+     "distribution": {
+      "default": "uniform",
+      "enum": [
+       "uniform",
+       "clustered",
+       "edge"
+      ],
+      "title": "Distribution",
+      "type": "string"
+     },
+     "fail_uav": {
+      "default": false,
+      "title": "Fail Uav",
+      "type": "boolean"
+     },
+     "height": {
+      "default": 50,
+      "maximum": 200.0,
+      "minimum": 5.0,
+      "title": "Height",
+      "type": "integer"
+     },
+     "n_energy_zones": {
+      "default": 2,
+      "maximum": 10.0,
+      "minimum": 0.0,
+      "title": "N Energy Zones",
+      "type": "integer"
+     },
+     "n_no_fly": {
+      "default": 1,
+      "maximum": 10.0,
+      "minimum": 0.0,
+      "title": "N No Fly",
+      "type": "integer"
+     },
+     "n_stations": {
+      "default": 2,
+      "maximum": 10.0,
+      "minimum": 1.0,
+      "title": "N Stations",
+      "type": "integer"
+     },
+     "n_tasks": {
+      "default": 20,
+      "maximum": 200.0,
+      "minimum": 0.0,
+      "title": "N Tasks",
+      "type": "integer"
+     },
+     "n_uavs": {
+      "default": 4,
+      "maximum": 20.0,
+      "minimum": 1.0,
+      "title": "N Uavs",
+      "type": "integer"
+     },
+     "n_urgent": {
+      "default": 0,
+      "maximum": 50.0,
+      "minimum": 0.0,
+      "title": "N Urgent",
+      "type": "integer"
+     },
+     "obstacle_density": {
+      "default": 0.08,
+      "maximum": 0.6,
+      "minimum": 0.0,
+      "title": "Obstacle Density",
+      "type": "number"
+     },
+     "width": {
+      "default": 50,
+      "maximum": 200.0,
+      "minimum": 5.0,
+      "title": "Width",
+      "type": "integer"
+     }
+    },
+    "title": "GenerateParams",
+    "type": "object"
+   },
+   "GenerateRequest": {
+    "description": "Give a ``preset`` id, or ``params`` for a random scenario.",
+    "properties": {
+     "params": {
+      "anyOf": [
+       {
+        "$ref": "#/components/schemas/GenerateParams"
+       },
+       {
+        "type": "null"
+       }
+      ]
+     },
+     "preset": {
+      "anyOf": [
+       {
+        "type": "string"
+       },
+       {
+        "type": "null"
+       }
+      ],
+      "title": "Preset"
+     },
+     "preset_id": {
+      "anyOf": [
+       {
+        "type": "string"
+       },
+       {
+        "type": "null"
+       }
+      ],
+      "title": "Preset Id"
+     },
+     "save": {
+      "default": false,
+      "title": "Save",
+      "type": "boolean"
+     },
+     "seed": {
+      "default": 42,
+      "title": "Seed",
+      "type": "integer"
+     },
+     "size": {
+      "default": "standard",
+      "enum": [
+       "small",
+       "standard"
+      ],
+      "title": "Size",
+      "type": "string"
+     }
+    },
+    "title": "GenerateRequest",
+    "type": "object"
+   },
+   "GridSpec": {
+    "description": "A ``width`` \u00d7 ``height`` cell map; each cell is ``cell_size`` metres wide.",
+    "properties": {
+     "cell_size": {
+      "default": 20.0,
+      "title": "Cell Size",
+      "type": "number"
+     },
+     "height": {
+      "default": 50,
+      "title": "Height",
+      "type": "integer"
+     },
+     "width": {
+      "default": 50,
+      "title": "Width",
+      "type": "integer"
+     }
+    },
+    "title": "GridSpec",
+    "type": "object"
+   },
+   "HTTPValidationError": {
+    "properties": {
+     "detail": {
+      "items": {
+       "$ref": "#/components/schemas/ValidationError"
+      },
+      "title": "Detail",
+      "type": "array"
+     }
+    },
+    "title": "HTTPValidationError",
+    "type": "object"
+   },
+   "Health": {
+    "properties": {
+     "status": {
+      "title": "Status",
+      "type": "string"
+     },
+     "version": {
+      "title": "Version",
+      "type": "string"
+     }
+    },
+    "required": [
+     "status",
+     "version"
+    ],
+    "title": "Health",
+    "type": "object"
+   },
+   "JobCreated": {
+    "properties": {
+     "job_id": {
+      "title": "Job Id",
+      "type": "string"
+     }
+    },
+    "required": [
+     "job_id"
+    ],
+    "title": "JobCreated",
+    "type": "object"
+   },
+   "JobInfo": {
+    "properties": {
+     "done": {
+      "title": "Done",
+      "type": "integer"
+     },
+     "error": {
+      "anyOf": [
+       {
+        "type": "string"
+       },
+       {
+        "type": "null"
+       }
+      ],
+      "title": "Error"
+     },
+     "id": {
+      "title": "Id",
+      "type": "string"
+     },
+     "kind": {
+      "title": "Kind",
+      "type": "string"
+     },
+     "message": {
+      "default": "",
+      "title": "Message",
+      "type": "string"
+     },
+     "result": {
+      "title": "Result"
+     },
+     "status": {
+      "enum": [
+       "queued",
+       "running",
+       "finished",
+       "cancelled",
+       "failed"
+      ],
+      "title": "Status",
+      "type": "string"
+     },
+     "total": {
+      "title": "Total",
+      "type": "integer"
+     }
+    },
+    "required": [
+     "id",
+     "kind",
+     "status",
+     "done",
+     "total"
+    ],
+    "title": "JobInfo",
+    "type": "object"
+   },
+   "Leg": {
+    "description": "One flown leg: to a task, to a charging stop, or the final return.",
+    "properties": {
+     "charge_energy": {
+      "default": 0.0,
+      "title": "Charge Energy",
+      "type": "number"
+     },
+     "charge_time": {
+      "default": 0.0,
+      "title": "Charge Time",
+      "type": "number"
+     },
+     "distance": {
+      "title": "Distance",
+      "type": "number"
+     },
+     "edge_distances": {
+      "default": [],
+      "items": {
+       "type": "number"
+      },
+      "title": "Edge Distances",
+      "type": "array"
+     },
+     "edge_efforts": {
+      "default": [],
+      "items": {
+       "type": "number"
+      },
+      "title": "Edge Efforts",
+      "type": "array"
+     },
+     "end": {
+      "maxItems": 2,
+      "minItems": 2,
+      "prefixItems": [
+       {
+        "type": "integer"
+       },
+       {
+        "type": "integer"
+       }
+      ],
+      "title": "End",
+      "type": "array"
+     },
+     "energy": {
+      "title": "Energy",
+      "type": "number"
+     },
+     "kind": {
+      "enum": [
+       "to_task",
+       "to_charge",
+       "return"
+      ],
+      "title": "Kind",
+      "type": "string"
+     },
+     "path": {
+      "items": {
+       "maxItems": 2,
+       "minItems": 2,
+       "prefixItems": [
+        {
+         "type": "integer"
+        },
+        {
+         "type": "integer"
+        }
+       ],
+       "type": "array"
+      },
+      "title": "Path",
+      "type": "array"
+     },
+     "start": {
+      "maxItems": 2,
+      "minItems": 2,
+      "prefixItems": [
+       {
+        "type": "integer"
+       },
+       {
+        "type": "integer"
+       }
+      ],
+      "title": "Start",
+      "type": "array"
+     },
+     "task_id": {
+      "anyOf": [
+       {
+        "type": "string"
+       },
+       {
+        "type": "null"
+       }
+      ],
+      "title": "Task Id"
+     },
+     "time": {
+      "title": "Time",
+      "type": "number"
+     }
+    },
+    "required": [
+     "kind",
+     "start",
+     "end",
+     "task_id",
+     "path",
+     "distance",
+     "time",
+     "energy"
+    ],
+    "title": "Leg",
+    "type": "object"
+   },
+   "LegPaths": {
+    "description": "One leg under both path metrics, for showing that shortest is not always cheapest.",
+    "properties": {
+     "distance_optimal": {
+      "$ref": "#/components/schemas/PathOption"
+     },
+     "energy_optimal": {
+      "$ref": "#/components/schemas/PathOption"
+     },
+     "uav_id": {
+      "title": "Uav Id",
+      "type": "string"
+     }
+    },
+    "required": [
+     "uav_id",
+     "energy_optimal",
+     "distance_optimal"
+    ],
+    "title": "LegPaths",
+    "type": "object"
+   },
+   "LegRef": {
+    "properties": {
+     "end": {
+      "maxItems": 2,
+      "minItems": 2,
+      "prefixItems": [
+       {
+        "type": "integer"
+       },
+       {
+        "type": "integer"
+       }
+      ],
+      "title": "End",
+      "type": "array"
+     },
+     "start": {
+      "maxItems": 2,
+      "minItems": 2,
+      "prefixItems": [
+       {
+        "type": "integer"
+       },
+       {
+        "type": "integer"
+       }
+      ],
+      "title": "Start",
+      "type": "array"
+     },
+     "uav_id": {
+      "title": "Uav Id",
+      "type": "string"
+     }
+    },
+    "required": [
+     "uav_id",
+     "start",
+     "end"
+    ],
+    "title": "LegRef",
+    "type": "object"
+   },
+   "ObjectiveBreakdown": {
+    "description": "Raw totals plus their normalized, weighted contributions to ``Z``.",
+    "properties": {
+     "balance_term": {
+      "title": "Balance Term",
+      "type": "number"
+     },
+     "distance_term": {
+      "title": "Distance Term",
+      "type": "number"
+     },
+     "energy_term": {
+      "title": "Energy Term",
+      "type": "number"
+     },
+     "load_variance": {
+      "title": "Load Variance",
+      "type": "number"
+     },
+     "makespan": {
+      "title": "Makespan",
+      "type": "number"
+     },
+     "time_term": {
+      "title": "Time Term",
+      "type": "number"
+     },
+     "total_distance": {
+      "title": "Total Distance",
+      "type": "number"
+     },
+     "total_energy": {
+      "title": "Total Energy",
+      "type": "number"
+     },
+     "unassigned_penalty": {
+      "title": "Unassigned Penalty",
+      "type": "number"
+     },
+     "z": {
+      "title": "Z",
+      "type": "number"
+     }
+    },
+    "required": [
+     "z",
+     "total_energy",
+     "makespan",
+     "total_distance",
+     "load_variance",
+     "unassigned_penalty",
+     "energy_term",
+     "time_term",
+     "distance_term",
+     "balance_term"
+    ],
+    "title": "ObjectiveBreakdown",
+    "type": "object"
+   },
+   "ObjectiveWeights": {
+    "description": "Weights of ``Z``; ``lam \u00b7 M \u00b7 P_j`` is charged per unassigned task.",
+    "properties": {
+     "alpha": {
+      "default": 0.35,
+      "title": "Alpha",
+      "type": "number"
+     },
+     "beta": {
+      "default": 0.35,
+      "title": "Beta",
+      "type": "number"
+     },
+     "big_m": {
+      "default": 10.0,
+      "title": "Big M",
+      "type": "number"
+     },
+     "delta": {
+      "default": 0.2,
+      "title": "Delta",
+      "type": "number"
+     },
+     "gamma": {
+      "default": 0.1,
+      "title": "Gamma",
+      "type": "number"
+     },
+     "lam": {
+      "default": 1.0,
+      "title": "Lam",
+      "type": "number"
+     }
+    },
+    "title": "ObjectiveWeights",
+    "type": "object"
+   },
+   "Obstacle": {
+    "description": "A rectangle (inclusive cell bounds) or polygon (cell coordinates).\n\n``obstacle`` and ``no_fly`` regions remove cells from the graph; ``blocked`` cells\nadded mid-mission use ``cells``. ``energy_zone`` regions stay flyable but multiply\nthe energy of edges inside them.",
+    "properties": {
+     "cells": {
+      "anyOf": [
+       {
+        "items": {
+         "maxItems": 2,
+         "minItems": 2,
+         "prefixItems": [
+          {
+           "type": "integer"
+          },
+          {
+           "type": "integer"
+          }
+         ],
+         "type": "array"
+        },
+        "type": "array"
+       },
+       {
+        "type": "null"
+       }
+      ],
+      "title": "Cells"
+     },
+     "energy_multiplier": {
+      "default": 1.0,
+      "title": "Energy Multiplier",
+      "type": "number"
+     },
+     "id": {
+      "title": "Id",
+      "type": "string"
+     },
+     "kind": {
+      "default": "obstacle",
+      "enum": [
+       "obstacle",
+       "no_fly",
+       "energy_zone"
+      ],
+      "title": "Kind",
+      "type": "string"
+     },
+     "label": {
+      "default": "",
+      "title": "Label",
+      "type": "string"
+     },
+     "polygon": {
+      "anyOf": [
+       {
+        "items": {
+         "maxItems": 2,
+         "minItems": 2,
+         "prefixItems": [
+          {
+           "type": "number"
+          },
+          {
+           "type": "number"
+          }
+         ],
+         "type": "array"
+        },
+        "type": "array"
+       },
+       {
+        "type": "null"
+       }
+      ],
+      "title": "Polygon"
+     },
+     "rect": {
+      "anyOf": [
+       {
+        "maxItems": 4,
+        "minItems": 4,
+        "prefixItems": [
+         {
+          "type": "integer"
+         },
+         {
+          "type": "integer"
+         },
+         {
+          "type": "integer"
+         },
+         {
+          "type": "integer"
+         }
+        ],
+        "type": "array"
+       },
+       {
+        "type": "null"
+       }
+      ],
+      "title": "Rect"
+     }
+    },
+    "required": [
+     "id"
+    ],
+    "title": "Obstacle",
+    "type": "object"
+   },
+   "PathCompareRequest": {
+    "description": "Legs to price under both path metrics.",
+    "properties": {
+     "legs": {
+      "items": {
+       "$ref": "#/components/schemas/LegRef"
+      },
+      "title": "Legs",
+      "type": "array"
+     },
+     "scenario": {
+      "anyOf": [
+       {
+        "$ref": "#/components/schemas/Scenario"
+       },
+       {
+        "type": "null"
+       }
+      ]
+     },
+     "scenario_id": {
+      "anyOf": [
+       {
+        "type": "string"
+       },
+       {
+        "type": "null"
+       }
+      ],
+      "title": "Scenario Id"
+     }
+    },
+    "required": [
+     "legs"
+    ],
+    "title": "PathCompareRequest",
+    "type": "object"
+   },
+   "PathCompareResult": {
+    "properties": {
+     "distance_optimal": {
+      "$ref": "#/components/schemas/PathTotals"
+     },
+     "energy_optimal": {
+      "$ref": "#/components/schemas/PathTotals"
+     },
+     "legs": {
+      "items": {
+       "$ref": "#/components/schemas/LegPaths"
+      },
+      "title": "Legs",
+      "type": "array"
+     }
+    },
+    "required": [
+     "legs",
+     "energy_optimal",
+     "distance_optimal"
+    ],
+    "title": "PathCompareResult",
+    "type": "object"
+   },
+   "PathOption": {
+    "properties": {
+     "cells": {
+      "items": {
+       "maxItems": 2,
+       "minItems": 2,
+       "prefixItems": [
+        {
+         "type": "integer"
+        },
+        {
+         "type": "integer"
+        }
+       ],
+       "type": "array"
+      },
+      "title": "Cells",
+      "type": "array"
+     },
+     "distance": {
+      "title": "Distance",
+      "type": "number"
+     },
+     "energy": {
+      "title": "Energy",
+      "type": "number"
+     }
+    },
+    "required": [
+     "cells",
+     "distance",
+     "energy"
+    ],
+    "title": "PathOption",
+    "type": "object"
+   },
+   "PathTotals": {
+    "properties": {
+     "distance": {
+      "title": "Distance",
+      "type": "number"
+     },
+     "energy": {
+      "title": "Energy",
+      "type": "number"
+     }
+    },
+    "required": [
+     "distance",
+     "energy"
+    ],
+    "title": "PathTotals",
+    "type": "object"
+   },
+   "Plan": {
+    "properties": {
+     "algorithm": {
+      "title": "Algorithm",
+      "type": "string"
+     },
+     "compute_time_s": {
+      "default": 0.0,
+      "title": "Compute Time S",
+      "type": "number"
+     },
+     "config": {
+      "additionalProperties": true,
+      "title": "Config",
+      "type": "object"
+     },
+     "explanations": {
+      "default": [],
+      "items": {
+       "$ref": "#/components/schemas/TaskExplanation"
+      },
+      "title": "Explanations",
+      "type": "array"
+     },
+     "objective": {
+      "$ref": "#/components/schemas/ObjectiveBreakdown"
+     },
+     "report": {
+      "$ref": "#/components/schemas/FeasibilityReport"
+     },
+     "routes": {
+      "items": {
+       "$ref": "#/components/schemas/Route"
+      },
+      "title": "Routes",
+      "type": "array"
+     },
+     "scenario_id": {
+      "title": "Scenario Id",
+      "type": "string"
+     },
+     "unassigned": {
+      "items": {
+       "$ref": "#/components/schemas/UnassignedTask"
+      },
+      "title": "Unassigned",
+      "type": "array"
+     }
+    },
+    "required": [
+     "algorithm",
+     "scenario_id",
+     "routes",
+     "unassigned",
+     "report",
+     "objective"
+    ],
+    "title": "Plan",
+    "type": "object"
+   },
+   "PlanRequest": {
+    "properties": {
+     "algorithm": {
+      "default": "integrated",
+      "title": "Algorithm",
+      "type": "string"
+     },
+     "config": {
+      "additionalProperties": true,
+      "title": "Config",
+      "type": "object"
+     },
+     "objective": {
+      "anyOf": [
+       {
+        "$ref": "#/components/schemas/ObjectiveWeights"
+       },
+       {
+        "type": "null"
+       }
+      ]
+     },
+     "reserve_ratio": {
+      "anyOf": [
+       {
+        "maximum": 0.9,
+        "minimum": 0.0,
+        "type": "number"
+       },
+       {
+        "type": "null"
+       }
+      ],
+      "title": "Reserve Ratio"
+     },
+     "scenario": {
+      "anyOf": [
+       {
+        "$ref": "#/components/schemas/Scenario"
+       },
+       {
+        "type": "null"
+       }
+      ]
+     },
+     "scenario_id": {
+      "anyOf": [
+       {
+        "type": "string"
+       },
+       {
+        "type": "null"
+       }
+      ],
+      "title": "Scenario Id"
+     },
+     "weights": {
+      "anyOf": [
+       {
+        "$ref": "#/components/schemas/CostWeights"
+       },
+       {
+        "type": "null"
+       }
+      ]
+     }
+    },
+    "title": "PlanRequest",
+    "type": "object"
+   },
+   "PlanResult": {
+    "description": "``plan`` is null when a large instance became the background job ``job_id``.",
+    "properties": {
+     "job_id": {
+      "anyOf": [
+       {
+        "type": "string"
+       },
+       {
+        "type": "null"
+       }
+      ],
+      "title": "Job Id"
+     },
+     "metrics": {
+      "anyOf": [
+       {
+        "additionalProperties": {
+         "anyOf": [
+          {
+           "type": "number"
+          },
+          {
+           "type": "null"
+          }
+         ]
+        },
+        "type": "object"
+       },
+       {
+        "type": "null"
+       }
+      ],
+      "title": "Metrics"
+     },
+     "plan": {
+      "anyOf": [
+       {
+        "$ref": "#/components/schemas/Plan"
+       },
+       {
+        "type": "null"
+       }
+      ]
+     }
+    },
+    "title": "PlanResult",
+    "type": "object"
+   },
+   "PresetMeta": {
+    "properties": {
+     "allow_recharge": {
+      "default": false,
+      "title": "Allow Recharge",
+      "type": "boolean"
+     },
+     "category": {
+      "default": "",
+      "title": "Category",
+      "type": "string"
+     },
+     "description": {
+      "title": "Description",
+      "type": "string"
+     },
+     "difficulty": {
+      "default": "",
+      "title": "Difficulty",
+      "type": "string"
+     },
+     "energy_focus": {
+      "default": "",
+      "title": "Energy Focus",
+      "type": "string"
+     },
+     "icon": {
+      "default": "",
+      "title": "Icon",
+      "type": "string"
+     },
+     "id": {
+      "title": "Id",
+      "type": "string"
+     },
+     "n_events": {
+      "default": 0,
+      "title": "N Events",
+      "type": "integer"
+     },
+     "n_tasks": {
+      "default": 0,
+      "title": "N Tasks",
+      "type": "integer"
+     },
+     "n_uavs": {
+      "default": 0,
+      "title": "N Uavs",
+      "type": "integer"
+     },
+     "name": {
+      "title": "Name",
+      "type": "string"
+     },
+     "preview": {
+      "anyOf": [
+       {
+        "$ref": "#/components/schemas/PresetPreview"
+       },
+       {
+        "type": "null"
+       }
+      ]
+     },
+     "sizes": {
+      "default": [
+       "standard"
+      ],
+      "items": {
+       "type": "string"
+      },
+      "title": "Sizes",
+      "type": "array"
+     },
+     "story": {
+      "default": "",
+      "title": "Story",
+      "type": "string"
+     },
+     "tags": {
+      "default": [],
+      "items": {
+       "type": "string"
+      },
+      "title": "Tags",
+      "type": "array"
+     },
+     "theme": {
+      "default": "",
+      "title": "Theme",
+      "type": "string"
+     }
+    },
+    "required": [
+     "id",
+     "name",
+     "description"
+    ],
+    "title": "PresetMeta",
+    "type": "object"
+   },
+   "PresetPreview": {
+    "description": "Just enough of a scenario to draw a thumbnail.",
+    "properties": {
+     "grid": {
+      "$ref": "#/components/schemas/GridSpec"
+     },
+     "obstacles": {
+      "items": {
+       "$ref": "#/components/schemas/Obstacle"
+      },
+      "title": "Obstacles",
+      "type": "array"
+     },
+     "stations": {
+      "items": {
+       "$ref": "#/components/schemas/Station"
+      },
+      "title": "Stations",
+      "type": "array"
+     },
+     "task_cells": {
+      "items": {
+       "maxItems": 2,
+       "minItems": 2,
+       "prefixItems": [
+        {
+         "type": "integer"
+        },
+        {
+         "type": "integer"
+        }
+       ],
+       "type": "array"
+      },
+      "title": "Task Cells",
+      "type": "array"
+     },
+     "terrain_layers": {
+      "items": {
+       "$ref": "#/components/schemas/TerrainLayer"
+      },
+      "title": "Terrain Layers",
+      "type": "array"
+     },
+     "wind": {
+      "anyOf": [
+       {
+        "$ref": "#/components/schemas/Wind"
+       },
+       {
+        "type": "null"
+       }
+      ]
+     }
+    },
+    "required": [
+     "grid",
+     "terrain_layers",
+     "obstacles",
+     "stations",
+     "task_cells"
+    ],
+    "title": "PresetPreview",
+    "type": "object"
+   },
+   "Priority": {
+    "enum": [
+     1,
+     2,
+     3,
+     4
+    ],
+    "title": "Priority",
+    "type": "integer"
+   },
+   "Route": {
+    "description": "A UAV's complete plan: ``[start, j1, ..., jk, station]``.",
+    "properties": {
+     "battery_end": {
+      "title": "Battery End",
+      "type": "number"
+     },
+     "battery_start": {
+      "title": "Battery Start",
+      "type": "number"
+     },
+     "completion_time": {
+      "title": "Completion Time",
+      "type": "number"
+     },
+     "distance": {
+      "title": "Distance",
+      "type": "number"
+     },
+     "feasible": {
+      "title": "Feasible",
+      "type": "boolean"
+     },
+     "landing_energy": {
+      "title": "Landing Energy",
+      "type": "number"
+     },
+     "legs": {
+      "items": {
+       "$ref": "#/components/schemas/Leg"
+      },
+      "title": "Legs",
+      "type": "array"
+     },
+     "margin": {
+      "title": "Margin",
+      "type": "number"
+     },
+     "profile": {
+      "default": [],
+      "items": {
+       "$ref": "#/components/schemas/BatteryPoint"
+      },
+      "title": "Profile",
+      "type": "array"
+     },
+     "recharged_energy": {
+      "default": 0.0,
+      "title": "Recharged Energy",
+      "type": "number"
+     },
+     "reserve": {
+      "title": "Reserve",
+      "type": "number"
+     },
+     "return_energy": {
+      "title": "Return Energy",
+      "type": "number"
+     },
+     "start_time": {
+      "title": "Start Time",
+      "type": "number"
+     },
+     "station_id": {
+      "anyOf": [
+       {
+        "type": "string"
+       },
+       {
+        "type": "null"
+       }
+      ],
+      "title": "Station Id"
+     },
+     "takeoff_energy": {
+      "title": "Takeoff Energy",
+      "type": "number"
+     },
+     "task_energy": {
+      "title": "Task Energy",
+      "type": "number"
+     },
+     "task_ids": {
+      "items": {
+       "type": "string"
+      },
+      "title": "Task Ids",
+      "type": "array"
+     },
+     "travel_energy": {
+      "title": "Travel Energy",
+      "type": "number"
+     },
+     "uav_id": {
+      "title": "Uav Id",
+      "type": "string"
+     },
+     "wait_energy": {
+      "title": "Wait Energy",
+      "type": "number"
+     }
+    },
+    "required": [
+     "uav_id",
+     "task_ids",
+     "legs",
+     "station_id",
+     "start_time",
+     "completion_time",
+     "distance",
+     "travel_energy",
+     "task_energy",
+     "return_energy",
+     "takeoff_energy",
+     "landing_energy",
+     "wait_energy",
+     "reserve",
+     "battery_start",
+     "battery_end",
+     "margin",
+     "feasible"
+    ],
+    "title": "Route",
+    "type": "object"
+   },
+   "RunSummary": {
+    "properties": {
+     "algorithm": {
+      "title": "Algorithm",
+      "type": "string"
+     },
+     "completion_rate": {
+      "anyOf": [
+       {
+        "type": "number"
+       },
+       {
+        "type": "null"
+       }
+      ],
+      "title": "Completion Rate"
+     },
+     "created_at": {
+      "format": "date-time",
+      "title": "Created At",
+      "type": "string"
+     },
+     "feasible": {
+      "anyOf": [
+       {
+        "type": "boolean"
+       },
+       {
+        "type": "null"
+       }
+      ],
+      "title": "Feasible"
+     },
+     "id": {
+      "title": "Id",
+      "type": "string"
+     },
+     "kind": {
+      "title": "Kind",
+      "type": "string"
+     },
+     "scenario_id": {
+      "title": "Scenario Id",
+      "type": "string"
+     },
+     "scenario_name": {
+      "title": "Scenario Name",
+      "type": "string"
+     }
+    },
+    "required": [
+     "id",
+     "kind",
+     "scenario_id",
+     "scenario_name",
+     "algorithm",
+     "completion_rate",
+     "feasible",
+     "created_at"
+    ],
+    "title": "RunSummary",
+    "type": "object"
+   },
+   "Scenario": {
+    "description": "Everything a planner needs. Mid-mission replans use a derived scenario.",
+    "properties": {
+     "description": {
+      "default": "",
+      "title": "Description",
+      "type": "string"
+     },
+     "energy": {
+      "$ref": "#/components/schemas/EnergyConfig"
+     },
+     "events": {
+      "default": [],
+      "items": {
+       "$ref": "#/components/schemas/Event"
+      },
+      "title": "Events",
+      "type": "array"
+     },
+     "grid": {
+      "$ref": "#/components/schemas/GridSpec"
+     },
+     "id": {
+      "title": "Id",
+      "type": "string"
+     },
+     "meta": {
+      "anyOf": [
+       {
+        "$ref": "#/components/schemas/ScenarioMeta"
+       },
+       {
+        "type": "null"
+       }
+      ]
+     },
+     "name": {
+      "title": "Name",
+      "type": "string"
+     },
+     "obstacles": {
+      "default": [],
+      "items": {
+       "$ref": "#/components/schemas/Obstacle"
+      },
+      "title": "Obstacles",
+      "type": "array"
+     },
+     "seed": {
+      "default": 0,
+      "title": "Seed",
+      "type": "integer"
+     },
+     "stations": {
+      "items": {
+       "$ref": "#/components/schemas/Station"
+      },
+      "title": "Stations",
+      "type": "array"
+     },
+     "tasks": {
+      "items": {
+       "$ref": "#/components/schemas/Task"
+      },
+      "title": "Tasks",
+      "type": "array"
+     },
+     "terrain_layers": {
+      "default": [],
+      "items": {
+       "$ref": "#/components/schemas/TerrainLayer"
+      },
+      "title": "Terrain Layers",
+      "type": "array"
+     },
+     "uavs": {
+      "items": {
+       "$ref": "#/components/schemas/UAV"
+      },
+      "title": "Uavs",
+      "type": "array"
+     },
+     "wind": {
+      "anyOf": [
+       {
+        "$ref": "#/components/schemas/Wind"
+       },
+       {
+        "type": "null"
+       }
+      ]
+     }
+    },
+    "required": [
+     "id",
+     "name",
+     "grid",
+     "uavs",
+     "tasks",
+     "stations"
+    ],
+    "title": "Scenario",
+    "type": "object"
+   },
+   "ScenarioMeta": {
+    "description": "How a mission is presented. All values are illustrative simulation settings.",
+    "properties": {
+     "allow_recharge": {
+      "default": false,
+      "title": "Allow Recharge",
+      "type": "boolean"
+     },
+     "category": {
+      "default": "",
+      "title": "Category",
+      "type": "string"
+     },
+     "description": {
+      "default": "",
+      "title": "Description",
+      "type": "string"
+     },
+     "difficulty": {
+      "default": "medium",
+      "enum": [
+       "easy",
+       "medium",
+       "hard"
+      ],
+      "title": "Difficulty",
+      "type": "string"
+     },
+     "energy_focus": {
+      "default": "",
+      "title": "Energy Focus",
+      "type": "string"
+     },
+     "icon": {
+      "default": "",
+      "title": "Icon",
+      "type": "string"
+     },
+     "id": {
+      "title": "Id",
+      "type": "string"
+     },
+     "name": {
+      "title": "Name",
+      "type": "string"
+     },
+     "story": {
+      "default": "",
+      "title": "Story",
+      "type": "string"
+     },
+     "tags": {
+      "default": [],
+      "items": {
+       "type": "string"
+      },
+      "title": "Tags",
+      "type": "array"
+     },
+     "theme": {
+      "default": "",
+      "title": "Theme",
+      "type": "string"
+     }
+    },
+    "required": [
+     "id",
+     "name"
+    ],
+    "title": "ScenarioMeta",
+    "type": "object"
+   },
+   "ScenarioSummary": {
+    "properties": {
+     "id": {
+      "title": "Id",
+      "type": "string"
+     },
+     "n_tasks": {
+      "title": "N Tasks",
+      "type": "integer"
+     },
+     "n_uavs": {
+      "title": "N Uavs",
+      "type": "integer"
+     },
+     "name": {
+      "title": "Name",
+      "type": "string"
+     },
+     "updated_at": {
+      "format": "date-time",
+      "title": "Updated At",
+      "type": "string"
+     }
+    },
+    "required": [
+     "id",
+     "name",
+     "n_uavs",
+     "n_tasks",
+     "updated_at"
+    ],
+    "title": "ScenarioSummary",
+    "type": "object"
+   },
+   "SimulationCreated": {
+    "properties": {
+     "sim_id": {
+      "title": "Sim Id",
+      "type": "string"
+     }
+    },
+    "required": [
+     "sim_id"
+    ],
+    "title": "SimulationCreated",
+    "type": "object"
+   },
+   "SimulationRequest": {
+    "properties": {
+     "algorithm": {
+      "default": "integrated",
+      "title": "Algorithm",
+      "type": "string"
+     },
+     "config": {
+      "additionalProperties": true,
+      "title": "Config",
+      "type": "object"
+     },
+     "early_rth": {
+      "default": false,
+      "title": "Early Rth",
+      "type": "boolean"
+     },
+     "in_progress": {
+      "default": "finish",
+      "enum": [
+       "finish",
+       "abandon"
+      ],
+      "title": "In Progress",
+      "type": "string"
+     },
+     "noise_sigma": {
+      "default": 0.0,
+      "maximum": 1.0,
+      "minimum": 0.0,
+      "title": "Noise Sigma",
+      "type": "number"
+     },
+     "objective": {
+      "anyOf": [
+       {
+        "$ref": "#/components/schemas/ObjectiveWeights"
+       },
+       {
+        "type": "null"
+       }
+      ]
+     },
+     "replan_mode": {
+      "default": "local_then_global",
+      "enum": [
+       "none",
+       "local_only",
+       "local_then_global",
+       "always_global"
+      ],
+      "title": "Replan Mode",
+      "type": "string"
+     },
+     "reserve_ratio": {
+      "anyOf": [
+       {
+        "maximum": 0.9,
+        "minimum": 0.0,
+        "type": "number"
+       },
+       {
+        "type": "null"
+       }
+      ],
+      "title": "Reserve Ratio"
+     },
+     "scenario": {
+      "anyOf": [
+       {
+        "$ref": "#/components/schemas/Scenario"
+       },
+       {
+        "type": "null"
+       }
+      ]
+     },
+     "scenario_id": {
+      "anyOf": [
+       {
+        "type": "string"
+       },
+       {
+        "type": "null"
+       }
+      ],
+      "title": "Scenario Id"
+     },
+     "seed": {
+      "default": 0,
+      "title": "Seed",
+      "type": "integer"
+     },
+     "weights": {
+      "anyOf": [
+       {
+        "$ref": "#/components/schemas/CostWeights"
+       },
+       {
+        "type": "null"
+       }
+      ]
+     }
+    },
+    "title": "SimulationRequest",
+    "type": "object"
+   },
+   "SimulationState": {
+    "properties": {
+     "algorithm": {
+      "title": "Algorithm",
+      "type": "string"
+     },
+     "end_time": {
+      "title": "End Time",
+      "type": "number"
+     },
+     "energy": {
+      "items": {
+       "additionalProperties": true,
+       "type": "object"
+      },
+      "title": "Energy",
+      "type": "array"
+     },
+     "injected_events": {
+      "title": "Injected Events",
+      "type": "integer"
+     },
+     "log": {
+      "items": {
+       "additionalProperties": true,
+       "type": "object"
+      },
+      "title": "Log",
+      "type": "array"
+     },
+     "metrics": {
+      "additionalProperties": {
+       "anyOf": [
+        {
+         "type": "number"
+        },
+        {
+         "type": "null"
+        }
+       ]
+      },
+      "title": "Metrics",
+      "type": "object"
+     },
+     "plan": {
+      "$ref": "#/components/schemas/Plan"
+     },
+     "replans": {
+      "items": {
+       "additionalProperties": true,
+       "type": "object"
+      },
+      "title": "Replans",
+      "type": "array"
+     },
+     "scenario": {
+      "$ref": "#/components/schemas/Scenario"
+     },
+     "sim_id": {
+      "title": "Sim Id",
+      "type": "string"
+     }
+    },
+    "required": [
+     "sim_id",
+     "scenario",
+     "algorithm",
+     "plan",
+     "end_time",
+     "injected_events",
+     "metrics",
+     "log",
+     "replans",
+     "energy"
+    ],
+    "title": "SimulationState",
+    "type": "object"
+   },
+   "Station": {
+    "description": "A charging/landing station.",
+    "properties": {
+     "cell": {
+      "maxItems": 2,
+      "minItems": 2,
+      "prefixItems": [
+       {
+        "type": "integer"
+       },
+       {
+        "type": "integer"
+       }
+      ],
+      "title": "Cell",
+      "type": "array"
+     },
+     "id": {
+      "title": "Id",
+      "type": "string"
+     }
+    },
+    "required": [
+     "id",
+     "cell"
+    ],
+    "title": "Station",
+    "type": "object"
+   },
+   "Task": {
+    "description": "Task ``J_j = (p_j, P_j, S_j, E_task, dur_j, deadline_j, mandatory, release_j)``.",
+    "properties": {
+     "capability": {
+      "anyOf": [
+       {
+        "type": "string"
+       },
+       {
+        "type": "null"
+       }
+      ],
+      "default": "camera",
+      "title": "Capability"
+     },
+     "cell": {
+      "maxItems": 2,
+      "minItems": 2,
+      "prefixItems": [
+       {
+        "type": "integer"
+       },
+       {
+        "type": "integer"
+       }
+      ],
+      "title": "Cell",
+      "type": "array"
+     },
+     "deadline": {
+      "anyOf": [
+       {
+        "type": "number"
+       },
+       {
+        "type": "null"
+       }
+      ],
+      "title": "Deadline"
+     },
+     "duration": {
+      "default": 30.0,
+      "title": "Duration",
+      "type": "number"
+     },
+     "energy": {
+      "default": 8.0,
+      "title": "Energy",
+      "type": "number"
+     },
+     "id": {
+      "title": "Id",
+      "type": "string"
+     },
+     "label": {
+      "default": "",
+      "title": "Label",
+      "type": "string"
+     },
+     "mandatory": {
+      "default": false,
+      "title": "Mandatory",
+      "type": "boolean"
+     },
+     "priority": {
+      "$ref": "#/components/schemas/Priority",
+      "default": 2
+     },
+     "release_time": {
+      "default": 0.0,
+      "title": "Release Time",
+      "type": "number"
+     }
+    },
+    "required": [
+     "id",
+     "cell"
+    ],
+    "title": "Task",
+    "type": "object"
+   },
+   "TaskExplanation": {
+    "properties": {
+     "candidates": {
+      "items": {
+       "$ref": "#/components/schemas/CandidateTrace"
+      },
+      "title": "Candidates",
+      "type": "array"
+     },
+     "chosen_uav": {
+      "anyOf": [
+       {
+        "type": "string"
+       },
+       {
+        "type": "null"
+       }
+      ],
+      "title": "Chosen Uav"
+     },
+     "note": {
+      "title": "Note",
+      "type": "string"
+     },
+     "task_id": {
+      "title": "Task Id",
+      "type": "string"
+     }
+    },
+    "required": [
+     "task_id",
+     "chosen_uav",
+     "note",
+     "candidates"
+    ],
+    "title": "TaskExplanation",
+    "type": "object"
+   },
+   "TerrainLayer": {
+    "description": "A typed map region, drawn on the map and optionally affecting flight.\n\n``blocked`` removes its cells from the graph. ``energy_multiplier`` scales the energy of\nedges inside it, through the same cell multipliers as an ``energy_zone`` region.",
+    "properties": {
+     "blocked": {
+      "default": false,
+      "title": "Blocked",
+      "type": "boolean"
+     },
+     "cells": {
+      "anyOf": [
+       {
+        "items": {
+         "maxItems": 2,
+         "minItems": 2,
+         "prefixItems": [
+          {
+           "type": "integer"
+          },
+          {
+           "type": "integer"
+          }
+         ],
+         "type": "array"
+        },
+        "type": "array"
+       },
+       {
+        "type": "null"
+       }
+      ],
+      "title": "Cells"
+     },
+     "energy_multiplier": {
+      "anyOf": [
+       {
+        "type": "number"
+       },
+       {
+        "type": "null"
+       }
+      ],
+      "title": "Energy Multiplier"
+     },
+     "id": {
+      "title": "Id",
+      "type": "string"
+     },
+     "label": {
+      "default": "",
+      "title": "Label",
+      "type": "string"
+     },
+     "polygon": {
+      "anyOf": [
+       {
+        "items": {
+         "maxItems": 2,
+         "minItems": 2,
+         "prefixItems": [
+          {
+           "type": "number"
+          },
+          {
+           "type": "number"
+          }
+         ],
+         "type": "array"
+        },
+        "type": "array"
+       },
+       {
+        "type": "null"
+       }
+      ],
+      "title": "Polygon"
+     },
+     "rect": {
+      "anyOf": [
+       {
+        "maxItems": 4,
+        "minItems": 4,
+        "prefixItems": [
+         {
+          "type": "integer"
+         },
+         {
+          "type": "integer"
+         },
+         {
+          "type": "integer"
+         },
+         {
+          "type": "integer"
+         }
+        ],
+        "type": "array"
+       },
+       {
+        "type": "null"
+       }
+      ],
+      "title": "Rect"
+     },
+     "type": {
+      "enum": [
+       "water",
+       "forest",
+       "urban",
+       "field",
+       "road",
+       "rubble",
+       "fire",
+       "smoke",
+       "hill",
+       "coast",
+       "slick"
+      ],
+      "title": "Type",
+      "type": "string"
+     }
+    },
+    "required": [
+     "id",
+     "type"
+    ],
+    "title": "TerrainLayer",
+    "type": "object"
+   },
+   "Timeline": {
+    "properties": {
+     "end_time": {
+      "title": "End Time",
+      "type": "number"
+     },
+     "frames": {
+      "items": {
+       "additionalProperties": true,
+       "type": "object"
+      },
+      "title": "Frames",
+      "type": "array"
+     }
+    },
+    "required": [
+     "end_time",
+     "frames"
+    ],
+    "title": "Timeline",
+    "type": "object"
+   },
+   "UAV": {
+    "description": "UAV state ``U_i = (p_i, B_i, B_i^max, C_i, T_i, v_i, P_cruise, P_hover, status, home)``.",
+    "properties": {
+     "airborne": {
+      "default": false,
+      "title": "Airborne",
+      "type": "boolean"
+     },
+     "battery": {
+      "title": "Battery",
+      "type": "number"
+     },
+     "battery_max": {
+      "default": 100.0,
+      "title": "Battery Max",
+      "type": "number"
+     },
+     "capabilities": {
+      "default": [
+       "camera"
+      ],
+      "items": {
+       "type": "string"
+      },
+      "title": "Capabilities",
+      "type": "array",
+      "uniqueItems": true
+     },
+     "energy_per_meter": {
+      "default": 0.03,
+      "title": "Energy Per Meter",
+      "type": "number"
+     },
+     "home": {
+      "title": "Home",
+      "type": "string"
+     },
+     "hover_rate": {
+      "default": 0.0,
+      "title": "Hover Rate",
+      "type": "number"
+     },
+     "id": {
+      "title": "Id",
+      "type": "string"
+     },
+     "landing_energy": {
+      "default": 0.0,
+      "title": "Landing Energy",
+      "type": "number"
+     },
+     "power_cruise": {
+      "default": 100.0,
+      "title": "Power Cruise",
+      "type": "number"
+     },
+     "power_hover": {
+      "default": 120.0,
+      "title": "Power Hover",
+      "type": "number"
+     },
+     "ready_time": {
+      "default": 0.0,
+      "title": "Ready Time",
+      "type": "number"
+     },
+     "speed": {
+      "default": 10.0,
+      "title": "Speed",
+      "type": "number"
+     },
+     "start": {
+      "maxItems": 2,
+      "minItems": 2,
+      "prefixItems": [
+       {
+        "type": "integer"
+       },
+       {
+        "type": "integer"
+       }
+      ],
+      "title": "Start",
+      "type": "array"
+     },
+     "status": {
+      "$ref": "#/components/schemas/UAVStatus",
+      "default": "idle"
+     },
+     "takeoff_energy": {
+      "default": 0.0,
+      "title": "Takeoff Energy",
+      "type": "number"
+     }
+    },
+    "required": [
+     "id",
+     "start",
+     "battery",
+     "home"
+    ],
+    "title": "UAV",
+    "type": "object"
+   },
+   "UAVStatus": {
+    "enum": [
+     "idle",
+     "en_route",
+     "working",
+     "returning",
+     "charging",
+     "unavailable"
+    ],
+    "title": "UAVStatus",
+    "type": "string"
+   },
+   "UnassignedTask": {
+    "properties": {
+     "reason": {
+      "title": "Reason",
+      "type": "string"
+     },
+     "task_id": {
+      "title": "Task Id",
+      "type": "string"
+     }
+    },
+    "required": [
+     "task_id",
+     "reason"
+    ],
+    "title": "UnassignedTask",
+    "type": "object"
+   },
+   "ValidationError": {
+    "properties": {
+     "ctx": {
+      "title": "Context",
+      "type": "object"
+     },
+     "input": {
+      "title": "Input"
+     },
+     "loc": {
+      "items": {
+       "anyOf": [
+        {
+         "type": "string"
+        },
+        {
+         "type": "integer"
+        }
+       ]
+      },
+      "title": "Location",
+      "type": "array"
+     },
+     "msg": {
+      "title": "Message",
+      "type": "string"
+     },
+     "type": {
+      "title": "Error Type",
+      "type": "string"
+     }
+    },
+    "required": [
+     "loc",
+     "msg",
+     "type"
+    ],
+    "title": "ValidationError",
+    "type": "object"
+   },
+   "Violation": {
+    "properties": {
+     "detail": {
+      "title": "Detail",
+      "type": "string"
+     },
+     "margin": {
+      "default": 0.0,
+      "title": "Margin",
+      "type": "number"
+     },
+     "task_id": {
+      "anyOf": [
+       {
+        "type": "string"
+       },
+       {
+        "type": "null"
+       }
+      ],
+      "title": "Task Id"
+     },
+     "type": {
+      "$ref": "#/components/schemas/ViolationType"
+     },
+     "uav_id": {
+      "title": "Uav Id",
+      "type": "string"
+     }
+    },
+    "required": [
+     "type",
+     "uav_id",
+     "detail"
+    ],
+    "title": "Violation",
+    "type": "object"
+   },
+   "ViolationType": {
+    "enum": [
+     "CAPABILITY",
+     "UNREACHABLE",
+     "ENERGY_TOTAL",
+     "ENERGY_PREFIX",
+     "NO_RETURN",
+     "DEADLINE",
+     "UAV_UNAVAILABLE"
+    ],
+    "title": "ViolationType",
+    "type": "string"
+   },
+   "Wind": {
+    "description": "A uniform wind. ``direction_deg`` is the compass bearing it blows towards.\n\n0\u00b0 points up the map (increasing ``y``) and 90\u00b0 points right (increasing ``x``).\n``k`` is the sensitivity ``k_w`` in the leg energy factor.",
+    "properties": {
+     "direction_deg": {
+      "default": 0.0,
+      "title": "Direction Deg",
+      "type": "number"
+     },
+     "k": {
+      "default": 1.0,
+      "title": "K",
+      "type": "number"
+     },
+     "speed": {
+      "default": 0.0,
+      "title": "Speed",
+      "type": "number"
+     }
+    },
+    "title": "Wind",
+    "type": "object"
+   }
+  }
+ },
+ "info": {
+  "description": "Energy-aware route planning and battery feasibility. All values are simulated and illustrative, in normalized energy units unless stated.",
+  "title": "Optimizing Routing, Task Allocation, and Energy Management in Collaborative UAV Systems",
+  "version": "0.1.0"
+ },
+ "openapi": "3.1.0",
+ "paths": {
+  "/api/experiments": {
+   "get": {
+    "operationId": "list_experiments_api_experiments_get",
+    "responses": {
+     "200": {
+      "content": {
+       "application/json": {
+        "schema": {
+         "items": {
+          "$ref": "#/components/schemas/ExperimentSummary"
+         },
+         "title": "Response List Experiments Api Experiments Get",
+         "type": "array"
+        }
+       }
+      },
+      "description": "Successful Response"
+     }
+    },
+    "summary": "List Experiments",
+    "tags": [
+     "experiments"
+    ]
+   },
+   "post": {
+    "operationId": "start_experiment_api_experiments_post",
+    "requestBody": {
+     "content": {
+      "application/json": {
+       "schema": {
+        "$ref": "#/components/schemas/ExperimentRequest"
+       }
+      }
+     },
+     "required": true
+    },
+    "responses": {
+     "202": {
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/JobCreated"
+        }
+       }
+      },
+      "description": "Successful Response"
+     },
+     "404": {
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/ErrorResponse"
+        }
+       }
+      },
+      "description": "Not Found"
+     },
+     "422": {
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/ErrorResponse"
+        }
+       }
+      },
+      "description": "Unprocessable Entity"
+     }
+    },
+    "summary": "Start Experiment",
+    "tags": [
+     "experiments"
+    ]
+   }
+  },
+  "/api/experiments/{experiment_id}/download": {
+   "get": {
+    "operationId": "download_experiment_api_experiments__experiment_id__download_get",
+    "parameters": [
+     {
+      "in": "path",
+      "name": "experiment_id",
+      "required": true,
+      "schema": {
+       "title": "Experiment Id",
+       "type": "string"
+      }
+     }
+    ],
+    "responses": {
+     "200": {
+      "content": {
+       "application/json": {
+        "schema": {}
+       }
+      },
+      "description": "Successful Response"
+     },
+     "404": {
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/ErrorResponse"
+        }
+       }
+      },
+      "description": "Not Found"
+     },
+     "422": {
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/ErrorResponse"
+        }
+       }
+      },
+      "description": "Unprocessable Entity"
+     }
+    },
+    "summary": "Download Experiment",
+    "tags": [
+     "experiments"
+    ]
+   }
+  },
+  "/api/experiments/{experiment_id}/figures/{name}": {
+   "get": {
+    "operationId": "experiment_figure_api_experiments__experiment_id__figures__name__get",
+    "parameters": [
+     {
+      "in": "path",
+      "name": "experiment_id",
+      "required": true,
+      "schema": {
+       "title": "Experiment Id",
+       "type": "string"
+      }
+     },
+     {
+      "in": "path",
+      "name": "name",
+      "required": true,
+      "schema": {
+       "title": "Name",
+       "type": "string"
+      }
+     }
+    ],
+    "responses": {
+     "200": {
+      "content": {
+       "application/json": {
+        "schema": {}
+       }
+      },
+      "description": "Successful Response"
+     },
+     "404": {
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/ErrorResponse"
+        }
+       }
+      },
+      "description": "Not Found"
+     },
+     "422": {
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/ErrorResponse"
+        }
+       }
+      },
+      "description": "Unprocessable Entity"
+     }
+    },
+    "summary": "Experiment Figure",
+    "tags": [
+     "experiments"
+    ]
+   }
+  },
+  "/api/experiments/{experiment_id}/results": {
+   "get": {
+    "operationId": "experiment_results_api_experiments__experiment_id__results_get",
+    "parameters": [
+     {
+      "in": "path",
+      "name": "experiment_id",
+      "required": true,
+      "schema": {
+       "title": "Experiment Id",
+       "type": "string"
+      }
+     }
+    ],
+    "responses": {
+     "200": {
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/ExperimentResults"
+        }
+       }
+      },
+      "description": "Successful Response"
+     },
+     "404": {
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/ErrorResponse"
+        }
+       }
+      },
+      "description": "Not Found"
+     },
+     "422": {
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/ErrorResponse"
+        }
+       }
+      },
+      "description": "Unprocessable Entity"
+     }
+    },
+    "summary": "Experiment Results",
+    "tags": [
+     "experiments"
+    ]
+   }
+  },
+  "/api/feasibility/check": {
+   "post": {
+    "operationId": "check_feasibility_api_feasibility_check_post",
+    "requestBody": {
+     "content": {
+      "application/json": {
+       "schema": {
+        "$ref": "#/components/schemas/FeasibilityRequest"
+       }
+      }
+     },
+     "required": true
+    },
+    "responses": {
+     "200": {
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/FeasibilityResult"
+        }
+       }
+      },
+      "description": "Successful Response"
+     },
+     "404": {
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/ErrorResponse"
+        }
+       }
+      },
+      "description": "Not Found"
+     },
+     "422": {
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/ErrorResponse"
+        }
+       }
+      },
+      "description": "Unprocessable Entity"
+     }
+    },
+    "summary": "Check Feasibility",
+    "tags": [
+     "plans"
+    ]
+   }
+  },
+  "/api/health": {
+   "get": {
+    "operationId": "health_api_health_get",
+    "responses": {
+     "200": {
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/Health"
+        }
+       }
+      },
+      "description": "Successful Response"
+     }
+    },
+    "summary": "Health",
+    "tags": [
+     "meta"
+    ]
+   }
+  },
+  "/api/jobs/{job_id}": {
+   "delete": {
+    "operationId": "cancel_job_api_jobs__job_id__delete",
+    "parameters": [
+     {
+      "in": "path",
+      "name": "job_id",
+      "required": true,
+      "schema": {
+       "title": "Job Id",
+       "type": "string"
+      }
+     }
+    ],
+    "responses": {
+     "200": {
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/JobInfo"
+        }
+       }
+      },
+      "description": "Successful Response"
+     },
+     "404": {
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/ErrorResponse"
+        }
+       }
+      },
+      "description": "Not Found"
+     },
+     "422": {
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/ErrorResponse"
+        }
+       }
+      },
+      "description": "Unprocessable Entity"
+     }
+    },
+    "summary": "Cancel Job",
+    "tags": [
+     "experiments"
+    ]
+   },
+   "get": {
+    "operationId": "get_job_api_jobs__job_id__get",
+    "parameters": [
+     {
+      "in": "path",
+      "name": "job_id",
+      "required": true,
+      "schema": {
+       "title": "Job Id",
+       "type": "string"
+      }
+     }
+    ],
+    "responses": {
+     "200": {
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/JobInfo"
+        }
+       }
+      },
+      "description": "Successful Response"
+     },
+     "404": {
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/ErrorResponse"
+        }
+       }
+      },
+      "description": "Not Found"
+     },
+     "422": {
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/ErrorResponse"
+        }
+       }
+      },
+      "description": "Unprocessable Entity"
+     }
+    },
+    "summary": "Get Job",
+    "tags": [
+     "experiments"
+    ]
+   }
+  },
+  "/api/meta/algorithms": {
+   "get": {
+    "operationId": "algorithms_api_meta_algorithms_get",
+    "responses": {
+     "200": {
+      "content": {
+       "application/json": {
+        "schema": {
+         "items": {
+          "$ref": "#/components/schemas/AlgorithmMeta"
+         },
+         "title": "Response Algorithms Api Meta Algorithms Get",
+         "type": "array"
+        }
+       }
+      },
+      "description": "Successful Response"
+     }
+    },
+    "summary": "Algorithms",
+    "tags": [
+     "meta"
+    ]
+   }
+  },
+  "/api/meta/presets": {
+   "get": {
+    "description": "Missions first, then the benchmark presets (which have no mission metadata).",
+    "operationId": "presets_api_meta_presets_get",
+    "responses": {
+     "200": {
+      "content": {
+       "application/json": {
+        "schema": {
+         "items": {
+          "$ref": "#/components/schemas/PresetMeta"
+         },
+         "title": "Response Presets Api Meta Presets Get",
+         "type": "array"
+        }
+       }
+      },
+      "description": "Successful Response"
+     }
+    },
+    "summary": "Presets",
+    "tags": [
+     "meta"
+    ]
+   }
+  },
+  "/api/paths/compare": {
+   "post": {
+    "description": "Price the same legs along energy-optimal and shortest-distance paths.",
+    "operationId": "compare_paths_api_paths_compare_post",
+    "requestBody": {
+     "content": {
+      "application/json": {
+       "schema": {
+        "$ref": "#/components/schemas/PathCompareRequest"
+       }
+      }
+     },
+     "required": true
+    },
+    "responses": {
+     "200": {
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/PathCompareResult"
+        }
+       }
+      },
+      "description": "Successful Response"
+     },
+     "404": {
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/ErrorResponse"
+        }
+       }
+      },
+      "description": "Not Found"
+     },
+     "422": {
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/ErrorResponse"
+        }
+       }
+      },
+      "description": "Unprocessable Entity"
+     }
+    },
+    "summary": "Compare Paths",
+    "tags": [
+     "plans"
+    ]
+   }
+  },
+  "/api/plans": {
+   "post": {
+    "operationId": "create_plan_api_plans_post",
+    "requestBody": {
+     "content": {
+      "application/json": {
+       "schema": {
+        "$ref": "#/components/schemas/PlanRequest"
+       }
+      }
+     },
+     "required": true
+    },
+    "responses": {
+     "200": {
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/PlanResult"
+        }
+       }
+      },
+      "description": "Successful Response"
+     },
+     "202": {
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/PlanResult"
+        }
+       }
+      },
+      "description": "Accepted"
+     },
+     "404": {
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/ErrorResponse"
+        }
+       }
+      },
+      "description": "Not Found"
+     },
+     "422": {
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/ErrorResponse"
+        }
+       }
+      },
+      "description": "Unprocessable Entity"
+     }
+    },
+    "summary": "Create Plan",
+    "tags": [
+     "plans"
+    ]
+   }
+  },
+  "/api/plans/compare": {
+   "post": {
+    "operationId": "compare_plans_api_plans_compare_post",
+    "requestBody": {
+     "content": {
+      "application/json": {
+       "schema": {
+        "$ref": "#/components/schemas/CompareRequest"
+       }
+      }
+     },
+     "required": true
+    },
+    "responses": {
+     "200": {
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/CompareResult"
+        }
+       }
+      },
+      "description": "Successful Response"
+     },
+     "404": {
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/ErrorResponse"
+        }
+       }
+      },
+      "description": "Not Found"
+     },
+     "422": {
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/ErrorResponse"
+        }
+       }
+      },
+      "description": "Unprocessable Entity"
+     }
+    },
+    "summary": "Compare Plans",
+    "tags": [
+     "plans"
+    ]
+   }
+  },
+  "/api/runs": {
+   "get": {
+    "operationId": "recent_runs_api_runs_get",
+    "parameters": [
+     {
+      "in": "query",
+      "name": "limit",
+      "required": false,
+      "schema": {
+       "default": 10,
+       "title": "Limit",
+       "type": "integer"
+      }
+     }
+    ],
+    "responses": {
+     "200": {
+      "content": {
+       "application/json": {
+        "schema": {
+         "items": {
+          "$ref": "#/components/schemas/RunSummary"
+         },
+         "title": "Response Recent Runs Api Runs Get",
+         "type": "array"
+        }
+       }
+      },
+      "description": "Successful Response"
+     },
+     "422": {
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/HTTPValidationError"
+        }
+       }
+      },
+      "description": "Validation Error"
+     }
+    },
+    "summary": "Recent Runs",
+    "tags": [
+     "meta"
+    ]
+   }
+  },
+  "/api/scenarios": {
+   "get": {
+    "operationId": "list_scenarios_api_scenarios_get",
+    "responses": {
+     "200": {
+      "content": {
+       "application/json": {
+        "schema": {
+         "items": {
+          "$ref": "#/components/schemas/ScenarioSummary"
+         },
+         "title": "Response List Scenarios Api Scenarios Get",
+         "type": "array"
+        }
+       }
+      },
+      "description": "Successful Response"
+     }
+    },
+    "summary": "List Scenarios",
+    "tags": [
+     "scenarios"
+    ]
+   },
+   "post": {
+    "operationId": "create_scenario_api_scenarios_post",
+    "requestBody": {
+     "content": {
+      "application/json": {
+       "schema": {
+        "$ref": "#/components/schemas/Scenario"
+       }
+      }
+     },
+     "required": true
+    },
+    "responses": {
+     "201": {
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/Scenario"
+        }
+       }
+      },
+      "description": "Successful Response"
+     },
+     "404": {
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/ErrorResponse"
+        }
+       }
+      },
+      "description": "Not Found"
+     },
+     "422": {
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/ErrorResponse"
+        }
+       }
+      },
+      "description": "Unprocessable Entity"
+     }
+    },
+    "summary": "Create Scenario",
+    "tags": [
+     "scenarios"
+    ]
+   }
+  },
+  "/api/scenarios/generate": {
+   "post": {
+    "operationId": "generate_scenario_api_scenarios_generate_post",
+    "requestBody": {
+     "content": {
+      "application/json": {
+       "schema": {
+        "$ref": "#/components/schemas/GenerateRequest"
+       }
+      }
+     },
+     "required": true
+    },
+    "responses": {
+     "200": {
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/Scenario"
+        }
+       }
+      },
+      "description": "Successful Response"
+     },
+     "404": {
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/ErrorResponse"
+        }
+       }
+      },
+      "description": "Not Found"
+     },
+     "422": {
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/ErrorResponse"
+        }
+       }
+      },
+      "description": "Unprocessable Entity"
+     }
+    },
+    "summary": "Generate Scenario",
+    "tags": [
+     "scenarios"
+    ]
+   }
+  },
+  "/api/scenarios/import": {
+   "post": {
+    "operationId": "import_scenario_api_scenarios_import_post",
+    "requestBody": {
+     "content": {
+      "application/json": {
+       "schema": {
+        "$ref": "#/components/schemas/Scenario"
+       }
+      }
+     },
+     "required": true
+    },
+    "responses": {
+     "201": {
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/Scenario"
+        }
+       }
+      },
+      "description": "Successful Response"
+     },
+     "404": {
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/ErrorResponse"
+        }
+       }
+      },
+      "description": "Not Found"
+     },
+     "422": {
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/ErrorResponse"
+        }
+       }
+      },
+      "description": "Unprocessable Entity"
+     }
+    },
+    "summary": "Import Scenario",
+    "tags": [
+     "scenarios"
+    ]
+   }
+  },
+  "/api/scenarios/{scenario_id}": {
+   "delete": {
+    "operationId": "delete_scenario_api_scenarios__scenario_id__delete",
+    "parameters": [
+     {
+      "in": "path",
+      "name": "scenario_id",
+      "required": true,
+      "schema": {
+       "title": "Scenario Id",
+       "type": "string"
+      }
+     }
+    ],
+    "responses": {
+     "204": {
+      "description": "Successful Response"
+     },
+     "404": {
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/ErrorResponse"
+        }
+       }
+      },
+      "description": "Not Found"
+     },
+     "422": {
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/ErrorResponse"
+        }
+       }
+      },
+      "description": "Unprocessable Entity"
+     }
+    },
+    "summary": "Delete Scenario",
+    "tags": [
+     "scenarios"
+    ]
+   },
+   "get": {
+    "operationId": "get_scenario_api_scenarios__scenario_id__get",
+    "parameters": [
+     {
+      "in": "path",
+      "name": "scenario_id",
+      "required": true,
+      "schema": {
+       "title": "Scenario Id",
+       "type": "string"
+      }
+     }
+    ],
+    "responses": {
+     "200": {
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/Scenario"
+        }
+       }
+      },
+      "description": "Successful Response"
+     },
+     "404": {
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/ErrorResponse"
+        }
+       }
+      },
+      "description": "Not Found"
+     },
+     "422": {
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/ErrorResponse"
+        }
+       }
+      },
+      "description": "Unprocessable Entity"
+     }
+    },
+    "summary": "Get Scenario",
+    "tags": [
+     "scenarios"
+    ]
+   },
+   "put": {
+    "operationId": "update_scenario_api_scenarios__scenario_id__put",
+    "parameters": [
+     {
+      "in": "path",
+      "name": "scenario_id",
+      "required": true,
+      "schema": {
+       "title": "Scenario Id",
+       "type": "string"
+      }
+     }
+    ],
+    "requestBody": {
+     "content": {
+      "application/json": {
+       "schema": {
+        "$ref": "#/components/schemas/Scenario"
+       }
+      }
+     },
+     "required": true
+    },
+    "responses": {
+     "200": {
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/Scenario"
+        }
+       }
+      },
+      "description": "Successful Response"
+     },
+     "404": {
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/ErrorResponse"
+        }
+       }
+      },
+      "description": "Not Found"
+     },
+     "422": {
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/ErrorResponse"
+        }
+       }
+      },
+      "description": "Unprocessable Entity"
+     }
+    },
+    "summary": "Update Scenario",
+    "tags": [
+     "scenarios"
+    ]
+   }
+  },
+  "/api/scenarios/{scenario_id}/export": {
+   "get": {
+    "operationId": "export_scenario_api_scenarios__scenario_id__export_get",
+    "parameters": [
+     {
+      "in": "path",
+      "name": "scenario_id",
+      "required": true,
+      "schema": {
+       "title": "Scenario Id",
+       "type": "string"
+      }
+     }
+    ],
+    "responses": {
+     "200": {
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/Scenario"
+        }
+       }
+      },
+      "description": "Successful Response"
+     },
+     "404": {
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/ErrorResponse"
+        }
+       }
+      },
+      "description": "Not Found"
+     },
+     "422": {
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/ErrorResponse"
+        }
+       }
+      },
+      "description": "Unprocessable Entity"
+     }
+    },
+    "summary": "Export Scenario",
+    "tags": [
+     "scenarios"
+    ]
+   }
+  },
+  "/api/simulations": {
+   "post": {
+    "operationId": "create_simulation_api_simulations_post",
+    "requestBody": {
+     "content": {
+      "application/json": {
+       "schema": {
+        "$ref": "#/components/schemas/SimulationRequest"
+       }
+      }
+     },
+     "required": true
+    },
+    "responses": {
+     "201": {
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/SimulationCreated"
+        }
+       }
+      },
+      "description": "Successful Response"
+     },
+     "404": {
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/ErrorResponse"
+        }
+       }
+      },
+      "description": "Not Found"
+     },
+     "422": {
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/ErrorResponse"
+        }
+       }
+      },
+      "description": "Unprocessable Entity"
+     }
+    },
+    "summary": "Create Simulation",
+    "tags": [
+     "simulations"
+    ]
+   }
+  },
+  "/api/simulations/{sim_id}": {
+   "get": {
+    "operationId": "get_simulation_api_simulations__sim_id__get",
+    "parameters": [
+     {
+      "in": "path",
+      "name": "sim_id",
+      "required": true,
+      "schema": {
+       "title": "Sim Id",
+       "type": "string"
+      }
+     }
+    ],
+    "responses": {
+     "200": {
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/SimulationState"
+        }
+       }
+      },
+      "description": "Successful Response"
+     },
+     "404": {
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/ErrorResponse"
+        }
+       }
+      },
+      "description": "Not Found"
+     },
+     "422": {
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/ErrorResponse"
+        }
+       }
+      },
+      "description": "Unprocessable Entity"
+     }
+    },
+    "summary": "Get Simulation",
+    "tags": [
+     "simulations"
+    ]
+   }
+  },
+  "/api/simulations/{sim_id}/timeline": {
+   "get": {
+    "operationId": "get_timeline_api_simulations__sim_id__timeline_get",
+    "parameters": [
+     {
+      "in": "path",
+      "name": "sim_id",
+      "required": true,
+      "schema": {
+       "title": "Sim Id",
+       "type": "string"
+      }
+     },
+     {
+      "in": "query",
+      "name": "tick",
+      "required": false,
+      "schema": {
+       "default": 1.0,
+       "title": "Tick",
+       "type": "number"
+      }
+     },
+     {
+      "in": "query",
+      "name": "max_frames",
+      "required": false,
+      "schema": {
+       "default": 2000,
+       "title": "Max Frames",
+       "type": "integer"
+      }
+     }
+    ],
+    "responses": {
+     "200": {
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/Timeline"
+        }
+       }
+      },
+      "description": "Successful Response"
+     },
+     "404": {
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/ErrorResponse"
+        }
+       }
+      },
+      "description": "Not Found"
+     },
+     "422": {
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/ErrorResponse"
+        }
+       }
+      },
+      "description": "Unprocessable Entity"
+     }
+    },
+    "summary": "Get Timeline",
+    "tags": [
+     "simulations"
+    ]
+   }
+  }
+ }
+}

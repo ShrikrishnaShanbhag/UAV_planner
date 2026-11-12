@@ -1,0 +1,884 @@
+{
+ "description": "A forest fire with a moving front, heavy smoke and a shifting wind. Values are illustrative simulation settings.",
+ "energy": {
+  "adaptive_k": 1.0,
+  "adaptive_reserve": false,
+  "adaptive_sigma": 0.1,
+  "charge_rate": 0.5,
+  "charge_time": 120.0,
+  "home_only_return": false,
+  "mode": "normalized",
+  "path_metric": "energy",
+  "reserve_ratio": 0.1,
+  "strict_prefix_safety": true,
+  "turn_energy_per_rad": 0.0
+ },
+ "events": [
+  {
+   "amount": null,
+   "cells": null,
+   "label": "Fire front advances",
+   "layer": {
+    "blocked": true,
+    "cells": null,
+    "energy_multiplier": null,
+    "id": "fire",
+    "label": "Fire",
+    "polygon": [
+     [
+      32.0,
+      25.0
+     ],
+     [
+      31.06,
+      28.0
+     ],
+     [
+      28.5,
+      30.2
+     ],
+     [
+      25.0,
+      31.0
+     ],
+     [
+      21.5,
+      30.2
+     ],
+     [
+      18.94,
+      28.0
+     ],
+     [
+      18.0,
+      25.0
+     ],
+     [
+      18.94,
+      22.0
+     ],
+     [
+      21.5,
+      19.8
+     ],
+     [
+      25.0,
+      19.0
+     ],
+     [
+      28.5,
+      19.8
+     ],
+     [
+      31.06,
+      22.0
+     ]
+    ],
+    "rect": null,
+    "type": "fire"
+   },
+   "new_deadline": null,
+   "new_duration": null,
+   "polygon": [
+    [
+     32.0,
+     25.0
+    ],
+    [
+     31.06,
+     28.0
+    ],
+    [
+     28.5,
+     30.2
+    ],
+    [
+     25.0,
+     31.0
+    ],
+    [
+     21.5,
+     30.2
+    ],
+    [
+     18.94,
+     28.0
+    ],
+    [
+     18.0,
+     25.0
+    ],
+    [
+     18.94,
+     22.0
+    ],
+    [
+     21.5,
+     19.8
+    ],
+    [
+     25.0,
+     19.0
+    ],
+    [
+     28.5,
+     19.8
+    ],
+    [
+     31.06,
+     22.0
+    ]
+   ],
+   "station_id": null,
+   "task": null,
+   "task_id": null,
+   "time": 120.0,
+   "type": "BLOCK_REGION",
+   "uav": null,
+   "uav_id": null,
+   "wind": null
+  },
+  {
+   "amount": null,
+   "cells": null,
+   "label": "Wind shifts south-east",
+   "layer": null,
+   "new_deadline": null,
+   "new_duration": null,
+   "polygon": null,
+   "station_id": null,
+   "task": null,
+   "task_id": null,
+   "time": 180.0,
+   "type": "WIND_CHANGE",
+   "uav": null,
+   "uav_id": null,
+   "wind": {
+    "direction_deg": 135.0,
+    "k": 1.0,
+    "speed": 5.0
+   }
+  },
+  {
+   "amount": null,
+   "cells": null,
+   "label": "Fire front advances",
+   "layer": {
+    "blocked": true,
+    "cells": null,
+    "energy_multiplier": null,
+    "id": "fire",
+    "label": "Fire",
+    "polygon": [
+     [
+      34.0,
+      25.0
+     ],
+     [
+      32.79,
+      28.75
+     ],
+     [
+      29.5,
+      31.5
+     ],
+     [
+      25.0,
+      32.5
+     ],
+     [
+      20.5,
+      31.5
+     ],
+     [
+      17.21,
+      28.75
+     ],
+     [
+      16.0,
+      25.0
+     ],
+     [
+      17.21,
+      21.25
+     ],
+     [
+      20.5,
+      18.5
+     ],
+     [
+      25.0,
+      17.5
+     ],
+     [
+      29.5,
+      18.5
+     ],
+     [
+      32.79,
+      21.25
+     ]
+    ],
+    "rect": null,
+    "type": "fire"
+   },
+   "new_deadline": null,
+   "new_duration": null,
+   "polygon": [
+    [
+     34.0,
+     25.0
+    ],
+    [
+     32.79,
+     28.75
+    ],
+    [
+     29.5,
+     31.5
+    ],
+    [
+     25.0,
+     32.5
+    ],
+    [
+     20.5,
+     31.5
+    ],
+    [
+     17.21,
+     28.75
+    ],
+    [
+     16.0,
+     25.0
+    ],
+    [
+     17.21,
+     21.25
+    ],
+    [
+     20.5,
+     18.5
+    ],
+    [
+     25.0,
+     17.5
+    ],
+    [
+     29.5,
+     18.5
+    ],
+    [
+     32.79,
+     21.25
+    ]
+   ],
+   "station_id": null,
+   "task": null,
+   "task_id": null,
+   "time": 240.0,
+   "type": "BLOCK_REGION",
+   "uav": null,
+   "uav_id": null,
+   "wind": null
+  },
+  {
+   "amount": null,
+   "cells": null,
+   "label": "Fire front advances",
+   "layer": {
+    "blocked": true,
+    "cells": null,
+    "energy_multiplier": null,
+    "id": "fire",
+    "label": "Fire",
+    "polygon": [
+     [
+      36.0,
+      25.0
+     ],
+     [
+      34.53,
+      29.5
+     ],
+     [
+      30.5,
+      32.79
+     ],
+     [
+      25.0,
+      34.0
+     ],
+     [
+      19.5,
+      32.79
+     ],
+     [
+      15.47,
+      29.5
+     ],
+     [
+      14.0,
+      25.0
+     ],
+     [
+      15.47,
+      20.5
+     ],
+     [
+      19.5,
+      17.21
+     ],
+     [
+      25.0,
+      16.0
+     ],
+     [
+      30.5,
+      17.21
+     ],
+     [
+      34.53,
+      20.5
+     ]
+    ],
+    "rect": null,
+    "type": "fire"
+   },
+   "new_deadline": null,
+   "new_duration": null,
+   "polygon": [
+    [
+     36.0,
+     25.0
+    ],
+    [
+     34.53,
+     29.5
+    ],
+    [
+     30.5,
+     32.79
+    ],
+    [
+     25.0,
+     34.0
+    ],
+    [
+     19.5,
+     32.79
+    ],
+    [
+     15.47,
+     29.5
+    ],
+    [
+     14.0,
+     25.0
+    ],
+    [
+     15.47,
+     20.5
+    ],
+    [
+     19.5,
+     17.21
+    ],
+    [
+     25.0,
+     16.0
+    ],
+    [
+     30.5,
+     17.21
+    ],
+    [
+     34.53,
+     20.5
+    ]
+   ],
+   "station_id": null,
+   "task": null,
+   "task_id": null,
+   "time": 360.0,
+   "type": "BLOCK_REGION",
+   "uav": null,
+   "uav_id": null,
+   "wind": null
+  }
+ ],
+ "grid": {
+  "cell_size": 20.0,
+  "height": 50,
+  "width": 50
+ },
+ "id": "wildfire-small",
+ "meta": {
+  "allow_recharge": false,
+  "category": "Disaster",
+  "description": "A forest fire with a moving front, heavy smoke and a shifting wind.",
+  "difficulty": "hard",
+  "energy_focus": "Wind and smoke raise energy per leg while a growing no-fly area lengthens returns.",
+  "icon": "flame",
+  "id": "wildfire",
+  "name": "Wildfire monitoring",
+  "story": "A wildfire is spreading through forested hills. Crews need the fire front mapped and nearby villages checked, while smoke and a changing wind eat into every sortie.",
+  "tags": [
+   "fire",
+   "wind",
+   "smoke"
+  ],
+  "theme": "wildfire"
+ },
+ "name": "Wildfire monitoring",
+ "obstacles": [],
+ "seed": 42,
+ "stations": [
+  {
+   "cell": [
+    4,
+    4
+   ],
+   "id": "Base-S"
+  },
+  {
+   "cell": [
+    45,
+    18
+   ],
+   "id": "Base-E"
+  }
+ ],
+ "tasks": [
+  {
+   "capability": "thermal",
+   "cell": [
+    38,
+    26
+   ],
+   "deadline": null,
+   "duration": 67.27,
+   "energy": 6.013,
+   "id": "T1",
+   "label": "Fire-front point 1",
+   "mandatory": true,
+   "priority": 3,
+   "release_time": 0.0
+  },
+  {
+   "capability": "thermal",
+   "cell": [
+    28,
+    35
+   ],
+   "deadline": null,
+   "duration": 72.37,
+   "energy": 6.5,
+   "id": "T2",
+   "label": "Fire-front point 2",
+   "mandatory": true,
+   "priority": 3,
+   "release_time": 0.0
+  },
+  {
+   "capability": "thermal",
+   "cell": [
+    15,
+    32
+   ],
+   "deadline": null,
+   "duration": 68.72,
+   "energy": 6.409,
+   "id": "T3",
+   "label": "Fire-front point 3",
+   "mandatory": true,
+   "priority": 3,
+   "release_time": 0.0
+  },
+  {
+   "capability": "thermal",
+   "cell": [
+    16,
+    18
+   ],
+   "deadline": null,
+   "duration": 72.3,
+   "energy": 5.765,
+   "id": "T4",
+   "label": "Fire-front point 4",
+   "mandatory": true,
+   "priority": 3,
+   "release_time": 0.0
+  },
+  {
+   "capability": "thermal",
+   "cell": [
+    29,
+    16
+   ],
+   "deadline": null,
+   "duration": 73.21,
+   "energy": 5.689,
+   "id": "T5",
+   "label": "Fire-front point 5",
+   "mandatory": true,
+   "priority": 3,
+   "release_time": 0.0
+  },
+  {
+   "capability": "camera",
+   "cell": [
+    5,
+    42
+   ],
+   "deadline": null,
+   "duration": 58.07,
+   "energy": 3.776,
+   "id": "T6",
+   "label": "Village check 1",
+   "mandatory": false,
+   "priority": 2,
+   "release_time": 0.0
+  },
+  {
+   "capability": "camera",
+   "cell": [
+    9,
+    41
+   ],
+   "deadline": null,
+   "duration": 57.21,
+   "energy": 3.719,
+   "id": "T7",
+   "label": "Village check 2",
+   "mandatory": false,
+   "priority": 2,
+   "release_time": 0.0
+  },
+  {
+   "capability": "camera",
+   "cell": [
+    39,
+    7
+   ],
+   "deadline": null,
+   "duration": 51.62,
+   "energy": 4.111,
+   "id": "T8",
+   "label": "Village check 1",
+   "mandatory": false,
+   "priority": 2,
+   "release_time": 0.0
+  },
+  {
+   "capability": "camera",
+   "cell": [
+    43,
+    7
+   ],
+   "deadline": null,
+   "duration": 49.41,
+   "energy": 4.068,
+   "id": "T9",
+   "label": "Village check 2",
+   "mandatory": false,
+   "priority": 2,
+   "release_time": 0.0
+  }
+ ],
+ "terrain_layers": [
+  {
+   "blocked": false,
+   "cells": null,
+   "energy_multiplier": null,
+   "id": "forest",
+   "label": "Forest",
+   "polygon": null,
+   "rect": [
+    0,
+    0,
+    49,
+    49
+   ],
+   "type": "forest"
+  },
+  {
+   "blocked": false,
+   "cells": null,
+   "energy_multiplier": 1.15,
+   "id": "ridge",
+   "label": "Ridge",
+   "polygon": [
+    [
+     34.0,
+     34.0
+    ],
+    [
+     49.0,
+     30.0
+    ],
+    [
+     49.0,
+     49.0
+    ],
+    [
+     30.0,
+     49.0
+    ]
+   ],
+   "rect": null,
+   "type": "hill"
+  },
+  {
+   "blocked": false,
+   "cells": null,
+   "energy_multiplier": 1.2,
+   "id": "smoke",
+   "label": "Smoke",
+   "polygon": [
+    [
+     43.0,
+     32.0
+    ],
+    [
+     41.53,
+     36.5
+    ],
+    [
+     37.5,
+     39.79
+    ],
+    [
+     32.0,
+     41.0
+    ],
+    [
+     26.5,
+     39.79
+    ],
+    [
+     22.47,
+     36.5
+    ],
+    [
+     21.0,
+     32.0
+    ],
+    [
+     22.47,
+     27.5
+    ],
+    [
+     26.5,
+     24.21
+    ],
+    [
+     32.0,
+     23.0
+    ],
+    [
+     37.5,
+     24.21
+    ],
+    [
+     41.53,
+     27.5
+    ]
+   ],
+   "rect": null,
+   "type": "smoke"
+  },
+  {
+   "blocked": false,
+   "cells": null,
+   "energy_multiplier": null,
+   "id": "village-a",
+   "label": "Village",
+   "polygon": null,
+   "rect": [
+    4,
+    36,
+    11,
+    44
+   ],
+   "type": "urban"
+  },
+  {
+   "blocked": false,
+   "cells": null,
+   "energy_multiplier": null,
+   "id": "village-b",
+   "label": "Village",
+   "polygon": null,
+   "rect": [
+    38,
+    4,
+    46,
+    11
+   ],
+   "type": "urban"
+  },
+  {
+   "blocked": true,
+   "cells": null,
+   "energy_multiplier": null,
+   "id": "fire",
+   "label": "Fire",
+   "polygon": [
+    [
+     30.0,
+     25.0
+    ],
+    [
+     29.33,
+     27.0
+    ],
+    [
+     27.5,
+     28.46
+    ],
+    [
+     25.0,
+     29.0
+    ],
+    [
+     22.5,
+     28.46
+    ],
+    [
+     20.67,
+     27.0
+    ],
+    [
+     20.0,
+     25.0
+    ],
+    [
+     20.67,
+     23.0
+    ],
+    [
+     22.5,
+     21.54
+    ],
+    [
+     25.0,
+     21.0
+    ],
+    [
+     27.5,
+     21.54
+    ],
+    [
+     29.33,
+     23.0
+    ]
+   ],
+   "rect": null,
+   "type": "fire"
+  }
+ ],
+ "uavs": [
+  {
+   "airborne": false,
+   "battery": 55.0,
+   "battery_max": 55.0,
+   "capabilities": [
+    "camera",
+    "thermal"
+   ],
+   "energy_per_meter": 0.014,
+   "home": "Base-S",
+   "hover_rate": 0.0,
+   "id": "Heat-1",
+   "landing_energy": 0.0,
+   "power_cruise": 100.0,
+   "power_hover": 120.0,
+   "ready_time": 0.0,
+   "speed": 13.0,
+   "start": [
+    4,
+    4
+   ],
+   "status": "idle",
+   "takeoff_energy": 0.0
+  },
+  {
+   "airborne": false,
+   "battery": 55.0,
+   "battery_max": 55.0,
+   "capabilities": [
+    "camera",
+    "thermal"
+   ],
+   "energy_per_meter": 0.014,
+   "home": "Base-E",
+   "hover_rate": 0.0,
+   "id": "Heat-2",
+   "landing_energy": 0.0,
+   "power_cruise": 100.0,
+   "power_hover": 120.0,
+   "ready_time": 0.0,
+   "speed": 13.0,
+   "start": [
+    45,
+    18
+   ],
+   "status": "idle",
+   "takeoff_energy": 0.0
+  },
+  {
+   "airborne": false,
+   "battery": 55.0,
+   "battery_max": 55.0,
+   "capabilities": [
+    "camera",
+    "thermal"
+   ],
+   "energy_per_meter": 0.015,
+   "home": "Base-S",
+   "hover_rate": 0.0,
+   "id": "Heat-3",
+   "landing_energy": 0.0,
+   "power_cruise": 100.0,
+   "power_hover": 120.0,
+   "ready_time": 0.0,
+   "speed": 12.0,
+   "start": [
+    4,
+    4
+   ],
+   "status": "idle",
+   "takeoff_energy": 0.0
+  },
+  {
+   "airborne": false,
+   "battery": 55.0,
+   "battery_max": 55.0,
+   "capabilities": [
+    "camera"
+   ],
+   "energy_per_meter": 0.013,
+   "home": "Base-E",
+   "hover_rate": 0.0,
+   "id": "View-4",
+   "landing_energy": 0.0,
+   "power_cruise": 100.0,
+   "power_hover": 120.0,
+   "ready_time": 0.0,
+   "speed": 14.0,
+   "start": [
+    45,
+    18
+   ],
+   "status": "idle",
+   "takeoff_energy": 0.0
+  }
+ ],
+ "wind": {
+  "direction_deg": 45.0,
+  "k": 1.0,
+  "speed": 4.0
+ }
+}

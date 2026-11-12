@@ -1,0 +1,684 @@
+{
+ "description": "A drifting oil slick far offshore, with only a shore base and a platform to land on. Values are illustrative simulation settings.",
+ "energy": {
+  "adaptive_k": 1.0,
+  "adaptive_reserve": false,
+  "adaptive_sigma": 0.1,
+  "charge_rate": 0.5,
+  "charge_time": 120.0,
+  "home_only_return": false,
+  "mode": "normalized",
+  "path_metric": "energy",
+  "reserve_ratio": 0.1,
+  "strict_prefix_safety": true,
+  "turn_energy_per_rad": 0.0
+ },
+ "events": [
+  {
+   "amount": null,
+   "cells": null,
+   "label": "The slick drifts south-east",
+   "layer": {
+    "blocked": false,
+    "cells": null,
+    "energy_multiplier": null,
+    "id": "slick",
+    "label": "Oil slick",
+    "polygon": [
+     [
+      49.0,
+      20.0
+     ],
+     [
+      47.79,
+      23.5
+     ],
+     [
+      44.5,
+      26.06
+     ],
+     [
+      40.0,
+      27.0
+     ],
+     [
+      35.5,
+      26.06
+     ],
+     [
+      32.21,
+      23.5
+     ],
+     [
+      31.0,
+      20.0
+     ],
+     [
+      32.21,
+      16.5
+     ],
+     [
+      35.5,
+      13.940000000000001
+     ],
+     [
+      40.0,
+      13.0
+     ],
+     [
+      44.5,
+      13.940000000000001
+     ],
+     [
+      47.79,
+      16.5
+     ]
+    ],
+    "rect": null,
+    "type": "slick"
+   },
+   "new_deadline": null,
+   "new_duration": null,
+   "polygon": null,
+   "station_id": null,
+   "task": null,
+   "task_id": null,
+   "time": 300.0,
+   "type": "TERRAIN_CHANGE",
+   "uav": null,
+   "uav_id": null,
+   "wind": null
+  },
+  {
+   "amount": null,
+   "cells": null,
+   "label": "Point has drifted",
+   "layer": null,
+   "new_deadline": null,
+   "new_duration": null,
+   "polygon": null,
+   "station_id": null,
+   "task": null,
+   "task_id": "T1",
+   "time": 300.0,
+   "type": "TASK_CANCELLED",
+   "uav": null,
+   "uav_id": null,
+   "wind": null
+  },
+  {
+   "amount": null,
+   "cells": null,
+   "label": "Point has drifted",
+   "layer": null,
+   "new_deadline": null,
+   "new_duration": null,
+   "polygon": null,
+   "station_id": null,
+   "task": null,
+   "task_id": "T2",
+   "time": 300.0,
+   "type": "TASK_CANCELLED",
+   "uav": null,
+   "uav_id": null,
+   "wind": null
+  },
+  {
+   "amount": null,
+   "cells": null,
+   "label": "Point has drifted",
+   "layer": null,
+   "new_deadline": null,
+   "new_duration": null,
+   "polygon": null,
+   "station_id": null,
+   "task": null,
+   "task_id": "T3",
+   "time": 300.0,
+   "type": "TASK_CANCELLED",
+   "uav": null,
+   "uav_id": null,
+   "wind": null
+  },
+  {
+   "amount": null,
+   "cells": null,
+   "label": "Point has drifted",
+   "layer": null,
+   "new_deadline": null,
+   "new_duration": null,
+   "polygon": null,
+   "station_id": null,
+   "task": null,
+   "task_id": "T4",
+   "time": 300.0,
+   "type": "TASK_CANCELLED",
+   "uav": null,
+   "uav_id": null,
+   "wind": null
+  },
+  {
+   "amount": null,
+   "cells": null,
+   "label": "Drifted",
+   "layer": null,
+   "new_deadline": null,
+   "new_duration": null,
+   "polygon": null,
+   "station_id": null,
+   "task": {
+    "capability": "camera",
+    "cell": [
+     52,
+     20
+    ],
+    "deadline": null,
+    "duration": 44.11,
+    "energy": 3.994,
+    "id": "N1",
+    "label": "Drifted boundary point",
+    "mandatory": false,
+    "priority": 3,
+    "release_time": 300.0
+   },
+   "task_id": null,
+   "time": 300.0,
+   "type": "NEW_TASK",
+   "uav": null,
+   "uav_id": null,
+   "wind": null
+  },
+  {
+   "amount": null,
+   "cells": null,
+   "label": "Drifted",
+   "layer": null,
+   "new_deadline": null,
+   "new_duration": null,
+   "polygon": null,
+   "station_id": null,
+   "task": {
+    "capability": "camera",
+    "cell": [
+     48,
+     25
+    ],
+    "deadline": null,
+    "duration": 52.35,
+    "energy": 3.755,
+    "id": "N2",
+    "label": "Drifted boundary point",
+    "mandatory": false,
+    "priority": 3,
+    "release_time": 300.0
+   },
+   "task_id": null,
+   "time": 300.0,
+   "type": "NEW_TASK",
+   "uav": null,
+   "uav_id": null,
+   "wind": null
+  },
+  {
+   "amount": null,
+   "cells": null,
+   "label": "Drifted",
+   "layer": null,
+   "new_deadline": null,
+   "new_duration": null,
+   "polygon": null,
+   "station_id": null,
+   "task": {
+    "capability": "camera",
+    "cell": [
+     43,
+     28
+    ],
+    "deadline": null,
+    "duration": 48.9,
+    "energy": 3.642,
+    "id": "N3",
+    "label": "Drifted boundary point",
+    "mandatory": false,
+    "priority": 3,
+    "release_time": 300.0
+   },
+   "task_id": null,
+   "time": 300.0,
+   "type": "NEW_TASK",
+   "uav": null,
+   "uav_id": null,
+   "wind": null
+  },
+  {
+   "amount": null,
+   "cells": null,
+   "label": "Drifted",
+   "layer": null,
+   "new_deadline": null,
+   "new_duration": null,
+   "polygon": null,
+   "station_id": null,
+   "task": {
+    "capability": "camera",
+    "cell": [
+     36,
+     28
+    ],
+    "deadline": null,
+    "duration": 51.15,
+    "energy": 4.099,
+    "id": "N4",
+    "label": "Drifted boundary point",
+    "mandatory": false,
+    "priority": 3,
+    "release_time": 300.0
+   },
+   "task_id": null,
+   "time": 300.0,
+   "type": "NEW_TASK",
+   "uav": null,
+   "uav_id": null,
+   "wind": null
+  },
+  {
+   "amount": null,
+   "cells": null,
+   "label": "Wind backs and strengthens",
+   "layer": null,
+   "new_deadline": null,
+   "new_duration": null,
+   "polygon": null,
+   "station_id": null,
+   "task": null,
+   "task_id": null,
+   "time": 450.0,
+   "type": "WIND_CHANGE",
+   "uav": null,
+   "uav_id": null,
+   "wind": {
+    "direction_deg": 200.0,
+    "k": 1.0,
+    "speed": 6.0
+   }
+  }
+ ],
+ "grid": {
+  "cell_size": 40.0,
+  "height": 50,
+  "width": 60
+ },
+ "id": "oil_spill",
+ "meta": {
+  "allow_recharge": false,
+  "category": "Maritime",
+  "description": "A drifting oil slick far offshore, with only a shore base and a platform to land on.",
+  "difficulty": "hard",
+  "energy_focus": "Very long legs and few stations, so return energy dominates.",
+  "icon": "droplets",
+  "id": "oil_spill",
+  "name": "Oil spill monitoring",
+  "story": "An oil slick is spreading at sea. UAVs must keep its boundary mapped from a shore base and one offshore platform, while the slick drifts and the wind turns.",
+  "tags": [
+   "sea",
+   "drift",
+   "long-range"
+  ],
+  "theme": "maritime"
+ },
+ "name": "Oil spill monitoring",
+ "obstacles": [],
+ "seed": 42,
+ "stations": [
+  {
+   "cell": [
+    3,
+    25
+   ],
+   "id": "Shore"
+  },
+  {
+   "cell": [
+    50,
+    42
+   ],
+   "id": "Platform"
+  }
+ ],
+ "tasks": [
+  {
+   "capability": "camera",
+   "cell": [
+    46,
+    24
+   ],
+   "deadline": null,
+   "duration": 46.23,
+   "energy": 3.615,
+   "id": "T1",
+   "label": "Slick boundary point 1",
+   "mandatory": false,
+   "priority": 3,
+   "release_time": 0.0
+  },
+  {
+   "capability": "camera",
+   "cell": [
+    42,
+    29
+   ],
+   "deadline": null,
+   "duration": 52.39,
+   "energy": 4.33,
+   "id": "T2",
+   "label": "Slick boundary point 2",
+   "mandatory": false,
+   "priority": 3,
+   "release_time": 0.0
+  },
+  {
+   "capability": "camera",
+   "cell": [
+    37,
+    32
+   ],
+   "deadline": null,
+   "duration": 51.67,
+   "energy": 3.702,
+   "id": "T3",
+   "label": "Slick boundary point 3",
+   "mandatory": false,
+   "priority": 3,
+   "release_time": 0.0
+  },
+  {
+   "capability": "camera",
+   "cell": [
+    30,
+    32
+   ],
+   "deadline": null,
+   "duration": 46.2,
+   "energy": 3.712,
+   "id": "T4",
+   "label": "Slick boundary point 4",
+   "mandatory": false,
+   "priority": 3,
+   "release_time": 0.0
+  },
+  {
+   "capability": "camera",
+   "cell": [
+    26,
+    30
+   ],
+   "deadline": null,
+   "duration": 44.72,
+   "energy": 4.046,
+   "id": "T5",
+   "label": "Slick boundary point 5",
+   "mandatory": false,
+   "priority": 3,
+   "release_time": 0.0
+  },
+  {
+   "capability": "camera",
+   "cell": [
+    24,
+    23
+   ],
+   "deadline": null,
+   "duration": 52.05,
+   "energy": 4.158,
+   "id": "T6",
+   "label": "Slick boundary point 6",
+   "mandatory": false,
+   "priority": 3,
+   "release_time": 0.0
+  },
+  {
+   "capability": "camera",
+   "cell": [
+    26,
+    19
+   ],
+   "deadline": null,
+   "duration": 47.95,
+   "energy": 3.626,
+   "id": "T7",
+   "label": "Slick boundary point 7",
+   "mandatory": false,
+   "priority": 3,
+   "release_time": 0.0
+  },
+  {
+   "capability": "camera",
+   "cell": [
+    31,
+    16
+   ],
+   "deadline": null,
+   "duration": 49.76,
+   "energy": 4.219,
+   "id": "T8",
+   "label": "Slick boundary point 8",
+   "mandatory": false,
+   "priority": 3,
+   "release_time": 0.0
+  },
+  {
+   "capability": "camera",
+   "cell": [
+    37,
+    15
+   ],
+   "deadline": null,
+   "duration": 52.42,
+   "energy": 3.899,
+   "id": "T9",
+   "label": "Slick boundary point 9",
+   "mandatory": false,
+   "priority": 3,
+   "release_time": 0.0
+  },
+  {
+   "capability": "camera",
+   "cell": [
+    42,
+    19
+   ],
+   "deadline": null,
+   "duration": 46.05,
+   "energy": 3.968,
+   "id": "T10",
+   "label": "Slick boundary point 10",
+   "mandatory": false,
+   "priority": 3,
+   "release_time": 0.0
+  }
+ ],
+ "terrain_layers": [
+  {
+   "blocked": false,
+   "cells": null,
+   "energy_multiplier": 1.1,
+   "id": "sea",
+   "label": "Open sea",
+   "polygon": null,
+   "rect": [
+    6,
+    0,
+    59,
+    49
+   ],
+   "type": "water"
+  },
+  {
+   "blocked": false,
+   "cells": null,
+   "energy_multiplier": null,
+   "id": "land",
+   "label": "Shore",
+   "polygon": null,
+   "rect": [
+    0,
+    0,
+    3,
+    49
+   ],
+   "type": "field"
+  },
+  {
+   "blocked": false,
+   "cells": null,
+   "energy_multiplier": null,
+   "id": "coast",
+   "label": "Coastline",
+   "polygon": null,
+   "rect": [
+    3,
+    0,
+    5,
+    49
+   ],
+   "type": "coast"
+  },
+  {
+   "blocked": false,
+   "cells": null,
+   "energy_multiplier": null,
+   "id": "slick",
+   "label": "Oil slick",
+   "polygon": [
+    [
+     43.0,
+     24.0
+    ],
+    [
+     41.79,
+     27.5
+    ],
+    [
+     38.5,
+     30.06
+    ],
+    [
+     34.0,
+     31.0
+    ],
+    [
+     29.5,
+     30.06
+    ],
+    [
+     26.21,
+     27.5
+    ],
+    [
+     25.0,
+     24.0
+    ],
+    [
+     26.21,
+     20.5
+    ],
+    [
+     29.5,
+     17.94
+    ],
+    [
+     34.0,
+     17.0
+    ],
+    [
+     38.5,
+     17.94
+    ],
+    [
+     41.79,
+     20.5
+    ]
+   ],
+   "rect": null,
+   "type": "slick"
+  }
+ ],
+ "uavs": [
+  {
+   "airborne": false,
+   "battery": 65.0,
+   "battery_max": 65.0,
+   "capabilities": [
+    "camera",
+    "thermal"
+   ],
+   "energy_per_meter": 0.013,
+   "home": "Shore",
+   "hover_rate": 0.0,
+   "id": "Patrol-1",
+   "landing_energy": 0.0,
+   "power_cruise": 100.0,
+   "power_hover": 120.0,
+   "ready_time": 0.0,
+   "speed": 14.0,
+   "start": [
+    3,
+    25
+   ],
+   "status": "idle",
+   "takeoff_energy": 0.0
+  },
+  {
+   "airborne": false,
+   "battery": 65.0,
+   "battery_max": 65.0,
+   "capabilities": [
+    "camera",
+    "thermal"
+   ],
+   "energy_per_meter": 0.013,
+   "home": "Shore",
+   "hover_rate": 0.0,
+   "id": "Patrol-2",
+   "landing_energy": 0.0,
+   "power_cruise": 100.0,
+   "power_hover": 120.0,
+   "ready_time": 0.0,
+   "speed": 14.0,
+   "start": [
+    3,
+    25
+   ],
+   "status": "idle",
+   "takeoff_energy": 0.0
+  },
+  {
+   "airborne": false,
+   "battery": 65.0,
+   "battery_max": 65.0,
+   "capabilities": [
+    "camera"
+   ],
+   "energy_per_meter": 0.012,
+   "home": "Platform",
+   "hover_rate": 0.0,
+   "id": "Patrol-3",
+   "landing_energy": 0.0,
+   "power_cruise": 100.0,
+   "power_hover": 120.0,
+   "ready_time": 0.0,
+   "speed": 15.0,
+   "start": [
+    50,
+    42
+   ],
+   "status": "idle",
+   "takeoff_energy": 0.0
+  }
+ ],
+ "wind": {
+  "direction_deg": 90.0,
+  "k": 1.0,
+  "speed": 4.0
+ }
+}

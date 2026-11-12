@@ -1,0 +1,424 @@
+{
+ "description": "A hospital hub sends urgent blood and vaccines out to rural clinics. Values are illustrative simulation settings.",
+ "energy": {
+  "adaptive_k": 1.0,
+  "adaptive_reserve": false,
+  "adaptive_sigma": 0.1,
+  "charge_rate": 0.5,
+  "charge_time": 120.0,
+  "home_only_return": false,
+  "mode": "normalized",
+  "path_metric": "energy",
+  "reserve_ratio": 0.1,
+  "strict_prefix_safety": true,
+  "turn_energy_per_rad": 0.0
+ },
+ "events": [
+  {
+   "amount": null,
+   "cells": null,
+   "label": "Emergency",
+   "layer": null,
+   "new_deadline": null,
+   "new_duration": null,
+   "polygon": null,
+   "station_id": null,
+   "task": {
+    "capability": "payload",
+    "cell": [
+     40,
+     42
+    ],
+    "deadline": 722.33,
+    "duration": 55.8,
+    "energy": 8.265,
+    "id": "N1",
+    "label": "Emergency delivery",
+    "mandatory": true,
+    "priority": 4,
+    "release_time": 150.0
+   },
+   "task_id": null,
+   "time": 150.0,
+   "type": "NEW_TASK",
+   "uav": null,
+   "uav_id": null,
+   "wind": null
+  },
+  {
+   "amount": null,
+   "cells": null,
+   "label": "Deadline brought forward",
+   "layer": null,
+   "new_deadline": 500.0,
+   "new_duration": null,
+   "polygon": null,
+   "station_id": null,
+   "task": null,
+   "task_id": "T1",
+   "time": 200.0,
+   "type": "TASK_DEADLINE_CHANGE",
+   "uav": null,
+   "uav_id": null,
+   "wind": null
+  }
+ ],
+ "grid": {
+  "cell_size": 30.0,
+  "height": 50,
+  "width": 50
+ },
+ "id": "medical",
+ "meta": {
+  "allow_recharge": false,
+  "category": "Delivery",
+  "description": "A hospital hub sends urgent blood and vaccines out to rural clinics.",
+  "difficulty": "medium",
+  "energy_focus": "Deadlines against battery limits, with returns to whichever station is closest.",
+  "icon": "heart-pulse",
+  "id": "medical",
+  "name": "Medical supply delivery",
+  "story": "A hospital hub is supplying rural clinics with blood and vaccines. Every delivery has a deadline, and urgent requests keep arriving while the fleet is in the air.",
+  "tags": [
+   "delivery",
+   "deadlines",
+   "multi-station"
+  ],
+  "theme": "town"
+ },
+ "name": "Medical supply delivery",
+ "obstacles": [],
+ "seed": 42,
+ "stations": [
+  {
+   "cell": [
+    25,
+    27
+   ],
+   "id": "Hospital-hub"
+  },
+  {
+   "cell": [
+    6,
+    44
+   ],
+   "id": "Clinic-N"
+  },
+  {
+   "cell": [
+    44,
+    6
+   ],
+   "id": "Clinic-S"
+  }
+ ],
+ "tasks": [
+  {
+   "capability": "payload",
+   "cell": [
+    8,
+    33
+   ],
+   "deadline": 662.85,
+   "duration": 49.77,
+   "energy": 6.843,
+   "id": "T1",
+   "label": "Deliver blood 1",
+   "mandatory": true,
+   "priority": 4,
+   "release_time": 0.0
+  },
+  {
+   "capability": "payload",
+   "cell": [
+    16,
+    8
+   ],
+   "deadline": 661.0,
+   "duration": 50.39,
+   "energy": 7.506,
+   "id": "T2",
+   "label": "Deliver blood 2",
+   "mandatory": true,
+   "priority": 4,
+   "release_time": 0.0
+  },
+  {
+   "capability": "payload",
+   "cell": [
+    29,
+    7
+   ],
+   "deadline": 680.41,
+   "duration": 55.41,
+   "energy": 6.368,
+   "id": "T3",
+   "label": "Deliver blood 3",
+   "mandatory": true,
+   "priority": 4,
+   "release_time": 0.0
+  },
+  {
+   "capability": "payload",
+   "cell": [
+    35,
+    32
+   ],
+   "deadline": 673.65,
+   "duration": 53.12,
+   "energy": 7.622,
+   "id": "T4",
+   "label": "Deliver blood 4",
+   "mandatory": true,
+   "priority": 4,
+   "release_time": 0.0
+  },
+  {
+   "capability": "payload",
+   "cell": [
+    40,
+    23
+   ],
+   "deadline": 660.9,
+   "duration": 53.15,
+   "energy": 6.39,
+   "id": "T5",
+   "label": "Deliver blood 5",
+   "mandatory": true,
+   "priority": 4,
+   "release_time": 0.0
+  },
+  {
+   "capability": "payload",
+   "cell": [
+    9,
+    32
+   ],
+   "deadline": 847.93,
+   "duration": 54.36,
+   "energy": 5.874,
+   "id": "T6",
+   "label": "Deliver vaccines 1",
+   "mandatory": false,
+   "priority": 3,
+   "release_time": 0.0
+  },
+  {
+   "capability": "payload",
+   "cell": [
+    14,
+    35
+   ],
+   "deadline": 807.61,
+   "duration": 49.94,
+   "energy": 6.007,
+   "id": "T7",
+   "label": "Deliver vaccines 2",
+   "mandatory": false,
+   "priority": 3,
+   "release_time": 0.0
+  },
+  {
+   "capability": "payload",
+   "cell": [
+    23,
+    23
+   ],
+   "deadline": 881.13,
+   "duration": 55.71,
+   "energy": 5.802,
+   "id": "T8",
+   "label": "Deliver vaccines 3",
+   "mandatory": false,
+   "priority": 3,
+   "release_time": 0.0
+  },
+  {
+   "capability": "payload",
+   "cell": [
+    31,
+    27
+   ],
+   "deadline": 891.79,
+   "duration": 59.08,
+   "energy": 6.387,
+   "id": "T9",
+   "label": "Deliver vaccines 4",
+   "mandatory": false,
+   "priority": 3,
+   "release_time": 0.0
+  },
+  {
+   "capability": "payload",
+   "cell": [
+    43,
+    11
+   ],
+   "deadline": 821.29,
+   "duration": 54.98,
+   "energy": 5.69,
+   "id": "T10",
+   "label": "Deliver vaccines 5",
+   "mandatory": false,
+   "priority": 3,
+   "release_time": 0.0
+  }
+ ],
+ "terrain_layers": [
+  {
+   "blocked": false,
+   "cells": null,
+   "energy_multiplier": null,
+   "id": "fields",
+   "label": "Farmland",
+   "polygon": null,
+   "rect": [
+    0,
+    0,
+    49,
+    49
+   ],
+   "type": "field"
+  },
+  {
+   "blocked": false,
+   "cells": null,
+   "energy_multiplier": null,
+   "id": "town",
+   "label": "Town",
+   "polygon": null,
+   "rect": [
+    19,
+    19,
+    31,
+    31
+   ],
+   "type": "urban"
+  },
+  {
+   "blocked": false,
+   "cells": null,
+   "energy_multiplier": null,
+   "id": "road-h",
+   "label": "Main road",
+   "polygon": null,
+   "rect": [
+    0,
+    24,
+    49,
+    25
+   ],
+   "type": "road"
+  },
+  {
+   "blocked": false,
+   "cells": null,
+   "energy_multiplier": null,
+   "id": "road-v",
+   "label": "Main road",
+   "polygon": null,
+   "rect": [
+    24,
+    0,
+    25,
+    49
+   ],
+   "type": "road"
+  }
+ ],
+ "uavs": [
+  {
+   "airborne": false,
+   "battery": 65.0,
+   "battery_max": 65.0,
+   "capabilities": [
+    "payload"
+   ],
+   "energy_per_meter": 0.018,
+   "home": "Hospital-hub",
+   "hover_rate": 0.0,
+   "id": "Courier-1",
+   "landing_energy": 0.0,
+   "power_cruise": 100.0,
+   "power_hover": 120.0,
+   "ready_time": 0.0,
+   "speed": 12.0,
+   "start": [
+    25,
+    27
+   ],
+   "status": "idle",
+   "takeoff_energy": 0.0
+  },
+  {
+   "airborne": false,
+   "battery": 65.0,
+   "battery_max": 65.0,
+   "capabilities": [
+    "payload"
+   ],
+   "energy_per_meter": 0.018,
+   "home": "Hospital-hub",
+   "hover_rate": 0.0,
+   "id": "Courier-2",
+   "landing_energy": 0.0,
+   "power_cruise": 100.0,
+   "power_hover": 120.0,
+   "ready_time": 0.0,
+   "speed": 12.0,
+   "start": [
+    25,
+    27
+   ],
+   "status": "idle",
+   "takeoff_energy": 0.0
+  },
+  {
+   "airborne": false,
+   "battery": 65.0,
+   "battery_max": 65.0,
+   "capabilities": [
+    "payload"
+   ],
+   "energy_per_meter": 0.02,
+   "home": "Clinic-N",
+   "hover_rate": 0.0,
+   "id": "Courier-3",
+   "landing_energy": 0.0,
+   "power_cruise": 100.0,
+   "power_hover": 120.0,
+   "ready_time": 0.0,
+   "speed": 10.0,
+   "start": [
+    6,
+    44
+   ],
+   "status": "idle",
+   "takeoff_energy": 0.0
+  },
+  {
+   "airborne": false,
+   "battery": 65.0,
+   "battery_max": 65.0,
+   "capabilities": [
+    "payload"
+   ],
+   "energy_per_meter": 0.02,
+   "home": "Clinic-S",
+   "hover_rate": 0.0,
+   "id": "Courier-4",
+   "landing_energy": 0.0,
+   "power_cruise": 100.0,
+   "power_hover": 120.0,
+   "ready_time": 0.0,
+   "speed": 10.0,
+   "start": [
+    44,
+    6
+   ],
+   "status": "idle",
+   "takeoff_energy": 0.0
+  }
+ ],
+ "wind": null
+}

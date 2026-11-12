@@ -1,0 +1,471 @@
+{
+ "description": "A battered coastline, strong onshore wind and a damaged power grid. Values are illustrative simulation settings.",
+ "energy": {
+  "adaptive_k": 1.0,
+  "adaptive_reserve": false,
+  "adaptive_sigma": 0.1,
+  "charge_rate": 0.5,
+  "charge_time": 120.0,
+  "home_only_return": false,
+  "mode": "normalized",
+  "path_metric": "energy",
+  "reserve_ratio": 0.1,
+  "strict_prefix_safety": true,
+  "turn_energy_per_rad": 0.0
+ },
+ "events": [
+  {
+   "amount": null,
+   "cells": null,
+   "label": "Coast pad loses power",
+   "layer": null,
+   "new_deadline": null,
+   "new_duration": null,
+   "polygon": null,
+   "station_id": "Coast-pad",
+   "task": null,
+   "task_id": null,
+   "time": 150.0,
+   "type": "STATION_OUTAGE",
+   "uav": null,
+   "uav_id": null,
+   "wind": null
+  },
+  {
+   "amount": 10.0,
+   "cells": null,
+   "label": "Water damage",
+   "layer": null,
+   "new_deadline": null,
+   "new_duration": null,
+   "polygon": null,
+   "station_id": null,
+   "task": null,
+   "task_id": null,
+   "time": 210.0,
+   "type": "BATTERY_DROP",
+   "uav": null,
+   "uav_id": "Unit-4",
+   "wind": null
+  }
+ ],
+ "grid": {
+  "cell_size": 20.0,
+  "height": 50,
+  "width": 50
+ },
+ "id": "cyclone-small",
+ "meta": {
+  "allow_recharge": false,
+  "category": "Disaster",
+  "description": "A battered coastline, strong onshore wind and a damaged power grid.",
+  "difficulty": "hard",
+  "energy_focus": "Strong headwind and tailwind asymmetry, and losing a station mid-mission.",
+  "icon": "wind",
+  "id": "cyclone",
+  "name": "Coastal cyclone aftermath",
+  "story": "A cyclone has just passed. Teams need shelters, embankments and the power grid assessed, while a strong onshore wind keeps blowing and ground stations start to fail.",
+  "tags": [
+   "coast",
+   "wind",
+   "outage"
+  ],
+  "theme": "coastal"
+ },
+ "name": "Coastal cyclone aftermath",
+ "obstacles": [],
+ "seed": 42,
+ "stations": [
+  {
+   "cell": [
+    3,
+    42
+   ],
+   "id": "Inland-N"
+  },
+  {
+   "cell": [
+    3,
+    8
+   ],
+   "id": "Inland-S"
+  },
+  {
+   "cell": [
+    29,
+    25
+   ],
+   "id": "Coast-pad"
+  }
+ ],
+ "tasks": [
+  {
+   "capability": "thermal",
+   "cell": [
+    12,
+    45
+   ],
+   "deadline": null,
+   "duration": 69.89,
+   "energy": 6.097,
+   "id": "T1",
+   "label": "Shelter check 1",
+   "mandatory": true,
+   "priority": 4,
+   "release_time": 0.0
+  },
+  {
+   "capability": "thermal",
+   "cell": [
+    22,
+    45
+   ],
+   "deadline": null,
+   "duration": 75.43,
+   "energy": 6.251,
+   "id": "T2",
+   "label": "Shelter check 2",
+   "mandatory": true,
+   "priority": 4,
+   "release_time": 0.0
+  },
+  {
+   "capability": "thermal",
+   "cell": [
+    14,
+    6
+   ],
+   "deadline": null,
+   "duration": 73.12,
+   "energy": 6.391,
+   "id": "T3",
+   "label": "Shelter check 1",
+   "mandatory": false,
+   "priority": 3,
+   "release_time": 0.0
+  },
+  {
+   "capability": "thermal",
+   "cell": [
+    24,
+    7
+   ],
+   "deadline": null,
+   "duration": 73.14,
+   "energy": 6.379,
+   "id": "T4",
+   "label": "Shelter check 2",
+   "mandatory": false,
+   "priority": 3,
+   "release_time": 0.0
+  },
+  {
+   "capability": "lidar",
+   "cell": [
+    33,
+    8
+   ],
+   "deadline": null,
+   "duration": 80.33,
+   "energy": 7.07,
+   "id": "T5",
+   "label": "Embankment inspection 1",
+   "mandatory": false,
+   "priority": 2,
+   "release_time": 0.0
+  },
+  {
+   "capability": "lidar",
+   "cell": [
+    35,
+    19
+   ],
+   "deadline": null,
+   "duration": 76.48,
+   "energy": 7.48,
+   "id": "T6",
+   "label": "Embankment inspection 2",
+   "mandatory": false,
+   "priority": 2,
+   "release_time": 0.0
+  },
+  {
+   "capability": "lidar",
+   "cell": [
+    34,
+    31
+   ],
+   "deadline": null,
+   "duration": 87.97,
+   "energy": 7.09,
+   "id": "T7",
+   "label": "Embankment inspection 3",
+   "mandatory": false,
+   "priority": 2,
+   "release_time": 0.0
+  },
+  {
+   "capability": "lidar",
+   "cell": [
+    34,
+    42
+   ],
+   "deadline": null,
+   "duration": 85.35,
+   "energy": 7.33,
+   "id": "T8",
+   "label": "Embankment inspection 4",
+   "mandatory": false,
+   "priority": 2,
+   "release_time": 0.0
+  },
+  {
+   "capability": "camera",
+   "cell": [
+    9,
+    25
+   ],
+   "deadline": null,
+   "duration": 47.88,
+   "energy": 3.63,
+   "id": "T9",
+   "label": "Power-pole check 1",
+   "mandatory": false,
+   "priority": 2,
+   "release_time": 0.0
+  },
+  {
+   "capability": "camera",
+   "cell": [
+    17,
+    26
+   ],
+   "deadline": null,
+   "duration": 43.28,
+   "energy": 3.157,
+   "id": "T10",
+   "label": "Power-pole check 2",
+   "mandatory": false,
+   "priority": 2,
+   "release_time": 0.0
+  },
+  {
+   "capability": "camera",
+   "cell": [
+    24,
+    27
+   ],
+   "deadline": null,
+   "duration": 41.78,
+   "energy": 3.588,
+   "id": "T11",
+   "label": "Power-pole check 3",
+   "mandatory": false,
+   "priority": 2,
+   "release_time": 0.0
+  }
+ ],
+ "terrain_layers": [
+  {
+   "blocked": false,
+   "cells": null,
+   "energy_multiplier": null,
+   "id": "land",
+   "label": "Coastal plain",
+   "polygon": null,
+   "rect": [
+    0,
+    0,
+    33,
+    49
+   ],
+   "type": "field"
+  },
+  {
+   "blocked": false,
+   "cells": null,
+   "energy_multiplier": null,
+   "id": "sea",
+   "label": "Sea",
+   "polygon": null,
+   "rect": [
+    37,
+    0,
+    49,
+    49
+   ],
+   "type": "water"
+  },
+  {
+   "blocked": false,
+   "cells": null,
+   "energy_multiplier": null,
+   "id": "coast",
+   "label": "Coast",
+   "polygon": null,
+   "rect": [
+    33,
+    0,
+    36,
+    49
+   ],
+   "type": "coast"
+  },
+  {
+   "blocked": false,
+   "cells": null,
+   "energy_multiplier": null,
+   "id": "village-n",
+   "label": "Damaged village",
+   "polygon": null,
+   "rect": [
+    10,
+    36,
+    24,
+    46
+   ],
+   "type": "urban"
+  },
+  {
+   "blocked": false,
+   "cells": null,
+   "energy_multiplier": null,
+   "id": "village-s",
+   "label": "Damaged village",
+   "polygon": null,
+   "rect": [
+    12,
+    4,
+    26,
+    14
+   ],
+   "type": "urban"
+  }
+ ],
+ "uavs": [
+  {
+   "airborne": false,
+   "battery": 60.0,
+   "battery_max": 60.0,
+   "capabilities": [
+    "camera",
+    "thermal"
+   ],
+   "energy_per_meter": 0.014,
+   "home": "Inland-N",
+   "hover_rate": 0.0,
+   "id": "Unit-1",
+   "landing_energy": 0.0,
+   "power_cruise": 100.0,
+   "power_hover": 120.0,
+   "ready_time": 0.0,
+   "speed": 13.0,
+   "start": [
+    3,
+    42
+   ],
+   "status": "idle",
+   "takeoff_energy": 0.0
+  },
+  {
+   "airborne": false,
+   "battery": 60.0,
+   "battery_max": 60.0,
+   "capabilities": [
+    "camera",
+    "thermal"
+   ],
+   "energy_per_meter": 0.014,
+   "home": "Inland-S",
+   "hover_rate": 0.0,
+   "id": "Unit-2",
+   "landing_energy": 0.0,
+   "power_cruise": 100.0,
+   "power_hover": 120.0,
+   "ready_time": 0.0,
+   "speed": 13.0,
+   "start": [
+    3,
+    8
+   ],
+   "status": "idle",
+   "takeoff_energy": 0.0
+  },
+  {
+   "airborne": false,
+   "battery": 60.0,
+   "battery_max": 60.0,
+   "capabilities": [
+    "camera",
+    "lidar"
+   ],
+   "energy_per_meter": 0.016,
+   "home": "Coast-pad",
+   "hover_rate": 0.0,
+   "id": "Unit-3",
+   "landing_energy": 0.0,
+   "power_cruise": 100.0,
+   "power_hover": 120.0,
+   "ready_time": 0.0,
+   "speed": 11.0,
+   "start": [
+    29,
+    25
+   ],
+   "status": "idle",
+   "takeoff_energy": 0.0
+  },
+  {
+   "airborne": false,
+   "battery": 60.0,
+   "battery_max": 60.0,
+   "capabilities": [
+    "camera",
+    "lidar"
+   ],
+   "energy_per_meter": 0.016,
+   "home": "Inland-N",
+   "hover_rate": 0.0,
+   "id": "Unit-4",
+   "landing_energy": 0.0,
+   "power_cruise": 100.0,
+   "power_hover": 120.0,
+   "ready_time": 0.0,
+   "speed": 11.0,
+   "start": [
+    3,
+    42
+   ],
+   "status": "idle",
+   "takeoff_energy": 0.0
+  },
+  {
+   "airborne": false,
+   "battery": 60.0,
+   "battery_max": 60.0,
+   "capabilities": [
+    "camera"
+   ],
+   "energy_per_meter": 0.013,
+   "home": "Inland-S",
+   "hover_rate": 0.0,
+   "id": "Unit-5",
+   "landing_energy": 0.0,
+   "power_cruise": 100.0,
+   "power_hover": 120.0,
+   "ready_time": 0.0,
+   "speed": 14.0,
+   "start": [
+    3,
+    8
+   ],
+   "status": "idle",
+   "takeoff_energy": 0.0
+  }
+ ],
+ "wind": {
+  "direction_deg": 270.0,
+  "k": 1.0,
+  "speed": 6.0
+ }
+}

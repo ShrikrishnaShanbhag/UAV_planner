@@ -1,0 +1,584 @@
+{
+ "description": "City district after a quake, with collapsed blocks, a lost bridge and a damaged tower. Values are illustrative simulation settings.",
+ "energy": {
+  "adaptive_k": 1.0,
+  "adaptive_reserve": false,
+  "adaptive_sigma": 0.1,
+  "charge_rate": 0.5,
+  "charge_time": 120.0,
+  "home_only_return": false,
+  "mode": "normalized",
+  "path_metric": "energy",
+  "reserve_ratio": 0.1,
+  "strict_prefix_safety": true,
+  "turn_energy_per_rad": 0.0
+ },
+ "events": [
+  {
+   "amount": null,
+   "cells": null,
+   "label": "Aftershock blocks the ring road",
+   "layer": {
+    "blocked": true,
+    "cells": null,
+    "energy_multiplier": null,
+    "id": "aftershock",
+    "label": "Road blocked",
+    "polygon": [
+     [
+      8.0,
+      41.0
+     ],
+     [
+      20.0,
+      41.0
+     ],
+     [
+      20.0,
+      43.0
+     ],
+     [
+      8.0,
+      43.0
+     ]
+    ],
+    "rect": null,
+    "type": "rubble"
+   },
+   "new_deadline": null,
+   "new_duration": null,
+   "polygon": [
+    [
+     8.0,
+     41.0
+    ],
+    [
+     20.0,
+     41.0
+    ],
+    [
+     20.0,
+     43.0
+    ],
+    [
+     8.0,
+     43.0
+    ]
+   ],
+   "station_id": null,
+   "task": null,
+   "task_id": null,
+   "time": 180.0,
+   "type": "BLOCK_REGION",
+   "uav": null,
+   "uav_id": null,
+   "wind": null
+  },
+  {
+   "amount": null,
+   "cells": null,
+   "label": "Signal",
+   "layer": null,
+   "new_deadline": null,
+   "new_duration": null,
+   "polygon": null,
+   "station_id": null,
+   "task": {
+    "capability": "thermal",
+    "cell": [
+     33,
+     45
+    ],
+    "deadline": null,
+    "duration": 94.29,
+    "energy": 8.358,
+    "id": "N1",
+    "label": "Survivor signal",
+    "mandatory": true,
+    "priority": 4,
+    "release_time": 192.0
+   },
+   "task_id": null,
+   "time": 192.0,
+   "type": "NEW_TASK",
+   "uav": null,
+   "uav_id": null,
+   "wind": null
+  }
+ ],
+ "grid": {
+  "cell_size": 20.0,
+  "height": 50,
+  "width": 50
+ },
+ "id": "earthquake-small",
+ "meta": {
+  "allow_recharge": false,
+  "category": "Disaster",
+  "description": "City district after a quake, with collapsed blocks, a lost bridge and a damaged tower.",
+  "difficulty": "medium",
+  "energy_focus": "Prefix safety in dense obstacles: every point of a route must still reach a station.",
+  "icon": "activity",
+  "id": "earthquake",
+  "name": "Earthquake response",
+  "story": "A strong earthquake has hit a dense city district. Teams need survivors located and buildings assessed before the next aftershock, and collapsed blocks leave few clear flight lines.",
+  "tags": [
+   "urban",
+   "survivors",
+   "aftershock"
+  ],
+  "theme": "urban-disaster"
+ },
+ "name": "Earthquake response",
+ "obstacles": [
+  {
+   "cells": null,
+   "energy_multiplier": 1.0,
+   "id": "tower",
+   "kind": "no_fly",
+   "label": "No-fly zone over a damaged tower",
+   "polygon": [
+    [
+     22.0,
+     11.0
+    ],
+    [
+     28.0,
+     11.0
+    ],
+    [
+     30.0,
+     16.0
+    ],
+    [
+     25.0,
+     19.0
+    ],
+    [
+     20.0,
+     16.0
+    ]
+   ],
+   "rect": null
+  }
+ ],
+ "seed": 42,
+ "stations": [
+  {
+   "cell": [
+    3,
+    46
+   ],
+   "id": "Base-W"
+  },
+  {
+   "cell": [
+    46,
+    3
+   ],
+   "id": "Base-E"
+  }
+ ],
+ "tasks": [
+  {
+   "capability": "thermal",
+   "cell": [
+    8,
+    15
+   ],
+   "deadline": 900.0,
+   "duration": 90.0,
+   "energy": 8.0,
+   "id": "T1",
+   "label": "Search survivors A",
+   "mandatory": true,
+   "priority": 4,
+   "release_time": 0.0
+  },
+  {
+   "capability": "camera",
+   "cell": [
+    17,
+    10
+   ],
+   "deadline": null,
+   "duration": 72.0,
+   "energy": 6.0,
+   "id": "T2",
+   "label": "Assess collapsed block A",
+   "mandatory": true,
+   "priority": 3,
+   "release_time": 0.0
+  },
+  {
+   "capability": "thermal",
+   "cell": [
+    33,
+    13
+   ],
+   "deadline": 750.0,
+   "duration": 105.0,
+   "energy": 9.0,
+   "id": "T3",
+   "label": "Search survivors B",
+   "mandatory": true,
+   "priority": 4,
+   "release_time": 0.0
+  },
+  {
+   "capability": "camera",
+   "cell": [
+    28,
+    6
+   ],
+   "deadline": null,
+   "duration": 48.0,
+   "energy": 4.0,
+   "id": "T4",
+   "label": "Photograph block B",
+   "mandatory": false,
+   "priority": 2,
+   "release_time": 0.0
+  },
+  {
+   "capability": "lidar",
+   "cell": [
+    10,
+    30
+   ],
+   "deadline": null,
+   "duration": 135.0,
+   "energy": 11.0,
+   "id": "T5",
+   "label": "Map collapse zone C",
+   "mandatory": true,
+   "priority": 3,
+   "release_time": 0.0
+  },
+  {
+   "capability": "thermal",
+   "cell": [
+    20,
+    34
+   ],
+   "deadline": 1050.0,
+   "duration": 96.0,
+   "energy": 8.5,
+   "id": "T6",
+   "label": "Search survivors C",
+   "mandatory": true,
+   "priority": 4,
+   "release_time": 0.0
+  },
+  {
+   "capability": "camera",
+   "cell": [
+    42,
+    26
+   ],
+   "deadline": null,
+   "duration": 60.0,
+   "energy": 5.0,
+   "id": "T7",
+   "label": "Inspect bridge deck",
+   "mandatory": false,
+   "priority": 2,
+   "release_time": 0.0
+  },
+  {
+   "capability": "payload",
+   "cell": [
+    44,
+    38
+   ],
+   "deadline": null,
+   "duration": 75.0,
+   "energy": 9.0,
+   "id": "T9",
+   "label": "Deliver medical kit",
+   "mandatory": true,
+   "priority": 3,
+   "release_time": 0.0
+  }
+ ],
+ "terrain_layers": [
+  {
+   "blocked": false,
+   "cells": null,
+   "energy_multiplier": null,
+   "id": "district",
+   "label": "City district",
+   "polygon": null,
+   "rect": [
+    6,
+    2,
+    46,
+    47
+   ],
+   "type": "urban"
+  },
+  {
+   "blocked": false,
+   "cells": null,
+   "energy_multiplier": null,
+   "id": "road",
+   "label": "Ring road",
+   "polygon": null,
+   "rect": [
+    0,
+    41,
+    49,
+    43
+   ],
+   "type": "road"
+  },
+  {
+   "blocked": true,
+   "cells": null,
+   "energy_multiplier": null,
+   "id": "rubble-b1",
+   "label": "Collapsed block A",
+   "polygon": null,
+   "rect": [
+    10,
+    8,
+    15,
+    13
+   ],
+   "type": "rubble"
+  },
+  {
+   "blocked": true,
+   "cells": null,
+   "energy_multiplier": null,
+   "id": "rubble-b2",
+   "label": "Collapsed block B",
+   "polygon": null,
+   "rect": [
+    30,
+    6,
+    35,
+    10
+   ],
+   "type": "rubble"
+  },
+  {
+   "blocked": true,
+   "cells": null,
+   "energy_multiplier": null,
+   "id": "rubble-b3",
+   "label": "Collapsed block C",
+   "polygon": null,
+   "rect": [
+    12,
+    32,
+    18,
+    37
+   ],
+   "type": "rubble"
+  },
+  {
+   "blocked": true,
+   "cells": null,
+   "energy_multiplier": null,
+   "id": "rubble-b4",
+   "label": "Collapsed block D",
+   "polygon": null,
+   "rect": [
+    37,
+    30,
+    42,
+    36
+   ],
+   "type": "rubble"
+  },
+  {
+   "blocked": true,
+   "cells": null,
+   "energy_multiplier": null,
+   "id": "rubble-b5",
+   "label": "Collapsed block E",
+   "polygon": null,
+   "rect": [
+    22,
+    40,
+    26,
+    45
+   ],
+   "type": "rubble"
+  },
+  {
+   "blocked": false,
+   "cells": null,
+   "energy_multiplier": 1.8,
+   "id": "river",
+   "label": "River corridor (gusts)",
+   "polygon": [
+    [
+     0.0,
+     20.0
+    ],
+    [
+     18.0,
+     18.0
+    ],
+    [
+     34.0,
+     24.0
+    ],
+    [
+     49.0,
+     21.0
+    ],
+    [
+     49.0,
+     27.0
+    ],
+    [
+     34.0,
+     30.0
+    ],
+    [
+     18.0,
+     24.0
+    ],
+    [
+     0.0,
+     26.0
+    ]
+   ],
+   "rect": null,
+   "type": "water"
+  },
+  {
+   "blocked": true,
+   "cells": null,
+   "energy_multiplier": null,
+   "id": "bridge",
+   "label": "Collapsed bridge",
+   "polygon": null,
+   "rect": [
+    27,
+    24,
+    30,
+    29
+   ],
+   "type": "rubble"
+  },
+  {
+   "blocked": true,
+   "cells": null,
+   "energy_multiplier": null,
+   "id": "aftershock",
+   "label": "Road blocked",
+   "polygon": null,
+   "rect": [
+    8,
+    41,
+    8,
+    41
+   ],
+   "type": "rubble"
+  }
+ ],
+ "uavs": [
+  {
+   "airborne": false,
+   "battery": 100.0,
+   "battery_max": 100.0,
+   "capabilities": [
+    "camera",
+    "thermal"
+   ],
+   "energy_per_meter": 0.013,
+   "home": "Base-W",
+   "hover_rate": 0.0,
+   "id": "Scout-1",
+   "landing_energy": 0.0,
+   "power_cruise": 100.0,
+   "power_hover": 120.0,
+   "ready_time": 0.0,
+   "speed": 14.0,
+   "start": [
+    3,
+    46
+   ],
+   "status": "idle",
+   "takeoff_energy": 0.0
+  },
+  {
+   "airborne": false,
+   "battery": 100.0,
+   "battery_max": 100.0,
+   "capabilities": [
+    "camera",
+    "lidar"
+   ],
+   "energy_per_meter": 0.016,
+   "home": "Base-W",
+   "hover_rate": 0.0,
+   "id": "Mapper-2",
+   "landing_energy": 0.0,
+   "power_cruise": 100.0,
+   "power_hover": 120.0,
+   "ready_time": 0.0,
+   "speed": 11.0,
+   "start": [
+    3,
+    46
+   ],
+   "status": "idle",
+   "takeoff_energy": 0.0
+  },
+  {
+   "airborne": false,
+   "battery": 100.0,
+   "battery_max": 100.0,
+   "capabilities": [
+    "camera",
+    "payload"
+   ],
+   "energy_per_meter": 0.019,
+   "home": "Base-E",
+   "hover_rate": 0.0,
+   "id": "Carrier-3",
+   "landing_energy": 0.0,
+   "power_cruise": 100.0,
+   "power_hover": 120.0,
+   "ready_time": 0.0,
+   "speed": 9.0,
+   "start": [
+    46,
+    3
+   ],
+   "status": "idle",
+   "takeoff_energy": 0.0
+  },
+  {
+   "airborne": false,
+   "battery": 85.0,
+   "battery_max": 100.0,
+   "capabilities": [
+    "camera",
+    "lidar",
+    "thermal"
+   ],
+   "energy_per_meter": 0.017,
+   "home": "Base-E",
+   "hover_rate": 0.0,
+   "id": "Scout-4",
+   "landing_energy": 0.0,
+   "power_cruise": 100.0,
+   "power_hover": 120.0,
+   "ready_time": 0.0,
+   "speed": 12.0,
+   "start": [
+    46,
+    3
+   ],
+   "status": "idle",
+   "takeoff_energy": 0.0
+  }
+ ],
+ "wind": null
+}

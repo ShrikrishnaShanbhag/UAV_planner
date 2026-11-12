@@ -1,0 +1,569 @@
+{
+ "description": "Crop-health surveys and spray patches across farmland and canals. Values are illustrative simulation settings.",
+ "energy": {
+  "adaptive_k": 1.0,
+  "adaptive_reserve": false,
+  "adaptive_sigma": 0.1,
+  "charge_rate": 0.5,
+  "charge_time": 120.0,
+  "home_only_return": false,
+  "mode": "normalized",
+  "path_metric": "energy",
+  "reserve_ratio": 0.1,
+  "strict_prefix_safety": true,
+  "turn_energy_per_rad": 0.0
+ },
+ "events": [
+  {
+   "amount": null,
+   "cells": null,
+   "label": "Rain front cancels the survey",
+   "layer": null,
+   "new_deadline": null,
+   "new_duration": null,
+   "polygon": null,
+   "station_id": null,
+   "task": null,
+   "task_id": "T12",
+   "time": 180.0,
+   "type": "TASK_CANCELLED",
+   "uav": null,
+   "uav_id": null,
+   "wind": null
+  },
+  {
+   "amount": null,
+   "cells": null,
+   "label": "Rain front cancels the survey",
+   "layer": null,
+   "new_deadline": null,
+   "new_duration": null,
+   "polygon": null,
+   "station_id": null,
+   "task": null,
+   "task_id": "T4",
+   "time": 180.0,
+   "type": "TASK_CANCELLED",
+   "uav": null,
+   "uav_id": null,
+   "wind": null
+  }
+ ],
+ "grid": {
+  "cell_size": 20.0,
+  "height": 50,
+  "width": 50
+ },
+ "id": "agriculture-small",
+ "meta": {
+  "allow_recharge": false,
+  "category": "Agriculture",
+  "description": "Crop-health surveys and spray patches across farmland and canals.",
+  "difficulty": "easy",
+  "energy_focus": "Many small tasks, and balancing energy across the fleet.",
+  "icon": "sprout",
+  "id": "agriculture",
+  "name": "Precision agriculture survey",
+  "story": "A farm cooperative wants crop health surveyed and problem patches sprayed. Most of the work is many small survey cells, and a rain front may cancel part of it.",
+  "tags": [
+   "survey",
+   "many-tasks",
+   "balance"
+  ],
+  "theme": "farmland"
+ },
+ "name": "Precision agriculture survey",
+ "obstacles": [],
+ "seed": 42,
+ "stations": [
+  {
+   "cell": [
+    25,
+    2
+   ],
+   "id": "Farmhouse"
+  }
+ ],
+ "tasks": [
+  {
+   "capability": "camera",
+   "cell": [
+    3,
+    40
+   ],
+   "deadline": null,
+   "duration": 32.22,
+   "energy": 2.305,
+   "id": "T1",
+   "label": "Survey cell 1",
+   "mandatory": false,
+   "priority": 1,
+   "release_time": 0.0
+  },
+  {
+   "capability": "camera",
+   "cell": [
+    9,
+    18
+   ],
+   "deadline": null,
+   "duration": 29.63,
+   "energy": 2.407,
+   "id": "T2",
+   "label": "Survey cell 2",
+   "mandatory": false,
+   "priority": 1,
+   "release_time": 0.0
+  },
+  {
+   "capability": "camera",
+   "cell": [
+    12,
+    26
+   ],
+   "deadline": null,
+   "duration": 30.73,
+   "energy": 2.311,
+   "id": "T3",
+   "label": "Survey cell 3",
+   "mandatory": false,
+   "priority": 1,
+   "release_time": 0.0
+  },
+  {
+   "capability": "camera",
+   "cell": [
+    15,
+    47
+   ],
+   "deadline": null,
+   "duration": 31.38,
+   "energy": 2.373,
+   "id": "T4",
+   "label": "Survey cell 4",
+   "mandatory": false,
+   "priority": 1,
+   "release_time": 0.0
+  },
+  {
+   "capability": "camera",
+   "cell": [
+    19,
+    28
+   ],
+   "deadline": null,
+   "duration": 28.48,
+   "energy": 2.281,
+   "id": "T5",
+   "label": "Survey cell 5",
+   "mandatory": false,
+   "priority": 1,
+   "release_time": 0.0
+  },
+  {
+   "capability": "camera",
+   "cell": [
+    22,
+    10
+   ],
+   "deadline": null,
+   "duration": 30.99,
+   "energy": 2.3,
+   "id": "T6",
+   "label": "Survey cell 6",
+   "mandatory": false,
+   "priority": 1,
+   "release_time": 0.0
+  },
+  {
+   "capability": "camera",
+   "cell": [
+    27,
+    25
+   ],
+   "deadline": null,
+   "duration": 30.78,
+   "energy": 2.26,
+   "id": "T7",
+   "label": "Survey cell 7",
+   "mandatory": false,
+   "priority": 1,
+   "release_time": 0.0
+  },
+  {
+   "capability": "camera",
+   "cell": [
+    32,
+    31
+   ],
+   "deadline": null,
+   "duration": 28.86,
+   "energy": 2.149,
+   "id": "T8",
+   "label": "Survey cell 8",
+   "mandatory": false,
+   "priority": 1,
+   "release_time": 0.0
+  },
+  {
+   "capability": "camera",
+   "cell": [
+    34,
+    7
+   ],
+   "deadline": null,
+   "duration": 29.57,
+   "energy": 2.242,
+   "id": "T9",
+   "label": "Survey cell 9",
+   "mandatory": false,
+   "priority": 1,
+   "release_time": 0.0
+  },
+  {
+   "capability": "camera",
+   "cell": [
+    37,
+    12
+   ],
+   "deadline": null,
+   "duration": 31.66,
+   "energy": 2.412,
+   "id": "T10",
+   "label": "Survey cell 10",
+   "mandatory": false,
+   "priority": 1,
+   "release_time": 0.0
+  },
+  {
+   "capability": "camera",
+   "cell": [
+    41,
+    30
+   ],
+   "deadline": null,
+   "duration": 29.75,
+   "energy": 2.3,
+   "id": "T11",
+   "label": "Survey cell 11",
+   "mandatory": false,
+   "priority": 1,
+   "release_time": 0.0
+  },
+  {
+   "capability": "camera",
+   "cell": [
+    47,
+    47
+   ],
+   "deadline": null,
+   "duration": 29.19,
+   "energy": 2.27,
+   "id": "T12",
+   "label": "Survey cell 12",
+   "mandatory": false,
+   "priority": 1,
+   "release_time": 0.0
+  },
+  {
+   "capability": "payload",
+   "cell": [
+    6,
+    22
+   ],
+   "deadline": null,
+   "duration": 82.91,
+   "energy": 9.899,
+   "id": "T13",
+   "label": "Spray patch 1",
+   "mandatory": false,
+   "priority": 2,
+   "release_time": 0.0
+  },
+  {
+   "capability": "payload",
+   "cell": [
+    22,
+    38
+   ],
+   "deadline": null,
+   "duration": 86.55,
+   "energy": 8.416,
+   "id": "T14",
+   "label": "Spray patch 2",
+   "mandatory": false,
+   "priority": 2,
+   "release_time": 0.0
+  },
+  {
+   "capability": "payload",
+   "cell": [
+    39,
+    20
+   ],
+   "deadline": null,
+   "duration": 95.07,
+   "energy": 8.856,
+   "id": "T15",
+   "label": "Spray patch 3",
+   "mandatory": false,
+   "priority": 2,
+   "release_time": 0.0
+  }
+ ],
+ "terrain_layers": [
+  {
+   "blocked": false,
+   "cells": null,
+   "energy_multiplier": null,
+   "id": "field-00",
+   "label": "Field",
+   "polygon": null,
+   "rect": [
+    2,
+    2,
+    15,
+    15
+   ],
+   "type": "field"
+  },
+  {
+   "blocked": false,
+   "cells": null,
+   "energy_multiplier": null,
+   "id": "field-01",
+   "label": "Field",
+   "polygon": null,
+   "rect": [
+    18,
+    2,
+    31,
+    15
+   ],
+   "type": "field"
+  },
+  {
+   "blocked": false,
+   "cells": null,
+   "energy_multiplier": null,
+   "id": "field-02",
+   "label": "Field",
+   "polygon": null,
+   "rect": [
+    34,
+    2,
+    47,
+    15
+   ],
+   "type": "field"
+  },
+  {
+   "blocked": false,
+   "cells": null,
+   "energy_multiplier": null,
+   "id": "field-10",
+   "label": "Field",
+   "polygon": null,
+   "rect": [
+    2,
+    18,
+    15,
+    31
+   ],
+   "type": "field"
+  },
+  {
+   "blocked": false,
+   "cells": null,
+   "energy_multiplier": null,
+   "id": "field-11",
+   "label": "Field",
+   "polygon": null,
+   "rect": [
+    18,
+    18,
+    31,
+    31
+   ],
+   "type": "field"
+  },
+  {
+   "blocked": false,
+   "cells": null,
+   "energy_multiplier": null,
+   "id": "field-12",
+   "label": "Field",
+   "polygon": null,
+   "rect": [
+    34,
+    18,
+    47,
+    31
+   ],
+   "type": "field"
+  },
+  {
+   "blocked": false,
+   "cells": null,
+   "energy_multiplier": null,
+   "id": "field-20",
+   "label": "Field",
+   "polygon": null,
+   "rect": [
+    2,
+    34,
+    15,
+    47
+   ],
+   "type": "field"
+  },
+  {
+   "blocked": false,
+   "cells": null,
+   "energy_multiplier": null,
+   "id": "field-21",
+   "label": "Field",
+   "polygon": null,
+   "rect": [
+    18,
+    34,
+    31,
+    47
+   ],
+   "type": "field"
+  },
+  {
+   "blocked": false,
+   "cells": null,
+   "energy_multiplier": null,
+   "id": "field-22",
+   "label": "Field",
+   "polygon": null,
+   "rect": [
+    34,
+    34,
+    47,
+    47
+   ],
+   "type": "field"
+  },
+  {
+   "blocked": false,
+   "cells": null,
+   "energy_multiplier": null,
+   "id": "canal-h",
+   "label": "Irrigation canal",
+   "polygon": null,
+   "rect": [
+    0,
+    16,
+    49,
+    17
+   ],
+   "type": "water"
+  },
+  {
+   "blocked": false,
+   "cells": null,
+   "energy_multiplier": null,
+   "id": "canal-v",
+   "label": "Irrigation canal",
+   "polygon": null,
+   "rect": [
+    32,
+    0,
+    33,
+    49
+   ],
+   "type": "water"
+  },
+  {
+   "blocked": false,
+   "cells": null,
+   "energy_multiplier": null,
+   "id": "farm",
+   "label": "Farmhouse",
+   "polygon": null,
+   "rect": [
+    22,
+    0,
+    27,
+    4
+   ],
+   "type": "urban"
+  }
+ ],
+ "uavs": [
+  {
+   "airborne": false,
+   "battery": 100.0,
+   "battery_max": 100.0,
+   "capabilities": [
+    "camera"
+   ],
+   "energy_per_meter": 0.014,
+   "home": "Farmhouse",
+   "hover_rate": 0.0,
+   "id": "Survey-1",
+   "landing_energy": 0.0,
+   "power_cruise": 100.0,
+   "power_hover": 120.0,
+   "ready_time": 0.0,
+   "speed": 13.0,
+   "start": [
+    25,
+    2
+   ],
+   "status": "idle",
+   "takeoff_energy": 0.0
+  },
+  {
+   "airborne": false,
+   "battery": 100.0,
+   "battery_max": 100.0,
+   "capabilities": [
+    "camera"
+   ],
+   "energy_per_meter": 0.014,
+   "home": "Farmhouse",
+   "hover_rate": 0.0,
+   "id": "Survey-2",
+   "landing_energy": 0.0,
+   "power_cruise": 100.0,
+   "power_hover": 120.0,
+   "ready_time": 0.0,
+   "speed": 13.0,
+   "start": [
+    25,
+    2
+   ],
+   "status": "idle",
+   "takeoff_energy": 0.0
+  },
+  {
+   "airborne": false,
+   "battery": 100.0,
+   "battery_max": 100.0,
+   "capabilities": [
+    "camera",
+    "payload"
+   ],
+   "energy_per_meter": 0.019,
+   "home": "Farmhouse",
+   "hover_rate": 0.0,
+   "id": "Sprayer-3",
+   "landing_energy": 0.0,
+   "power_cruise": 100.0,
+   "power_hover": 120.0,
+   "ready_time": 0.0,
+   "speed": 9.0,
+   "start": [
+    25,
+    2
+   ],
+   "status": "idle",
+   "takeoff_energy": 0.0
+  }
+ ],
+ "wind": null
+}

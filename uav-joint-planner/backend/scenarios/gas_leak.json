@@ -1,0 +1,757 @@
+{
+ "description": "A gas alarm at an industrial plant, with a hazard zone that keeps growing. Values are illustrative simulation settings.",
+ "energy": {
+  "adaptive_k": 1.0,
+  "adaptive_reserve": false,
+  "adaptive_sigma": 0.1,
+  "charge_rate": 0.5,
+  "charge_time": 120.0,
+  "home_only_return": false,
+  "mode": "normalized",
+  "path_metric": "energy",
+  "reserve_ratio": 0.1,
+  "strict_prefix_safety": true,
+  "turn_energy_per_rad": 0.0
+ },
+ "events": [
+  {
+   "amount": null,
+   "cells": null,
+   "label": "Hazard zone expands",
+   "layer": {
+    "blocked": true,
+    "cells": null,
+    "energy_multiplier": null,
+    "id": "hazard",
+    "label": "Gas hazard (no-fly)",
+    "polygon": [
+     [
+      33.0,
+      25.0
+     ],
+     [
+      31.93,
+      28.5
+     ],
+     [
+      29.0,
+      31.06
+     ],
+     [
+      25.0,
+      32.0
+     ],
+     [
+      21.0,
+      31.06
+     ],
+     [
+      18.07,
+      28.5
+     ],
+     [
+      17.0,
+      25.0
+     ],
+     [
+      18.07,
+      21.5
+     ],
+     [
+      21.0,
+      18.94
+     ],
+     [
+      25.0,
+      18.0
+     ],
+     [
+      29.0,
+      18.94
+     ],
+     [
+      31.93,
+      21.5
+     ]
+    ],
+    "rect": null,
+    "type": "smoke"
+   },
+   "new_deadline": null,
+   "new_duration": null,
+   "polygon": [
+    [
+     33.0,
+     25.0
+    ],
+    [
+     31.93,
+     28.5
+    ],
+    [
+     29.0,
+     31.06
+    ],
+    [
+     25.0,
+     32.0
+    ],
+    [
+     21.0,
+     31.06
+    ],
+    [
+     18.07,
+     28.5
+    ],
+    [
+     17.0,
+     25.0
+    ],
+    [
+     18.07,
+     21.5
+    ],
+    [
+     21.0,
+     18.94
+    ],
+    [
+     25.0,
+     18.0
+    ],
+    [
+     29.0,
+     18.94
+    ],
+    [
+     31.93,
+     21.5
+    ]
+   ],
+   "station_id": null,
+   "task": null,
+   "task_id": null,
+   "time": 300.0,
+   "type": "BLOCK_REGION",
+   "uav": null,
+   "uav_id": null,
+   "wind": null
+  },
+  {
+   "amount": null,
+   "cells": null,
+   "label": "New alarm",
+   "layer": null,
+   "new_deadline": null,
+   "new_duration": null,
+   "polygon": null,
+   "station_id": null,
+   "task": {
+    "capability": "gas_sensor",
+    "cell": [
+     40,
+     30
+    ],
+    "deadline": null,
+    "duration": 73.91,
+    "energy": 6.577,
+    "id": "N1",
+    "label": "Sensor alarm",
+    "mandatory": true,
+    "priority": 4,
+    "release_time": 380.0
+   },
+   "task_id": null,
+   "time": 380.0,
+   "type": "NEW_TASK",
+   "uav": null,
+   "uav_id": null,
+   "wind": null
+  }
+ ],
+ "grid": {
+  "cell_size": 15.0,
+  "height": 50,
+  "width": 50
+ },
+ "id": "gas_leak",
+ "meta": {
+  "allow_recharge": false,
+  "category": "Infrastructure",
+  "description": "A gas alarm at an industrial plant, with a hazard zone that keeps growing.",
+  "difficulty": "medium",
+  "energy_focus": "Tight no-fly geometry and return paths around a growing hazard.",
+  "icon": "factory",
+  "id": "gas_leak",
+  "name": "Industrial gas-leak inspection",
+  "story": "A gas alarm has gone off at an industrial plant. UAVs must sweep sensors around the hazard and check the stacks, threading between buildings as the hazard expands.",
+  "tags": [
+   "hazard",
+   "no-fly",
+   "sensors"
+  ],
+  "theme": "industrial"
+ },
+ "name": "Industrial gas-leak inspection",
+ "obstacles": [],
+ "seed": 42,
+ "stations": [
+  {
+   "cell": [
+    2,
+    25
+   ],
+   "id": "Gate-W"
+  },
+  {
+   "cell": [
+    47,
+    25
+   ],
+   "id": "Gate-E"
+  }
+ ],
+ "tasks": [
+  {
+   "capability": "gas_sensor",
+   "cell": [
+    35,
+    25
+   ],
+   "deadline": null,
+   "duration": 67.39,
+   "energy": 4.514,
+   "id": "T1",
+   "label": "Sensor sweep 1",
+   "mandatory": true,
+   "priority": 3,
+   "release_time": 0.0
+  },
+  {
+   "capability": "gas_sensor",
+   "cell": [
+    33,
+    31
+   ],
+   "deadline": null,
+   "duration": 59.95,
+   "energy": 4.586,
+   "id": "T2",
+   "label": "Sensor sweep 2",
+   "mandatory": true,
+   "priority": 3,
+   "release_time": 0.0
+  },
+  {
+   "capability": "gas_sensor",
+   "cell": [
+    29,
+    34
+   ],
+   "deadline": null,
+   "duration": 66.88,
+   "energy": 4.681,
+   "id": "T3",
+   "label": "Sensor sweep 3",
+   "mandatory": true,
+   "priority": 3,
+   "release_time": 0.0
+  },
+  {
+   "capability": "gas_sensor",
+   "cell": [
+    22,
+    34
+   ],
+   "deadline": null,
+   "duration": 65.33,
+   "energy": 4.829,
+   "id": "T4",
+   "label": "Sensor sweep 4",
+   "mandatory": true,
+   "priority": 3,
+   "release_time": 0.0
+  },
+  {
+   "capability": "gas_sensor",
+   "cell": [
+    16,
+    31
+   ],
+   "deadline": null,
+   "duration": 63.49,
+   "energy": 5.048,
+   "id": "T5",
+   "label": "Sensor sweep 5",
+   "mandatory": true,
+   "priority": 3,
+   "release_time": 0.0
+  },
+  {
+   "capability": "gas_sensor",
+   "cell": [
+    15,
+    25
+   ],
+   "deadline": null,
+   "duration": 68.56,
+   "energy": 5.199,
+   "id": "T6",
+   "label": "Sensor sweep 6",
+   "mandatory": true,
+   "priority": 3,
+   "release_time": 0.0
+  },
+  {
+   "capability": "gas_sensor",
+   "cell": [
+    16,
+    20
+   ],
+   "deadline": null,
+   "duration": 71.14,
+   "energy": 5.464,
+   "id": "T7",
+   "label": "Sensor sweep 7",
+   "mandatory": true,
+   "priority": 3,
+   "release_time": 0.0
+  },
+  {
+   "capability": "gas_sensor",
+   "cell": [
+    22,
+    16
+   ],
+   "deadline": null,
+   "duration": 68.52,
+   "energy": 4.829,
+   "id": "T8",
+   "label": "Sensor sweep 8",
+   "mandatory": true,
+   "priority": 3,
+   "release_time": 0.0
+  },
+  {
+   "capability": "gas_sensor",
+   "cell": [
+    28,
+    15
+   ],
+   "deadline": null,
+   "duration": 59.69,
+   "energy": 4.68,
+   "id": "T9",
+   "label": "Sensor sweep 9",
+   "mandatory": true,
+   "priority": 3,
+   "release_time": 0.0
+  },
+  {
+   "capability": "gas_sensor",
+   "cell": [
+    33,
+    19
+   ],
+   "deadline": null,
+   "duration": 61.8,
+   "energy": 4.567,
+   "id": "T10",
+   "label": "Sensor sweep 10",
+   "mandatory": true,
+   "priority": 3,
+   "release_time": 0.0
+  },
+  {
+   "capability": "camera",
+   "cell": [
+    14,
+    22
+   ],
+   "deadline": null,
+   "duration": 49.31,
+   "energy": 4.272,
+   "id": "T11",
+   "label": "Stack check 1",
+   "mandatory": false,
+   "priority": 2,
+   "release_time": 0.0
+  },
+  {
+   "capability": "camera",
+   "cell": [
+    38,
+    23
+   ],
+   "deadline": null,
+   "duration": 43.36,
+   "energy": 4.381,
+   "id": "T12",
+   "label": "Stack check 1",
+   "mandatory": false,
+   "priority": 2,
+   "release_time": 0.0
+  },
+  {
+   "capability": "camera",
+   "cell": [
+    18,
+    33
+   ],
+   "deadline": null,
+   "duration": 45.01,
+   "energy": 4.103,
+   "id": "T13",
+   "label": "Stack check 1",
+   "mandatory": false,
+   "priority": 2,
+   "release_time": 0.0
+  },
+  {
+   "capability": "camera",
+   "cell": [
+    7,
+    10
+   ],
+   "deadline": null,
+   "duration": 35.41,
+   "energy": 3.224,
+   "id": "T14",
+   "label": "Perimeter check 1",
+   "mandatory": false,
+   "priority": 1,
+   "release_time": 0.0
+  },
+  {
+   "capability": "camera",
+   "cell": [
+    17,
+    14
+   ],
+   "deadline": null,
+   "duration": 34.0,
+   "energy": 2.893,
+   "id": "T15",
+   "label": "Perimeter check 2",
+   "mandatory": false,
+   "priority": 1,
+   "release_time": 0.0
+  },
+  {
+   "capability": "camera",
+   "cell": [
+    29,
+    16
+   ],
+   "deadline": null,
+   "duration": 38.83,
+   "energy": 2.937,
+   "id": "T16",
+   "label": "Perimeter check 3",
+   "mandatory": false,
+   "priority": 1,
+   "release_time": 0.0
+  },
+  {
+   "capability": "camera",
+   "cell": [
+    43,
+    5
+   ],
+   "deadline": null,
+   "duration": 39.25,
+   "energy": 2.784,
+   "id": "T17",
+   "label": "Perimeter check 4",
+   "mandatory": false,
+   "priority": 1,
+   "release_time": 0.0
+  }
+ ],
+ "terrain_layers": [
+  {
+   "blocked": false,
+   "cells": null,
+   "energy_multiplier": null,
+   "id": "yard",
+   "label": "Plant yard",
+   "polygon": null,
+   "rect": [
+    3,
+    3,
+    46,
+    46
+   ],
+   "type": "road"
+  },
+  {
+   "blocked": true,
+   "cells": null,
+   "energy_multiplier": null,
+   "id": "bld-0",
+   "label": "Plant building",
+   "polygon": null,
+   "rect": [
+    8,
+    8,
+    15,
+    13
+   ],
+   "type": "urban"
+  },
+  {
+   "blocked": true,
+   "cells": null,
+   "energy_multiplier": null,
+   "id": "bld-1",
+   "label": "Plant building",
+   "polygon": null,
+   "rect": [
+    20,
+    7,
+    27,
+    12
+   ],
+   "type": "urban"
+  },
+  {
+   "blocked": true,
+   "cells": null,
+   "energy_multiplier": null,
+   "id": "bld-2",
+   "label": "Plant building",
+   "polygon": null,
+   "rect": [
+    34,
+    8,
+    41,
+    14
+   ],
+   "type": "urban"
+  },
+  {
+   "blocked": true,
+   "cells": null,
+   "energy_multiplier": null,
+   "id": "bld-3",
+   "label": "Plant building",
+   "polygon": null,
+   "rect": [
+    7,
+    34,
+    14,
+    40
+   ],
+   "type": "urban"
+  },
+  {
+   "blocked": true,
+   "cells": null,
+   "energy_multiplier": null,
+   "id": "bld-4",
+   "label": "Plant building",
+   "polygon": null,
+   "rect": [
+    34,
+    36,
+    42,
+    42
+   ],
+   "type": "urban"
+  },
+  {
+   "blocked": true,
+   "cells": null,
+   "energy_multiplier": null,
+   "id": "bld-5",
+   "label": "Plant building",
+   "polygon": null,
+   "rect": [
+    21,
+    39,
+    27,
+    44
+   ],
+   "type": "urban"
+  },
+  {
+   "blocked": true,
+   "cells": null,
+   "energy_multiplier": null,
+   "id": "stack-0",
+   "label": "Chimney",
+   "polygon": null,
+   "rect": [
+    12,
+    20,
+    13,
+    21
+   ],
+   "type": "rubble"
+  },
+  {
+   "blocked": true,
+   "cells": null,
+   "energy_multiplier": null,
+   "id": "stack-1",
+   "label": "Chimney",
+   "polygon": null,
+   "rect": [
+    36,
+    22,
+    37,
+    23
+   ],
+   "type": "rubble"
+  },
+  {
+   "blocked": true,
+   "cells": null,
+   "energy_multiplier": null,
+   "id": "stack-2",
+   "label": "Chimney",
+   "polygon": null,
+   "rect": [
+    17,
+    31,
+    18,
+    32
+   ],
+   "type": "rubble"
+  },
+  {
+   "blocked": true,
+   "cells": null,
+   "energy_multiplier": null,
+   "id": "hazard",
+   "label": "Gas hazard (no-fly)",
+   "polygon": [
+    [
+     30.0,
+     25.0
+    ],
+    [
+     29.33,
+     27.0
+    ],
+    [
+     27.5,
+     28.46
+    ],
+    [
+     25.0,
+     29.0
+    ],
+    [
+     22.5,
+     28.46
+    ],
+    [
+     20.67,
+     27.0
+    ],
+    [
+     20.0,
+     25.0
+    ],
+    [
+     20.67,
+     23.0
+    ],
+    [
+     22.5,
+     21.54
+    ],
+    [
+     25.0,
+     21.0
+    ],
+    [
+     27.5,
+     21.54
+    ],
+    [
+     29.33,
+     23.0
+    ]
+   ],
+   "rect": null,
+   "type": "smoke"
+  }
+ ],
+ "uavs": [
+  {
+   "airborne": false,
+   "battery": 60.0,
+   "battery_max": 60.0,
+   "capabilities": [
+    "camera",
+    "gas_sensor"
+   ],
+   "energy_per_meter": 0.017,
+   "home": "Gate-W",
+   "hover_rate": 0.0,
+   "id": "Sniffer-1",
+   "landing_energy": 0.0,
+   "power_cruise": 100.0,
+   "power_hover": 120.0,
+   "ready_time": 0.0,
+   "speed": 11.0,
+   "start": [
+    2,
+    25
+   ],
+   "status": "idle",
+   "takeoff_energy": 0.0
+  },
+  {
+   "airborne": false,
+   "battery": 60.0,
+   "battery_max": 60.0,
+   "capabilities": [
+    "camera",
+    "gas_sensor"
+   ],
+   "energy_per_meter": 0.017,
+   "home": "Gate-E",
+   "hover_rate": 0.0,
+   "id": "Sniffer-2",
+   "landing_energy": 0.0,
+   "power_cruise": 100.0,
+   "power_hover": 120.0,
+   "ready_time": 0.0,
+   "speed": 11.0,
+   "start": [
+    47,
+    25
+   ],
+   "status": "idle",
+   "takeoff_energy": 0.0
+  },
+  {
+   "airborne": false,
+   "battery": 60.0,
+   "battery_max": 60.0,
+   "capabilities": [
+    "camera"
+   ],
+   "energy_per_meter": 0.015,
+   "home": "Gate-W",
+   "hover_rate": 0.0,
+   "id": "Viewer-3",
+   "landing_energy": 0.0,
+   "power_cruise": 100.0,
+   "power_hover": 120.0,
+   "ready_time": 0.0,
+   "speed": 13.0,
+   "start": [
+    2,
+    25
+   ],
+   "status": "idle",
+   "takeoff_energy": 0.0
+  }
+ ],
+ "wind": null
+}

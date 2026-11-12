@@ -1,0 +1,845 @@
+{
+ "description": "5 UAVs, 30 tasks, varied priorities.",
+ "energy": {
+  "adaptive_k": 1.0,
+  "adaptive_reserve": false,
+  "adaptive_sigma": 0.1,
+  "charge_rate": 0.5,
+  "charge_time": 120.0,
+  "home_only_return": false,
+  "mode": "normalized",
+  "path_metric": "energy",
+  "reserve_ratio": 0.1,
+  "strict_prefix_safety": true,
+  "turn_energy_per_rad": 0.0
+ },
+ "events": [],
+ "grid": {
+  "cell_size": 20.0,
+  "height": 50,
+  "width": 50
+ },
+ "id": "B",
+ "meta": null,
+ "name": "B: Larger mission",
+ "obstacles": [
+  {
+   "cells": null,
+   "energy_multiplier": 1.0,
+   "id": "obs0",
+   "kind": "obstacle",
+   "label": "",
+   "polygon": null,
+   "rect": [
+    6,
+    33,
+    7,
+    40
+   ]
+  },
+  {
+   "cells": null,
+   "energy_multiplier": 1.0,
+   "id": "obs1",
+   "kind": "obstacle",
+   "label": "",
+   "polygon": null,
+   "rect": [
+    7,
+    8,
+    9,
+    15
+   ]
+  },
+  {
+   "cells": null,
+   "energy_multiplier": 1.0,
+   "id": "obs2",
+   "kind": "obstacle",
+   "label": "",
+   "polygon": null,
+   "rect": [
+    28,
+    37,
+    29,
+    38
+   ]
+  },
+  {
+   "cells": null,
+   "energy_multiplier": 1.0,
+   "id": "obs3",
+   "kind": "obstacle",
+   "label": "",
+   "polygon": null,
+   "rect": [
+    13,
+    34,
+    14,
+    35
+   ]
+  },
+  {
+   "cells": null,
+   "energy_multiplier": 1.0,
+   "id": "obs4",
+   "kind": "obstacle",
+   "label": "",
+   "polygon": null,
+   "rect": [
+    43,
+    12,
+    45,
+    18
+   ]
+  },
+  {
+   "cells": null,
+   "energy_multiplier": 1.0,
+   "id": "obs5",
+   "kind": "obstacle",
+   "label": "",
+   "polygon": null,
+   "rect": [
+    41,
+    12,
+    42,
+    18
+   ]
+  },
+  {
+   "cells": null,
+   "energy_multiplier": 1.0,
+   "id": "obs6",
+   "kind": "obstacle",
+   "label": "",
+   "polygon": null,
+   "rect": [
+    8,
+    45,
+    14,
+    48
+   ]
+  },
+  {
+   "cells": null,
+   "energy_multiplier": 1.0,
+   "id": "obs7",
+   "kind": "obstacle",
+   "label": "",
+   "polygon": null,
+   "rect": [
+    1,
+    15,
+    2,
+    21
+   ]
+  },
+  {
+   "cells": null,
+   "energy_multiplier": 1.0,
+   "id": "obs8",
+   "kind": "obstacle",
+   "label": "",
+   "polygon": null,
+   "rect": [
+    23,
+    10,
+    27,
+    14
+   ]
+  },
+  {
+   "cells": null,
+   "energy_multiplier": 1.0,
+   "id": "obs9",
+   "kind": "obstacle",
+   "label": "",
+   "polygon": null,
+   "rect": [
+    9,
+    4,
+    16,
+    6
+   ]
+  },
+  {
+   "cells": null,
+   "energy_multiplier": 1.0,
+   "id": "obs10",
+   "kind": "obstacle",
+   "label": "",
+   "polygon": null,
+   "rect": [
+    14,
+    16,
+    16,
+    21
+   ]
+  },
+  {
+   "cells": null,
+   "energy_multiplier": 1.0,
+   "id": "obs11",
+   "kind": "obstacle",
+   "label": "",
+   "polygon": null,
+   "rect": [
+    21,
+    33,
+    23,
+    34
+   ]
+  },
+  {
+   "cells": null,
+   "energy_multiplier": 1.0,
+   "id": "obs12",
+   "kind": "obstacle",
+   "label": "",
+   "polygon": null,
+   "rect": [
+    28,
+    39,
+    32,
+    45
+   ]
+  },
+  {
+   "cells": null,
+   "energy_multiplier": 1.0,
+   "id": "nfz0",
+   "kind": "no_fly",
+   "label": "",
+   "polygon": null,
+   "rect": [
+    39,
+    28,
+    42,
+    32
+   ]
+  },
+  {
+   "cells": null,
+   "energy_multiplier": 1.618,
+   "id": "zone0",
+   "kind": "energy_zone",
+   "label": "",
+   "polygon": null,
+   "rect": [
+    41,
+    38,
+    48,
+    45
+   ]
+  },
+  {
+   "cells": null,
+   "energy_multiplier": 2.287,
+   "id": "zone1",
+   "kind": "energy_zone",
+   "label": "",
+   "polygon": null,
+   "rect": [
+    0,
+    12,
+    14,
+    20
+   ]
+  }
+ ],
+ "seed": 42,
+ "stations": [
+  {
+   "cell": [
+    48,
+    10
+   ],
+   "id": "S1"
+  },
+  {
+   "cell": [
+    12,
+    18
+   ],
+   "id": "S2"
+  }
+ ],
+ "tasks": [
+  {
+   "capability": "camera",
+   "cell": [
+    21,
+    36
+   ],
+   "deadline": null,
+   "duration": 13.01,
+   "energy": 3.961,
+   "id": "T1",
+   "label": "Photograph building",
+   "mandatory": false,
+   "priority": 1,
+   "release_time": 0.0
+  },
+  {
+   "capability": "lidar",
+   "cell": [
+    37,
+    24
+   ],
+   "deadline": 856.07,
+   "duration": 53.78,
+   "energy": 10.976,
+   "id": "T2",
+   "label": "Survey field",
+   "mandatory": false,
+   "priority": 1,
+   "release_time": 0.0
+  },
+  {
+   "capability": "camera",
+   "cell": [
+    15,
+    39
+   ],
+   "deadline": 312.47,
+   "duration": 14.28,
+   "energy": 4.712,
+   "id": "T3",
+   "label": "Photograph building",
+   "mandatory": true,
+   "priority": 4,
+   "release_time": 0.0
+  },
+  {
+   "capability": "thermal",
+   "cell": [
+    46,
+    46
+   ],
+   "deadline": null,
+   "duration": 57.33,
+   "energy": 11.675,
+   "id": "T4",
+   "label": "Inspect power line",
+   "mandatory": true,
+   "priority": 3,
+   "release_time": 0.0
+  },
+  {
+   "capability": "thermal",
+   "cell": [
+    5,
+    38
+   ],
+   "deadline": 279.36,
+   "duration": 43.55,
+   "energy": 10.685,
+   "id": "T5",
+   "label": "Inspect power line",
+   "mandatory": true,
+   "priority": 3,
+   "release_time": 0.0
+  },
+  {
+   "capability": "camera",
+   "cell": [
+    12,
+    32
+   ],
+   "deadline": null,
+   "duration": 20.19,
+   "energy": 6.585,
+   "id": "T6",
+   "label": "Inspect bridge",
+   "mandatory": false,
+   "priority": 1,
+   "release_time": 0.0
+  },
+  {
+   "capability": "camera",
+   "cell": [
+    11,
+    33
+   ],
+   "deadline": 696.92,
+   "duration": 17.48,
+   "energy": 3.848,
+   "id": "T7",
+   "label": "Photograph building",
+   "mandatory": false,
+   "priority": 2,
+   "release_time": 0.0
+  },
+  {
+   "capability": "lidar",
+   "cell": [
+    20,
+    25
+   ],
+   "deadline": null,
+   "duration": 44.88,
+   "energy": 14.309,
+   "id": "T8",
+   "label": "Survey field",
+   "mandatory": true,
+   "priority": 3,
+   "release_time": 0.0
+  },
+  {
+   "capability": "camera",
+   "cell": [
+    24,
+    16
+   ],
+   "deadline": 904.42,
+   "duration": 30.56,
+   "energy": 6.773,
+   "id": "T9",
+   "label": "Inspect bridge",
+   "mandatory": false,
+   "priority": 2,
+   "release_time": 0.0
+  },
+  {
+   "capability": "lidar",
+   "cell": [
+    2,
+    27
+   ],
+   "deadline": 390.45,
+   "duration": 48.07,
+   "energy": 10.045,
+   "id": "T10",
+   "label": "Survey field",
+   "mandatory": false,
+   "priority": 1,
+   "release_time": 0.0
+  },
+  {
+   "capability": "payload",
+   "cell": [
+    8,
+    4
+   ],
+   "deadline": null,
+   "duration": 34.19,
+   "energy": 9.671,
+   "id": "T11",
+   "label": "Deliver supplies",
+   "mandatory": true,
+   "priority": 3,
+   "release_time": 0.0
+  },
+  {
+   "capability": "thermal",
+   "cell": [
+    1,
+    2
+   ],
+   "deadline": 666.79,
+   "duration": 38.66,
+   "energy": 11.227,
+   "id": "T12",
+   "label": "Inspect power line",
+   "mandatory": false,
+   "priority": 1,
+   "release_time": 0.0
+  },
+  {
+   "capability": "camera",
+   "cell": [
+    9,
+    7
+   ],
+   "deadline": 319.14,
+   "duration": 41.86,
+   "energy": 8.415,
+   "id": "T13",
+   "label": "Inspect bridge",
+   "mandatory": true,
+   "priority": 3,
+   "release_time": 0.0
+  },
+  {
+   "capability": "lidar",
+   "cell": [
+    17,
+    15
+   ],
+   "deadline": null,
+   "duration": 32.57,
+   "energy": 10.851,
+   "id": "T14",
+   "label": "Survey field",
+   "mandatory": false,
+   "priority": 2,
+   "release_time": 0.0
+  },
+  {
+   "capability": "lidar",
+   "cell": [
+    7,
+    24
+   ],
+   "deadline": null,
+   "duration": 46.8,
+   "energy": 9.807,
+   "id": "T15",
+   "label": "Survey field",
+   "mandatory": true,
+   "priority": 3,
+   "release_time": 0.0
+  },
+  {
+   "capability": "lidar",
+   "cell": [
+    13,
+    25
+   ],
+   "deadline": null,
+   "duration": 56.79,
+   "energy": 12.612,
+   "id": "T16",
+   "label": "Survey field",
+   "mandatory": true,
+   "priority": 3,
+   "release_time": 0.0
+  },
+  {
+   "capability": "camera",
+   "cell": [
+    36,
+    19
+   ],
+   "deadline": 649.38,
+   "duration": 27.1,
+   "energy": 7.514,
+   "id": "T17",
+   "label": "Inspect bridge",
+   "mandatory": false,
+   "priority": 2,
+   "release_time": 0.0
+  },
+  {
+   "capability": "thermal",
+   "cell": [
+    17,
+    17
+   ],
+   "deadline": 324.04,
+   "duration": 42.12,
+   "energy": 10.194,
+   "id": "T18",
+   "label": "Inspect power line",
+   "mandatory": true,
+   "priority": 3,
+   "release_time": 0.0
+  },
+  {
+   "capability": "camera",
+   "cell": [
+    47,
+    40
+   ],
+   "deadline": null,
+   "duration": 26.92,
+   "energy": 8.219,
+   "id": "T19",
+   "label": "Inspect bridge",
+   "mandatory": true,
+   "priority": 3,
+   "release_time": 0.0
+  },
+  {
+   "capability": "payload",
+   "cell": [
+    26,
+    35
+   ],
+   "deadline": null,
+   "duration": 31.13,
+   "energy": 8.06,
+   "id": "T20",
+   "label": "Deliver supplies",
+   "mandatory": false,
+   "priority": 2,
+   "release_time": 0.0
+  },
+  {
+   "capability": "camera",
+   "cell": [
+    33,
+    9
+   ],
+   "deadline": null,
+   "duration": 23.42,
+   "energy": 7.793,
+   "id": "T21",
+   "label": "Inspect bridge",
+   "mandatory": false,
+   "priority": 1,
+   "release_time": 0.0
+  },
+  {
+   "capability": "camera",
+   "cell": [
+    26,
+    18
+   ],
+   "deadline": null,
+   "duration": 15.1,
+   "energy": 3.745,
+   "id": "T22",
+   "label": "Photograph building",
+   "mandatory": false,
+   "priority": 1,
+   "release_time": 0.0
+  },
+  {
+   "capability": "lidar",
+   "cell": [
+    6,
+    13
+   ],
+   "deadline": null,
+   "duration": 57.69,
+   "energy": 13.313,
+   "id": "T23",
+   "label": "Survey field",
+   "mandatory": true,
+   "priority": 4,
+   "release_time": 0.0
+  },
+  {
+   "capability": "thermal",
+   "cell": [
+    0,
+    47
+   ],
+   "deadline": null,
+   "duration": 45.58,
+   "energy": 11.448,
+   "id": "T24",
+   "label": "Inspect power line",
+   "mandatory": true,
+   "priority": 3,
+   "release_time": 0.0
+  },
+  {
+   "capability": "payload",
+   "cell": [
+    35,
+    47
+   ],
+   "deadline": null,
+   "duration": 31.76,
+   "energy": 8.4,
+   "id": "T25",
+   "label": "Deliver supplies",
+   "mandatory": false,
+   "priority": 1,
+   "release_time": 0.0
+  },
+  {
+   "capability": "camera",
+   "cell": [
+    16,
+    32
+   ],
+   "deadline": null,
+   "duration": 19.7,
+   "energy": 3.974,
+   "id": "T26",
+   "label": "Photograph building",
+   "mandatory": false,
+   "priority": 2,
+   "release_time": 0.0
+  },
+  {
+   "capability": "camera",
+   "cell": [
+    26,
+    4
+   ],
+   "deadline": 461.77,
+   "duration": 30.39,
+   "energy": 7.195,
+   "id": "T27",
+   "label": "Inspect bridge",
+   "mandatory": false,
+   "priority": 1,
+   "release_time": 0.0
+  },
+  {
+   "capability": "lidar",
+   "cell": [
+    0,
+    40
+   ],
+   "deadline": 676.09,
+   "duration": 56.3,
+   "energy": 11.364,
+   "id": "T28",
+   "label": "Survey field",
+   "mandatory": false,
+   "priority": 1,
+   "release_time": 0.0
+  },
+  {
+   "capability": "thermal",
+   "cell": [
+    24,
+    33
+   ],
+   "deadline": null,
+   "duration": 55.01,
+   "energy": 11.829,
+   "id": "T29",
+   "label": "Inspect power line",
+   "mandatory": false,
+   "priority": 2,
+   "release_time": 0.0
+  },
+  {
+   "capability": "lidar",
+   "cell": [
+    25,
+    23
+   ],
+   "deadline": null,
+   "duration": 49.23,
+   "energy": 10.649,
+   "id": "T30",
+   "label": "Survey field",
+   "mandatory": false,
+   "priority": 1,
+   "release_time": 0.0
+  }
+ ],
+ "terrain_layers": [],
+ "uavs": [
+  {
+   "airborne": false,
+   "battery": 100.0,
+   "battery_max": 100.0,
+   "capabilities": [
+    "camera",
+    "thermal"
+   ],
+   "energy_per_meter": 0.014,
+   "home": "S1",
+   "hover_rate": 0.0,
+   "id": "U1",
+   "landing_energy": 0.0,
+   "power_cruise": 100.0,
+   "power_hover": 120.0,
+   "ready_time": 0.0,
+   "speed": 14.0,
+   "start": [
+    48,
+    10
+   ],
+   "status": "idle",
+   "takeoff_energy": 0.0
+  },
+  {
+   "airborne": false,
+   "battery": 100.0,
+   "battery_max": 100.0,
+   "capabilities": [
+    "camera",
+    "lidar"
+   ],
+   "energy_per_meter": 0.017,
+   "home": "S2",
+   "hover_rate": 0.0,
+   "id": "U2",
+   "landing_energy": 0.0,
+   "power_cruise": 100.0,
+   "power_hover": 120.0,
+   "ready_time": 0.0,
+   "speed": 11.0,
+   "start": [
+    12,
+    18
+   ],
+   "status": "idle",
+   "takeoff_energy": 0.0
+  },
+  {
+   "airborne": false,
+   "battery": 100.0,
+   "battery_max": 100.0,
+   "capabilities": [
+    "camera",
+    "payload"
+   ],
+   "energy_per_meter": 0.021,
+   "home": "S1",
+   "hover_rate": 0.0,
+   "id": "U3",
+   "landing_energy": 0.0,
+   "power_cruise": 100.0,
+   "power_hover": 120.0,
+   "ready_time": 0.0,
+   "speed": 9.0,
+   "start": [
+    48,
+    10
+   ],
+   "status": "idle",
+   "takeoff_energy": 0.0
+  },
+  {
+   "airborne": false,
+   "battery": 100.0,
+   "battery_max": 100.0,
+   "capabilities": [
+    "camera",
+    "lidar",
+    "thermal"
+   ],
+   "energy_per_meter": 0.019,
+   "home": "S2",
+   "hover_rate": 0.0,
+   "id": "U4",
+   "landing_energy": 0.0,
+   "power_cruise": 100.0,
+   "power_hover": 120.0,
+   "ready_time": 0.0,
+   "speed": 12.0,
+   "start": [
+    12,
+    18
+   ],
+   "status": "idle",
+   "takeoff_energy": 0.0
+  },
+  {
+   "airborne": false,
+   "battery": 100.0,
+   "battery_max": 100.0,
+   "capabilities": [
+    "camera",
+    "thermal"
+   ],
+   "energy_per_meter": 0.014,
+   "home": "S1",
+   "hover_rate": 0.0,
+   "id": "U5",
+   "landing_energy": 0.0,
+   "power_cruise": 100.0,
+   "power_hover": 120.0,
+   "ready_time": 0.0,
+   "speed": 14.0,
+   "start": [
+    48,
+    10
+   ],
+   "status": "idle",
+   "takeoff_energy": 0.0
+  }
+ ],
+ "wind": null
+}
